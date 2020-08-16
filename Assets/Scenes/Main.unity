@@ -2530,8 +2530,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1997258487}
-  - {fileID: 1383745956}
   - {fileID: 968430669}
+  - {fileID: 1383745956}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3070,6 +3070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 968430669}
   - component: {fileID: 968430672}
+  - component: {fileID: 968430673}
   - component: {fileID: 968430671}
   - component: {fileID: 968430670}
   m_Layer: 0
@@ -3092,7 +3093,7 @@ Transform:
   m_Children:
   - {fileID: 1867401840}
   m_Father: {fileID: 780528444}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &968430670
 CircleCollider2D:
@@ -3151,7 +3152,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ref_ai_seeker: {fileID: 968430671}
-  ref_rbody_self: {fileID: 0}
+  ref_rbody_self: {fileID: 968430673}
+  move_speed: 1000
+  waypoint_reached_threshold: 1
+--- !u!50 &968430673
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968430668}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 56a96ce56e1ed1344bff8ce0d9db3ae7, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &1049927799
 GameObject:
   m_ObjectHideFlags: 0
@@ -4021,7 +4045,7 @@ Transform:
   - {fileID: 1486833311}
   - {fileID: 429872071}
   m_Father: {fileID: 780528444}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385225519
 GameObject:
@@ -6931,7 +6955,7 @@ GameObject:
   - component: {fileID: 2146778564}
   m_Layer: 0
   m_Name: Camera_main
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
