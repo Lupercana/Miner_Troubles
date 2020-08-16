@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8648510333288392715}
   - component: {fileID: 4165418099182955832}
   - component: {fileID: 4827626774166100257}
+  - component: {fileID: 5047948583519790141}
   m_Layer: 8
   m_Name: Node_Hex
   m_TagString: Untagged
@@ -99,6 +100,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &5047948583519790141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868847148182426226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 579488202460259918
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &4796861347508636904
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7055805975774525879
 Transform:
   m_ObjectHideFlags: 0
@@ -192,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710964825960045334}
   - component: {fileID: 7599919079545712730}
+  - component: {fileID: 1227999752601126661}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
@@ -229,6 +247,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.4, y: 1}
   m_Direction: 0
+--- !u!114 &1227999752601126661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5313356743888360407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 964862377294656512
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &6800604317044707786
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +307,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -300,6 +334,7 @@ GameObject:
   - component: {fileID: 8877115433924322425}
   - component: {fileID: 7833547256522018049}
   - component: {fileID: 5351635525102340891}
+  - component: {fileID: 6859132495970530367}
   m_Layer: 8
   m_Name: Node_Quad
   m_TagString: Untagged
@@ -388,3 +423,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &6859132495970530367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8857007057372937282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 2059625715803918201
+  updateError: 1
+  checkTime: 0.2
