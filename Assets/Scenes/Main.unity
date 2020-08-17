@@ -2882,6 +2882,17 @@ MonoBehaviour:
   - {fileID: 1390697312}
   - {fileID: 1002205847}
   - {fileID: 1787462217}
+  ui_gem_texts:
+  - {fileID: 1947004948}
+  - {fileID: 794558383}
+  - {fileID: 123974545}
+  - {fileID: 1138134224}
+  - {fileID: 505069596}
+  - {fileID: 1900331085}
+  - {fileID: 1566517053}
+  - {fileID: 398596148}
+  - {fileID: 1175953893}
+  ui_text_mining_level: {fileID: 1970372937}
   gem_colors:
   - {r: 0.6698113, g: 0.35099876, b: 0, a: 1}
   - {r: 0.18431373, g: 0.14509805, b: 0.121568635, a: 1}
@@ -2892,6 +2903,20 @@ MonoBehaviour:
   - {r: 0.9725491, g: 0.38431376, b: 0.70980394, a: 1}
   - {r: 0.8196079, g: 0.5294118, b: 0.9450981, a: 1}
   - {r: 0, g: 0.9686275, b: 0.9686275, a: 1}
+  gem_healths:
+  - 10
+  - 30
+  - 100
+  - 300
+  - 1000
+  - 2500
+  - 5000
+  - 10000
+  - 25000
+  gem_spawn_chance: c4090000c4090000e8030000fa00000064000000320000001e0000000a00000001000000
+  gem_quantities: 000000000000000000000000000000000000000000000000000000000000000000000000
+  mining_level: 99
+  max_mining_level: 99
 --- !u!1001 &571777355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10483,7 +10508,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -11032,6 +11057,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1383745956}
     m_Modifications:
+    - target: {fileID: 79825128325942985, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: uniqueID
+      value: 515519510666603483
+      objectReference: {fileID: 0}
     - target: {fileID: 336403926310630496, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
       propertyPath: uniqueID
@@ -11251,6 +11281,21 @@ PrefabInstance:
         type: 3}
       propertyPath: uniqueID
       value: 2704930736373261805
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357596019172453429, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: uniqueID
+      value: 9055868021452991405
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357596020032800772, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: uniqueID
+      value: 4210934139242251686
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357596020311331657, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: uniqueID
+      value: 6077146659481975200
       objectReference: {fileID: 0}
     - target: {fileID: 8694929167931006730, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
