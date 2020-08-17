@@ -48,7 +48,8 @@ public class Behavior_Room : MonoBehaviour
                 ++active_nodes;
             }
 
-            spawn_time_wait = Random.Range((spawn_time_seconds - spawn_time_deviation_seconds) / (mining_level / 10f), (spawn_time_seconds + spawn_time_deviation_seconds) / (mining_level / 10f));
+            float level_effect = mining_level / 10f + 1;
+            spawn_time_wait = Random.Range((spawn_time_seconds - spawn_time_deviation_seconds) / (level_effect), (spawn_time_seconds + spawn_time_deviation_seconds) / (level_effect));
             last_spawn_time = Time.time;
         }
     }

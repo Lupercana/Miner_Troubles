@@ -5,15 +5,17 @@ using UnityEngine;
 public class Behavior_Spawner : MonoBehaviour
 {
     [SerializeField] private Behavior_Node[] ref_node_types = null;
+    [SerializeField] private Behavior_Slider ref_durability_meter = null;
 
     [SerializeField] private int mining_level_upgrade = 0; // After how many levels to upgrade gem tier
 
+    private float max_health = 0f;
     private float current_health = 0f;
     private int gem_tier;
+    private int gem_type;
     private int total_type_chances = 0;
     private int current_amount = 0;
     private bool active;
-
 
     public bool Spawn()
     {
@@ -28,7 +30,7 @@ public class Behavior_Spawner : MonoBehaviour
         gem_level = (gem_level > max_gem_level) ? max_gem_level : gem_level;
 
         gem_tier = 0;
-        int gem_type = 0;
+        gem_type = 0;
         int val;
         bool found;
         // Choose a material to spawn
@@ -60,7 +62,10 @@ public class Behavior_Spawner : MonoBehaviour
             }
         }
 
+        max_health = Manager_Main.Instance.GetGemHealths()[gem_tier];
+        current_health = max_health;
         ref_node_types[gem_type].gameObject.SetActive(true);
+        ref_durability_meter.gameObject.SetActive(true);
         ref_node_types[gem_type].GetComponent<SpriteRenderer>().color = Manager_Main.Instance.GetGemColors()[gem_tier];
         current_amount = ref_node_types[gem_type].GetSpawnAmount();
 
@@ -76,5 +81,20 @@ public class Behavior_Spawner : MonoBehaviour
         }
 
         active = false;
+    }
+
+    private void Update()
+    {
+        if (active)
+        {
+            current_health -= 1 * Time.deltaTime;
+            ref_durability_meter.SetValue(current_health / max_health);
+            if (current_health <= 0)
+            {
+                active = false;
+                ref_node_types[gem_type].gameObject.SetActive(false);
+                ref_durability_meter.gameObject.SetActive(false);
+            }
+        }
     }
 }

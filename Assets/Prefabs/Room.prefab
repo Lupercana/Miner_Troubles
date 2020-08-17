@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawners: {fileID: 8302666223077190004}
-  spawn_time_seconds: 30
+  spawn_time_seconds: 10
   spawn_time_deviation_seconds: 5
 --- !u!1 &1993428885040430878
 GameObject:
