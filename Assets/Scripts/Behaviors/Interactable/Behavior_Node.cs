@@ -17,7 +17,7 @@ public class Behavior_Node : Behavior_Interactable
         ref_parent_spawner.SetMining(true);
     }
 
-    public new void Deactivate()
+    public override void Deactivate()
     {
         ref_parent_spawner.SetMining(false);
     }

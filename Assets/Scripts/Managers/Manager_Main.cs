@@ -15,28 +15,27 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private Image[] ui_gems = null;
     [SerializeField] private Text[] ui_gem_texts = null;
     [SerializeField] private Text ui_text_mining_level = null;
+    [SerializeField] private Slider ui_slider_mining_xp = null;
+    [SerializeField] private Slider ui_slider_tool_cd = null;
 
     [SerializeField] private Color[] gem_colors = null;
     [SerializeField] private float[] gem_healths = null;
     [SerializeField] private int[] gem_spawn_chance = null;
+    [SerializeField] private int[] gem_xp = null;
     [SerializeField] private int[] gem_quantities = null; // Modified later
+    [SerializeField] private Color max_mining_color = Color.white;
     [SerializeField] private int mining_level = 1; // Modified later
     [SerializeField] private int max_mining_level = 1;
+    [SerializeField] private float leveling_exp_base = 1f;
 
     private int[] total_gem_chances;
+    private int mining_xp = 0;
+    private int xp_needed = 0;
 
     public Color[] GetGemColors() { return gem_colors; }
     public float[] GetGemHealths() { return gem_healths; }
-    public int GetGemQuantity(int gem_tier)
-    {
-        if (gem_tier >= gem_quantities.Length)
-        {
-            Debug.Log("Invalid gem index");
-            return 0;
-        }
-
-        return gem_quantities[gem_tier]; 
-    }
+    public int[] GetGemQuantities() { return gem_quantities;  }
+    public int[] GetGemXP() { return gem_xp; }
     public int GetMiningLevel() { return mining_level; }
     public int GetTotalGemChances(int gem_max) { return total_gem_chances[gem_max]; }
 
@@ -52,6 +51,30 @@ public class Manager_Main : MonoBehaviour
 
         gem_quantities[gem_tier] += change_amount;
         ui_gem_texts[gem_tier].text = gem_quantities[gem_tier].ToString();
+    }
+    public void ChangeMiningXP(int change_amount)
+    {
+        mining_xp += change_amount;
+        while (mining_xp >= xp_needed && mining_level < max_mining_level)
+        {
+            mining_level += 1;
+            mining_xp -= xp_needed;
+            xp_needed = XPToNextLevel(mining_level);
+            if (mining_level == max_mining_level)
+            {
+                // Just hit max level
+                ui_text_mining_level.color = max_mining_color;
+                ui_slider_mining_xp.value = 1f;
+            }
+
+            // Update UI
+            ui_text_mining_level.text = "Lv " + mining_level;
+        }
+
+        if (mining_level < max_mining_level)
+        {
+            ui_slider_mining_xp.value = (float)mining_xp / xp_needed;
+        }
     }
 
     private void Awake()
@@ -83,6 +106,14 @@ public class Manager_Main : MonoBehaviour
         mining_level = (mining_level > max_mining_level) ? max_mining_level : mining_level;
         ui_text_mining_level.text = "Lv " + mining_level;
 
+        // Set mining xp slider
+        mining_xp = 0;
+        xp_needed = XPToNextLevel(mining_level);
+        ui_slider_mining_xp.value = (float)mining_xp / xp_needed;
+
+        // Set mining tool CD slider
+        ui_slider_tool_cd.value = 0;
+
         // Pre-calculate total gem chances
         int total = 0;
         total_gem_chances = new int[gem_spawn_chance.Length];
@@ -90,6 +121,12 @@ public class Manager_Main : MonoBehaviour
         {
             total += gem_spawn_chance[i];
             total_gem_chances[i] = total;
+            Debug.Log(total_gem_chances[i]);
         }
+    }
+
+    private int XPToNextLevel(int current_level)
+    {
+        return (int)Mathf.Pow(leveling_exp_base, current_level);
     }
 }

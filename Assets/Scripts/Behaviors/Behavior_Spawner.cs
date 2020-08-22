@@ -42,7 +42,7 @@ public class Behavior_Spawner : MonoBehaviour
         val = (int)(Random.value * total_gem_chances);
         val = (val >= total_gem_chances) ? (total_gem_chances - 1) : val;
         found = false;
-        for (int i = 0; i < gem_level && !found; ++i)
+        for (int i = 0; i <= gem_level && !found; ++i)
         {
             if (val < Manager_Main.Instance.GetTotalGemChances(i))
             {
@@ -101,11 +101,13 @@ public class Behavior_Spawner : MonoBehaviour
             // Increase the gem gain from mining this node
             float amount_gain = durability_decrease / max_health * current_amount;
             mining_residue += amount_gain;
-            int mining_residue_int = (int)mining_residue;
+            int gem_gain = (int)mining_residue;
             if (mining_residue > 0)
             {
-                Manager_Main.Instance.ChangeGemQuantity(gem_tier, mining_residue_int);
-                mining_residue -= mining_residue_int;
+                Manager_Main.Instance.ChangeGemQuantity(gem_tier, gem_gain);
+                int xp_gain = Manager_Main.Instance.GetGemXP()[gem_tier] * gem_gain;
+                Manager_Main.Instance.ChangeMiningXP(xp_gain);
+                mining_residue -= gem_gain;
             }
 
             ref_durability_meter.SetValue(current_durability / max_health);

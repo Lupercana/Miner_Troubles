@@ -23,7 +23,11 @@ public class Helper_Node_Durability : MonoBehaviour
     private void Awake()
     {
         ref_fill_sprite_rend = ref_fill.GetComponent<SpriteRenderer>();
-
         local_scale_x = ref_fill.transform.localScale.x;
+    }
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
     }
 }

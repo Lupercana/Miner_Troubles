@@ -12,7 +12,7 @@ public abstract class Behavior_Interactable : MonoBehaviour
     private Text ui_helper_text = null;
 
     public abstract void Activate();
-    public void Deactivate() { }
+    public virtual void Deactivate() { }
 
     private void Awake()
     {
