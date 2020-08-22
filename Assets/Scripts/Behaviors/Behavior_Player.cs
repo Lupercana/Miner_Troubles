@@ -73,7 +73,6 @@ public class Behavior_Player : MonoBehaviour
         if (target && collision.collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
         {
             // We've reached the target, interact with it
-            Debug.Log("A");
             target.Activate();
             target_activated = true;
 
@@ -87,7 +86,6 @@ public class Behavior_Player : MonoBehaviour
     {
         if (target && collision.collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && target_activated)
         {
-            Debug.Log("D");
             target.Deactivate();
             target = null;
         }

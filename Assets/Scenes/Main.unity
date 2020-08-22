@@ -2874,7 +2874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor_normal: {fileID: 2800000, guid: 0220a7b667cfb064391d1f76077673c3, type: 3}
   cursor_interactable: {fileID: 2800000, guid: d63d86b9ae793074396f331a5e513893, type: 3}
-  cursor_hotspot: {x: 0, y: 0}
+  cursor_hotspot: {x: 1, y: 1}
   ui_gems:
   - {fileID: 808644081}
   - {fileID: 597941091}

@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag_ui_helper: UI_Helper
   text_display: Node
+  ref_parent_spawner: {fileID: 8219962101125324254}
   spawn_amount: 10
   spawn_chance: 9
 --- !u!212 &4165418099182955832
@@ -261,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag_ui_helper: UI_Helper
   text_display: Node
+  ref_parent_spawner: {fileID: 8219962101125324254}
   spawn_amount: 100
   spawn_chance: 1
 --- !u!212 &1890397527035346859
@@ -633,6 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag_ui_helper: UI_Helper
   text_display: Node
+  ref_parent_spawner: {fileID: 8219962101125324254}
   spawn_amount: 1
   spawn_chance: 90
 --- !u!212 &7833547256522018049

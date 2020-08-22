@@ -27,21 +27,32 @@ public class Manager_Main : MonoBehaviour
 
     public Color[] GetGemColors() { return gem_colors; }
     public float[] GetGemHealths() { return gem_healths; }
-    public int GetGemQuantity(int gem_index)
+    public int GetGemQuantity(int gem_tier)
     {
-        if (gem_index >= gem_quantities.Length)
+        if (gem_tier >= gem_quantities.Length)
         {
             Debug.Log("Invalid gem index");
             return 0;
         }
 
-        return gem_quantities[gem_index]; 
+        return gem_quantities[gem_tier]; 
     }
     public int GetMiningLevel() { return mining_level; }
     public int GetTotalGemChances(int gem_max) { return total_gem_chances[gem_max]; }
 
     public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.Auto); }
     public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
+    public void ChangeGemQuantity(int gem_tier, int change_amount)
+    {
+        if (gem_tier >= gem_quantities.Length)
+        {
+            Debug.Log("Invalid gem index");
+            return;
+        }
+
+        gem_quantities[gem_tier] += change_amount;
+        ui_gem_texts[gem_tier].text = gem_quantities[gem_tier].ToString();
+    }
 
     private void Awake()
     {

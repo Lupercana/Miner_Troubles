@@ -10,12 +10,16 @@ public class Behavior_Spawner : MonoBehaviour
     [SerializeField] private int mining_level_upgrade = 0; // After how many levels to upgrade gem tier
 
     private float max_health = 0f;
-    private float current_health = 0f;
-    private int gem_tier;
-    private int gem_type;
+    private float current_durability = 0f;
+    private float mining_residue = 0f;
+    private int gem_tier = 0;
+    private int gem_type = 0;
     private int total_type_chances = 0;
     private int current_amount = 0;
-    private bool active;
+    private bool active = false;
+    private bool mining = false;
+
+    public void SetMining(bool m) { mining = m; }
 
     public bool Spawn()
     {
@@ -63,13 +67,16 @@ public class Behavior_Spawner : MonoBehaviour
         }
 
         max_health = Manager_Main.Instance.GetGemHealths()[gem_tier];
-        current_health = max_health;
+        current_durability = max_health;
+        ref_durability_meter.SetValue(current_durability / max_health);
         ref_node_types[gem_type].gameObject.SetActive(true);
         ref_durability_meter.gameObject.SetActive(true);
         ref_node_types[gem_type].GetComponent<SpriteRenderer>().color = Manager_Main.Instance.GetGemColors()[gem_tier];
         current_amount = ref_node_types[gem_type].GetSpawnAmount();
 
         active = true;
+        mining = false;
+        mining_residue = 0;
         return true;
     }
 
@@ -85,11 +92,24 @@ public class Behavior_Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (active)
+        if (active && mining)
         {
-            current_health -= 1 * Time.deltaTime;
-            ref_durability_meter.SetValue(current_health / max_health);
-            if (current_health <= 0)
+            // Decrease the durability of the node
+            float durability_decrease = Time.deltaTime;
+            current_durability -= durability_decrease;
+
+            // Increase the gem gain from mining this node
+            float amount_gain = durability_decrease / max_health * current_amount;
+            mining_residue += amount_gain;
+            int mining_residue_int = (int)mining_residue;
+            if (mining_residue > 0)
+            {
+                Manager_Main.Instance.ChangeGemQuantity(gem_tier, mining_residue_int);
+                mining_residue -= mining_residue_int;
+            }
+
+            ref_durability_meter.SetValue(current_durability / max_health);
+            if (current_durability <= 0)
             {
                 active = false;
                 ref_node_types[gem_type].gameObject.SetActive(false);
