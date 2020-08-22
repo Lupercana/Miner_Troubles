@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3331383324387433933}
+  - component: {fileID: 8316223355348305306}
   - component: {fileID: 4316107409926059234}
   m_Layer: 8
   m_Name: Workbench
-  m_TagString: Untagged
+  m_TagString: Workbench
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8316223355348305306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13366796628965815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4749c3ef201033b43ab7ca98d168eb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tag_ui_helper: UI_Helper
+  text_display: Workbench
 --- !u!61 &4316107409926059234
 BoxCollider2D:
   m_ObjectHideFlags: 0

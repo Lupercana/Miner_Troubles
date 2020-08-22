@@ -7,6 +7,11 @@ public class Manager_Main : MonoBehaviour
 {
     public static Manager_Main Instance = null;
 
+
+    [SerializeField] public Texture2D cursor_normal = null;
+    [SerializeField] public Texture2D cursor_interactable = null;
+    [SerializeField] public Vector2 cursor_hotspot;
+
     [SerializeField] private Image[] ui_gems = null;
     [SerializeField] private Text[] ui_gem_texts = null;
     [SerializeField] private Text ui_text_mining_level = null;
@@ -35,6 +40,9 @@ public class Manager_Main : MonoBehaviour
     public int GetMiningLevel() { return mining_level; }
     public int GetTotalGemChances(int gem_max) { return total_gem_chances[gem_max]; }
 
+    public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.Auto); }
+    public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
+
     private void Awake()
     {
         if (Instance == null)
@@ -51,6 +59,8 @@ public class Manager_Main : MonoBehaviour
 
     private void Start()
     {
+        SetCursorNormal();
+
         // Set gem colors in UI
         for (int i = 0; i < ui_gems.Length; ++i)
         {

@@ -96,11 +96,11 @@ GameObject:
   - component: {fileID: 5047948583519790141}
   m_Layer: 8
   m_Name: Node_Hex
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8648510333288392715
 Transform:
   m_ObjectHideFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddf7fd1440e0c48a4b01f58c6beff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag_ui_helper: UI_Helper
+  text_display: Node
   spawn_amount: 10
   spawn_chance: 9
 --- !u!212 &4165418099182955832
@@ -225,11 +227,11 @@ GameObject:
   - component: {fileID: 1890397527035346859}
   m_Layer: 8
   m_Name: Node_Long
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7055805975774525879
 Transform:
   m_ObjectHideFlags: 0
@@ -257,6 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddf7fd1440e0c48a4b01f58c6beff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag_ui_helper: UI_Helper
+  text_display: Node
   spawn_amount: 100
   spawn_chance: 1
 --- !u!212 &1890397527035346859
@@ -514,7 +518,7 @@ GameObject:
   - component: {fileID: 915296491539558907}
   m_Layer: 0
   m_Name: Spawner_Node
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,11 +600,11 @@ GameObject:
   - component: {fileID: 6859132495970530367}
   m_Layer: 8
   m_Name: Node_Quad
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8877115433924322425
 Transform:
   m_ObjectHideFlags: 0
@@ -627,6 +631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddf7fd1440e0c48a4b01f58c6beff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag_ui_helper: UI_Helper
+  text_display: Node
   spawn_amount: 1
   spawn_chance: 90
 --- !u!212 &7833547256522018049

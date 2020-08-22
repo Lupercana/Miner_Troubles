@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Behavior_Slider : MonoBehaviour
+public class Helper_Node_Durability : MonoBehaviour
 {
     [SerializeField] private GameObject ref_fill = null;
 

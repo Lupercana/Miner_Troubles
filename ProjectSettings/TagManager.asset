@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Workbench
+  - Gate
+  - Node
+  - Floor
+  - Spawner
+  - UI_Helper
   layers:
   - Default
   - TransparentFX

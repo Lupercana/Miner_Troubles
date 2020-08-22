@@ -91,11 +91,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8794560731423916566}
-  - component: {fileID: 1875367527775281725}
+  - component: {fileID: 3120638352255517873}
   - component: {fileID: 9033949776307416285}
+  - component: {fileID: 1875367527775281725}
   m_Layer: 8
-  m_Name: Block
-  m_TagString: Untagged
+  m_Name: Gate
+  m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +117,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3120638352255517873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7208100866869039782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tag_ui_helper: UI_Helper
+  text_display: Gate
+--- !u!114 &9033949776307416285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7208100866869039782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 4126466439964873624
+  updateError: 1
+  checkTime: 0.2
 --- !u!61 &1875367527775281725
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142,22 +173,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9033949776307416285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7208100866869039782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  uniqueID: 4126466439964873624
-  updateError: 1
-  checkTime: 0.2
 --- !u!1 &7367308072098250475
 GameObject:
   m_ObjectHideFlags: 0

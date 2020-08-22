@@ -5,7 +5,7 @@ using UnityEngine;
 public class Behavior_Spawner : MonoBehaviour
 {
     [SerializeField] private Behavior_Node[] ref_node_types = null;
-    [SerializeField] private Behavior_Slider ref_durability_meter = null;
+    [SerializeField] private Helper_Node_Durability ref_durability_meter = null;
 
     [SerializeField] private int mining_level_upgrade = 0; // After how many levels to upgrade gem tier
 
