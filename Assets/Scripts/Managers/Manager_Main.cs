@@ -5,6 +5,28 @@ using UnityEngine.UI;
 
 public class Manager_Main : MonoBehaviour
 {
+    public enum Tool_Type
+    {
+        Pickaxe,
+        Hammer,
+        Bomb,
+        Staff
+    }
+
+    [System.Serializable]
+    public struct Tool
+    {
+        public Sprite sprite;
+        public Tool_Type type;
+        public int tier;
+        public Tool(Sprite s, Tool_Type tt, int t)
+        {
+            sprite = s;
+            type = tt;
+            tier = t;
+        }
+    }
+
     public static Manager_Main Instance = null;
 
     // Cursor
@@ -22,10 +44,15 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private Text ui_text_mining_level = null;
     [SerializeField] private Slider ui_slider_mining_xp = null;
     [SerializeField] private Slider ui_slider_tool_cd = null;
+    [SerializeField] private Image ui_image_slot_tool = null;
+    [SerializeField] private Image ui_image_slot_ring = null;
+    [SerializeField] private Image[] ui_image_slot_extra = null;
 
     // Particles
     [SerializeField] private ParticleSystem particle_level_up = null;
 
+    [SerializeField] private Tool current_tool; // Modified later
+    [SerializeField] private float[] tool_tier_speedups = null;
     [SerializeField] private Color[] gem_colors = null;
     [SerializeField] private float[] gem_healths = null;
     [SerializeField] private int[] gem_spawn_chance = null;
@@ -47,6 +74,8 @@ public class Manager_Main : MonoBehaviour
     public int[] GetGemXP() { return gem_xp; }
     public int GetMiningLevel() { return mining_level; }
     public int GetTotalGemChances(int gem_max) { return total_gem_chances[gem_max]; }
+    public Tool GetCurrentTool() { return current_tool; }
+    public float GetToolSpeedup() { return tool_tier_speedups[current_tool.tier]; }
 
     public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.Auto); }
     public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
@@ -84,6 +113,13 @@ public class Manager_Main : MonoBehaviour
     public void SetUIHelperText(string new_text)
     {
         ui_helper_general_text.text = new_text;
+    }
+    public void SetCurrentTool(Tool new_tool)
+    {
+        current_tool = new_tool;
+
+        ui_image_slot_tool.sprite = current_tool.sprite;
+        ui_image_slot_tool.color = gem_colors[current_tool.tier];
     }
 
     public void ChangeGemQuantity(int gem_tier, int change_amount)
@@ -142,10 +178,15 @@ public class Manager_Main : MonoBehaviour
 
     private void Start()
     {
+        // Set cursor
         SetCursorNormal();
 
+        // Set helper
         ui_helper_last_id = 0;
         SetUIHelperActive(false, ui_helper_last_id);
+
+        // Set UI Slots
+        SetCurrentTool(current_tool);
 
         // Set gem colors in UI
         for (int i = 0; i < ui_gems.Length; ++i)

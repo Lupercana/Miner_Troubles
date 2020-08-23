@@ -140,7 +140,7 @@ public class Behavior_Spawner : MonoBehaviour
         if (active && mining)
         {
             // Decrease the durability of the node
-            float durability_decrease = Time.deltaTime * Manager_Main.Instance.GetMiningLevel();
+            float durability_decrease = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup();
             durability_decrease = (durability_decrease > current_durability) ? current_durability : durability_decrease; // Don't go over current durability
             current_durability -= durability_decrease;
 
