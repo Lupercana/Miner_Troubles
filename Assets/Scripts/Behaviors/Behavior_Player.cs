@@ -21,24 +21,40 @@ public class Behavior_Player : MonoBehaviour
     private void Update()
     {
         // Don't respond to mouse over UI, gameobject refers to UI gameobject
+        /*
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mouse_world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mouse_world, Vector2.zero, 0f);
+            foreach(RaycastHit2D hit in hits)
+            {
+                Debug.Log(hit.transform.tag);
+            }
+            Debug.Log(EventSystem.current.IsPointerOverGameObject());
+        }
+        */
+
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Vector2 mouse_world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mouse_world, Vector2.zero, 0f);
-            string hit_tag = (hit) ? hit.transform.tag : "";
-            foreach (string tag in tag_interactables)
+            if (hit)
             {
-                if (tag == hit_tag)
+                string hit_tag = hit.transform.tag;
+                foreach (string tag in tag_interactables)
                 {
-                    // Deactivate previous target
-                    if (target)
+                    if (tag == hit_tag)
                     {
-                        target.Deactivate();
-                    }
+                        // Deactivate previous target
+                        if (target)
+                        {
+                            target.Deactivate();
+                        }
 
-                    target = hit.transform.gameObject.GetComponent<Behavior_Interactable>();
-                    target_activated = false;
-                    Debug.Log("Target set: " + target);
+                        target = hit.transform.gameObject.GetComponent<Behavior_Interactable>();
+                        target_activated = false;
+                        //Debug.Log("Target set: " + target);
+                    }
                 }
             }
 

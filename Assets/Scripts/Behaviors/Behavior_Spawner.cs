@@ -31,7 +31,7 @@ public class Behavior_Spawner : MonoBehaviour
     private ParticleSystem.MainModule MM_mining;
     private ParticleSystem.MainModule MM_finished;
     private ParticleSystem.TextureSheetAnimationModule TAM_finished;
-    private float max_health = 0f;
+    private float max_durability = 0f;
     private float current_durability = 0f;
     private float mining_residue = 0f;
     private float mining_particle_play_next;
@@ -94,9 +94,9 @@ public class Behavior_Spawner : MonoBehaviour
             }
         }
 
-        max_health = Manager_Main.Instance.GetGemHealths()[gem_tier];
-        current_durability = max_health;
-        script_durability_meter.SetValue(current_durability / max_health);
+        max_durability = Manager_Main.Instance.GetGemHealths()[gem_tier] * script_node_types[gem_type].GetDurabilityMultiplier();
+        current_durability = max_durability;
+        script_durability_meter.SetValue(current_durability / max_durability);
         script_node_types[gem_type].gameObject.SetActive(true);
         script_durability_meter.gameObject.SetActive(true);
         Color c = Manager_Main.Instance.GetGemColors()[gem_tier];
@@ -145,7 +145,7 @@ public class Behavior_Spawner : MonoBehaviour
             current_durability -= durability_decrease;
 
             // Increase the gem gain from mining this node
-            float amount_gain = durability_decrease / max_health * current_amount;
+            float amount_gain = durability_decrease / max_durability * current_amount;
             mining_residue += amount_gain;
             int gem_gain = (int)mining_residue;
             if (mining_residue > 0)
@@ -156,7 +156,7 @@ public class Behavior_Spawner : MonoBehaviour
                 mining_residue -= gem_gain;
             }
 
-            script_durability_meter.SetValue(current_durability / max_health);
+            script_durability_meter.SetValue(current_durability / max_durability);
             if (current_durability <= 0)
             {
                 active = false;
@@ -169,7 +169,7 @@ public class Behavior_Spawner : MonoBehaviour
             }
             else
             {
-                float progress = 1f - (current_durability / max_health);
+                float progress = 1f - (current_durability / max_durability);
                 if (progress > mining_particle_play_next)
                 {
                     particle_mining.Play();

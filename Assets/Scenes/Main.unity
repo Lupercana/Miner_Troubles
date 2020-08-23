@@ -3122,7 +3122,7 @@ MonoBehaviour:
   gem_xp: 01000000050000000a0000001e0000003200000064000000f4010000e803000010270000
   gem_quantities: 000000000000000000000000000000000000000000000000000000000000000000000000
   max_mining_color: {r: 1, g: 0.19607843, b: 0.19607843, a: 1}
-  mining_level: 1
+  mining_level: 99
   max_mining_level: 99
   leveling_exp_base: 1.2
 --- !u!1 &586827439
@@ -12400,6 +12400,7 @@ GameObject:
   - component: {fileID: 2146778562}
   - component: {fileID: 2146778563}
   - component: {fileID: 2146778564}
+  - component: {fileID: 2146778565}
   m_Layer: 0
   m_Name: Camera_main
   m_TagString: MainCamera
@@ -12443,7 +12444,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -12550,6 +12551,23 @@ MonoBehaviour:
   deadband_y: 0
   pan_speed_x: 0
   pan_speed_y: 0
+--- !u!114 &2146778565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146778557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: c2dc55d4e81cf4242bedb8fc953d09a9, type: 2}
 --- !u!1 &31066013905168587
 GameObject:
   m_ObjectHideFlags: 0
@@ -18008,6 +18026,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603318209795538998, guid: bc0de1f9181cfd94cb75de80982d0b19,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc0de1f9181cfd94cb75de80982d0b19, type: 3}

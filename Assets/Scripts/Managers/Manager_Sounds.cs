@@ -56,8 +56,6 @@ public class Manager_Sounds : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void Start()

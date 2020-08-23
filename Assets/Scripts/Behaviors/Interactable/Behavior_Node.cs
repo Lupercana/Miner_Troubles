@@ -8,9 +8,11 @@ public class Behavior_Node : Behavior_Interactable
 
     [SerializeField] private int spawn_amount = 1;
     [SerializeField] private int spawn_chance = 1;
+    [SerializeField] private float durability_multiplier = 1f;
 
     public int GetSpawnAmount() { return spawn_amount; }
     public int GetSpawnChance() { return spawn_chance; }
+    public float GetDurabilityMultiplier() { return durability_multiplier; }
 
     public override void Activate()
     {
