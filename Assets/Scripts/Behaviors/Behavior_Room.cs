@@ -12,7 +12,6 @@ public class Behavior_Room : MonoBehaviour
     private List<Behavior_Spawner> scripts_spawner = new List<Behavior_Spawner>();
     private float last_spawn_time;
     private float spawn_time_wait;
-    private int active_nodes;
 
     private void Awake()
     {
@@ -28,7 +27,6 @@ public class Behavior_Room : MonoBehaviour
 
     private void Start()
     {
-        active_nodes = 0;
         last_spawn_time = Time.time;
         spawn_time_wait = 0;
     }
@@ -43,10 +41,7 @@ public class Behavior_Room : MonoBehaviour
             // Spawn rates slow down as nodes fill up the room, since requests to active spawners will fail
             int random_spawner = Random.Range(0, scripts_spawner.Count);
             random_spawner = (random_spawner >= scripts_spawner.Count) ? (scripts_spawner.Count - 1) : random_spawner;
-            if (scripts_spawner[random_spawner].Spawn()) // Returns true if successfully just spawned
-            {
-                ++active_nodes;
-            }
+            scripts_spawner[random_spawner].Spawn(); // Returns true if successfully just spawned
 
             float level_effect = mining_level / 10f + 1;
             spawn_time_wait = Random.Range((spawn_time_seconds - spawn_time_deviation_seconds) / (level_effect), (spawn_time_seconds + spawn_time_deviation_seconds) / (level_effect));

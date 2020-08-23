@@ -22,6 +22,15 @@ public class Behavior_Node : Behavior_Interactable
         ref_parent_spawner.SetMining(false);
     }
 
+    protected override void UpdateText()
+    {
+        Behavior_Spawner.Mining_Info mi = ref_parent_spawner.GetMiningInfo();
+        Manager_Main.Instance.SetUIHelperText("Mining Node || Contains:");
+        int[] helper_gems = new int[Manager_Main.Instance.GetGemColors().Length];
+        helper_gems[mi.gem_tier] = mi.gem_amount;
+        Manager_Main.Instance.SetUIHelperGems(helper_gems);
+    }
+
     private void Start()
     {
         gameObject.SetActive(false);

@@ -5,24 +5,20 @@ using UnityEngine.UI;
 
 public abstract class Behavior_Interactable : MonoBehaviour
 {
-    [SerializeField] private string tag_ui_helper = "";
+    //[SerializeField] private string tag_ui_helper = "";
     [SerializeField] protected string text_display = "";
 
-    private GameObject ui_helper_base = null;
-    private Text ui_helper_text = null;
+    //private GameObject ui_helper_base = null;
+    //private Text ui_helper_text = null;
 
     public abstract void Activate();
     public virtual void Deactivate() { }
+    protected abstract void UpdateText();
 
     private void Awake()
     {
-        ui_helper_base = GameObject.FindGameObjectWithTag(tag_ui_helper);
-        ui_helper_text = ui_helper_base.GetComponentInChildren<Text>();
-    }
-
-    private void Start()
-    {
-        ui_helper_base.gameObject.SetActive(false);
+        //ui_helper_base = GameObject.FindGameObjectWithTag(tag_ui_helper);
+        //ui_helper_text = ui_helper_base.GetComponentInChildren<Text>();
     }
 
     private void OnMouseEnter()
@@ -31,8 +27,8 @@ public abstract class Behavior_Interactable : MonoBehaviour
 
         if (text_display != "")
         {
-            ui_helper_base.gameObject.SetActive(true);
-            ui_helper_text.text = text_display;
+            UpdateText();
+            Manager_Main.Instance.SetUIHelperActive(true);
 
             /*
             float screen_width_half = Screen.width / 2f;
@@ -77,9 +73,6 @@ public abstract class Behavior_Interactable : MonoBehaviour
     protected void DisableHelperText()
     {
         Manager_Main.Instance.SetCursorNormal();
-        if (ui_helper_base)
-        {
-            ui_helper_base.gameObject.SetActive(false);
-        }
+        Manager_Main.Instance.SetUIHelperActive(false);
     }
 }

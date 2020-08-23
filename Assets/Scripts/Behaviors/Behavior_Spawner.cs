@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Behavior_Spawner : MonoBehaviour
 {
+    public struct Mining_Info
+    {
+        public int gem_tier;
+        public int gem_amount;
+        public float node_durability;
+
+        public Mining_Info(int gt, int ga, float nd)
+        {
+            gem_tier = gt;
+            gem_amount = ga;
+            node_durability = nd;
+        }
+    }
+
     [SerializeField] private Behavior_Node[] ref_node_types = null;
     [SerializeField] private Helper_Node_Durability ref_durability_meter = null;
 
@@ -18,6 +32,11 @@ public class Behavior_Spawner : MonoBehaviour
     private int current_amount = 0;
     private bool active = false;
     private bool mining = false;
+
+    public Mining_Info GetMiningInfo()
+    {
+        return new Mining_Info(gem_tier, current_amount, current_durability);
+    }
 
     public void SetMining(bool m) { mining = m; }
 

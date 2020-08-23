@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3120638352255517873}
   - component: {fileID: 9033949776307416285}
   - component: {fileID: 1875367527775281725}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Gate
   m_TagString: Gate
   m_Icon: {fileID: 0}
@@ -129,8 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag_ui_helper: UI_Helper
   text_display: Gate
+  script_unlock_room: {fileID: 0}
+  script_opposite_gate: {fileID: 0}
+  unlockable: 0
+  cost_tier: 0
+  cost_amount: 0
 --- !u!114 &9033949776307416285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 4126466439964873624
+  uniqueID: 8181501482964644585
   updateError: 1
   checkTime: 0.2
 --- !u!61 &1875367527775281725

@@ -14,6 +14,10 @@ public class Manager_Main : MonoBehaviour
 
     [SerializeField] private Image[] ui_gems = null;
     [SerializeField] private Text[] ui_gem_texts = null;
+    [SerializeField] private GameObject ui_helper_base = null;
+    [SerializeField] private Text ui_helper_general_text = null;
+    [SerializeField] private Image[] ui_helper_gems = null;
+    [SerializeField] private Text[] ui_helper_gem_texts = null;
     [SerializeField] private Text ui_text_mining_level = null;
     [SerializeField] private Slider ui_slider_mining_xp = null;
     [SerializeField] private Slider ui_slider_tool_cd = null;
@@ -41,6 +45,25 @@ public class Manager_Main : MonoBehaviour
 
     public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.Auto); }
     public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
+    public void SetUIHelperActive(bool active)
+    {
+        if (ui_helper_base)
+        {
+            ui_helper_base.SetActive(active);
+        }
+    }
+    public void SetUIHelperGems(int[] gem_counts)
+    {
+        for (int i = 0; i < gem_counts.Length; ++i)
+        {
+            ui_helper_gem_texts[i].text = gem_counts[i].ToString();
+        }
+    }
+    public void SetUIHelperText(string new_text)
+    {
+        ui_helper_general_text.text = new_text;
+    }
+
     public void ChangeGemQuantity(int gem_tier, int change_amount)
     {
         if (gem_tier >= gem_quantities.Length)
@@ -95,10 +118,13 @@ public class Manager_Main : MonoBehaviour
     {
         SetCursorNormal();
 
+        SetUIHelperActive(false);
+
         // Set gem colors in UI
         for (int i = 0; i < ui_gems.Length; ++i)
         {
             ui_gems[i].color = gem_colors[i];
+            ui_helper_gems[i].color = gem_colors[i];
             ui_gem_texts[i].text = gem_quantities[i].ToString();
         }
 
