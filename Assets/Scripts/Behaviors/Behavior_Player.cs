@@ -76,12 +76,12 @@ public class Behavior_Player : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (target)
-            Debug.Log(target + " " + target_activated + " " + collider.gameObject.GetInstanceID() + " | " + target.gameObject.GetInstanceID());
+        //if (target)
+            //Debug.Log(target + " " + target_activated + " " + collider.gameObject.GetInstanceID() + " | " + target.gameObject.GetInstanceID());
         if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
         {
             // We've reached the target, interact with it
-            Debug.Log("A");
+            //Debug.Log("A");
             target.Activate();
             target_activated = true;
 
@@ -95,7 +95,7 @@ public class Behavior_Player : MonoBehaviour
     {
         if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && target_activated)
         {
-            Debug.Log("D");
+            //Debug.Log("D");
             target.Deactivate();
             target = null;
         }

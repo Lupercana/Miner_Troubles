@@ -18,14 +18,23 @@ public class Behavior_Spawner : MonoBehaviour
         }
     }
 
-    [SerializeField] private Behavior_Node[] ref_node_types = null;
-    [SerializeField] private Helper_Node_Durability ref_durability_meter = null;
+    [SerializeField] private Behavior_Node[] script_node_types = null;
+    [SerializeField] private Helper_Node_Durability script_durability_meter = null;
+
+    [SerializeField] private ParticleSystem particle_mining = null;
+    [SerializeField] private ParticleSystem particle_finished = null;
+
 
     [SerializeField] private int mining_level_upgrade = 0; // After how many levels to upgrade gem tier
+    [SerializeField] private float mining_particle_thresh = 0f;
 
+    private ParticleSystem.MainModule MM_mining;
+    private ParticleSystem.MainModule MM_finished;
+    private ParticleSystem.TextureSheetAnimationModule TAM_finished;
     private float max_health = 0f;
     private float current_durability = 0f;
     private float mining_residue = 0f;
+    private float mining_particle_play_next;
     private int gem_tier = 0;
     private int gem_type = 0;
     private int total_type_chances = 0;
@@ -75,9 +84,9 @@ public class Behavior_Spawner : MonoBehaviour
         val = (val >= total_type_chances) ? (total_type_chances - 1) : val;
         found = false;
         int total = 0;
-        for (int i = 0; i < ref_node_types.Length && !found; ++i)
+        for (int i = 0; i < script_node_types.Length && !found; ++i)
         {
-            total += ref_node_types[i].GetSpawnChance();
+            total += script_node_types[i].GetSpawnChance();
             if (val < total)
             {
                 gem_type = i;
@@ -87,21 +96,38 @@ public class Behavior_Spawner : MonoBehaviour
 
         max_health = Manager_Main.Instance.GetGemHealths()[gem_tier];
         current_durability = max_health;
-        ref_durability_meter.SetValue(current_durability / max_health);
-        ref_node_types[gem_type].gameObject.SetActive(true);
-        ref_durability_meter.gameObject.SetActive(true);
-        ref_node_types[gem_type].GetComponentInChildren<SpriteRenderer>().color = Manager_Main.Instance.GetGemColors()[gem_tier];
-        current_amount = ref_node_types[gem_type].GetSpawnAmount();
+        script_durability_meter.SetValue(current_durability / max_health);
+        script_node_types[gem_type].gameObject.SetActive(true);
+        script_durability_meter.gameObject.SetActive(true);
+        Color c = Manager_Main.Instance.GetGemColors()[gem_tier];
+        SpriteRenderer node_sprite_renderer = script_node_types[gem_type].GetComponentInChildren<SpriteRenderer>();
+        node_sprite_renderer.color = c;
+        current_amount = script_node_types[gem_type].GetSpawnAmount();
 
+        // Set particles
+        MM_mining.startColor = c;
+        MM_finished.startColor = c;
+        TAM_finished.SetSprite(0, node_sprite_renderer.sprite);
+            
+        // Set variables
         active = true;
         mining = false;
         mining_residue = 0;
+        mining_particle_play_next = mining_particle_thresh;
+
         return true;
+    }
+
+    private void Awake()
+    {
+        MM_mining = particle_mining.main;
+        MM_finished = particle_finished.main;
+        TAM_finished = particle_finished.textureSheetAnimation;
     }
 
     private void Start()
     {
-        foreach (Behavior_Node node in ref_node_types)
+        foreach (Behavior_Node node in script_node_types)
         {
             total_type_chances += node.GetSpawnChance();
         }
@@ -114,7 +140,8 @@ public class Behavior_Spawner : MonoBehaviour
         if (active && mining)
         {
             // Decrease the durability of the node
-            float durability_decrease = Time.deltaTime;
+            float durability_decrease = Time.deltaTime * Manager_Main.Instance.GetMiningLevel();
+            durability_decrease = (durability_decrease > current_durability) ? current_durability : durability_decrease; // Don't go over current durability
             current_durability -= durability_decrease;
 
             // Increase the gem gain from mining this node
@@ -129,12 +156,26 @@ public class Behavior_Spawner : MonoBehaviour
                 mining_residue -= gem_gain;
             }
 
-            ref_durability_meter.SetValue(current_durability / max_health);
+            script_durability_meter.SetValue(current_durability / max_health);
             if (current_durability <= 0)
             {
                 active = false;
-                ref_node_types[gem_type].gameObject.SetActive(false);
-                ref_durability_meter.gameObject.SetActive(false);
+                script_node_types[gem_type].gameObject.SetActive(false);
+                script_durability_meter.gameObject.SetActive(false);
+
+                // Play effects
+                particle_finished.Play();
+                Manager_Sounds.Instance.PlayMiningFinished();
+            }
+            else
+            {
+                float progress = 1f - (current_durability / max_health);
+                if (progress > mining_particle_play_next)
+                {
+                    particle_mining.Play();
+                    Manager_Sounds.Instance.PlayMiningIntermediate();
+                    mining_particle_play_next += mining_particle_thresh;
+                }
             }
         }
     }

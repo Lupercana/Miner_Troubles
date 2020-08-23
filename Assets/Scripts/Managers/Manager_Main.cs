@@ -7,11 +7,12 @@ public class Manager_Main : MonoBehaviour
 {
     public static Manager_Main Instance = null;
 
-
+    // Cursor
     [SerializeField] public Texture2D cursor_normal = null;
     [SerializeField] public Texture2D cursor_interactable = null;
     [SerializeField] public Vector2 cursor_hotspot;
 
+    // UI
     [SerializeField] private Image[] ui_gems = null;
     [SerializeField] private Text[] ui_gem_texts = null;
     [SerializeField] private GameObject ui_helper_base = null;
@@ -21,6 +22,9 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private Text ui_text_mining_level = null;
     [SerializeField] private Slider ui_slider_mining_xp = null;
     [SerializeField] private Slider ui_slider_tool_cd = null;
+
+    // Particles
+    [SerializeField] private ParticleSystem particle_level_up = null;
 
     [SerializeField] private Color[] gem_colors = null;
     [SerializeField] private float[] gem_healths = null;
@@ -48,7 +52,6 @@ public class Manager_Main : MonoBehaviour
     public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
     public void SetUIHelperActive(bool active, int caller_id)
     {
-        Debug.Log("1");
         if (active)
         {
             ui_helper_last_id = caller_id;
@@ -60,11 +63,9 @@ public class Manager_Main : MonoBehaviour
 
         if (ui_helper_base)
         {
-            Debug.Log("2");
             ui_helper_base.SetActive(active);
             if (active)
             {
-                Debug.Log("3");
                 SetCursorInteractable();
             }
             else
@@ -113,6 +114,10 @@ public class Manager_Main : MonoBehaviour
 
             // Update UI
             ui_text_mining_level.text = "Lv " + mining_level;
+
+            // Play effects
+            particle_level_up.Play();
+            Manager_Sounds.Instance.PlayLevelUp();
         }
 
         if (mining_level < max_mining_level)

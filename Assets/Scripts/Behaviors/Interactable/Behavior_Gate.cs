@@ -19,6 +19,9 @@ public class Behavior_Gate : Behavior_Interactable
             script_unlock_room.gameObject.SetActive(true);
             script_opposite_gate.gameObject.SetActive(false);
             gameObject.SetActive(false);
+
+            // Play effects
+            Manager_Sounds.Instance.PlayPurchase();
         }
     }
 
