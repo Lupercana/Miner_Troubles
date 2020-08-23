@@ -13,9 +13,13 @@ public class Behavior_Gate : Behavior_Interactable
 
     public override void Activate()
     {
-        script_unlock_room.gameObject.SetActive(true);
-        script_opposite_gate.gameObject.SetActive(false);
-        gameObject.SetActive(false);
+        if (unlockable && Manager_Main.Instance.GetGemQuantities()[cost_tier] >= cost_amount)
+        {
+            Manager_Main.Instance.GetGemQuantities()[cost_tier] -= cost_amount;
+            script_unlock_room.gameObject.SetActive(true);
+            script_opposite_gate.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 
     protected override void UpdateText()
@@ -24,6 +28,7 @@ public class Behavior_Gate : Behavior_Interactable
         {
             Manager_Main.Instance.SetUIHelperText("Gate || Unlock cost:");
             int[] helper_gems = new int[Manager_Main.Instance.GetGemColors().Length];
+            helper_gems[cost_tier] = cost_amount;
             Manager_Main.Instance.SetUIHelperGems(helper_gems);
         }
         else

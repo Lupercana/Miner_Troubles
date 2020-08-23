@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public abstract class Behavior_Interactable : MonoBehaviour
 {
     //[SerializeField] private string tag_ui_helper = "";
-    [SerializeField] protected string text_display = "";
 
     //private GameObject ui_helper_base = null;
     //private Text ui_helper_text = null;
+
+    private string text_display = "";
 
     public abstract void Activate();
     public virtual void Deactivate() { }
@@ -23,46 +24,41 @@ public abstract class Behavior_Interactable : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Manager_Main.Instance.SetCursorInteractable();
+        UpdateText();
+        Manager_Main.Instance.SetUIHelperActive(true, gameObject.GetInstanceID());
 
-        if (text_display != "")
+        /*
+        float screen_width_half = Screen.width / 2f;
+        float screen_height_half = Screen.height / 2f;
+        float mouse_x = Input.mousePosition.x;
+        float mouse_y = Input.mousePosition.y;
+        float ui_rect_width_half = ui_text_helper.rectTransform.rect.width / 2f;
+        float ui_rect_height_half = ui_text_helper.rectTransform.rect.height / 2f;
+
+        // Place UI in location that would not block view
+        Vector2 offset = Vector2.zero;
+        if (mouse_x < screen_width_half && mouse_y < screen_height_half) // Bottom left region
         {
-            UpdateText();
-            Manager_Main.Instance.SetUIHelperActive(true);
-
-            /*
-            float screen_width_half = Screen.width / 2f;
-            float screen_height_half = Screen.height / 2f;
-            float mouse_x = Input.mousePosition.x;
-            float mouse_y = Input.mousePosition.y;
-            float ui_rect_width_half = ui_text_helper.rectTransform.rect.width / 2f;
-            float ui_rect_height_half = ui_text_helper.rectTransform.rect.height / 2f;
-
-            // Place UI in location that would not block view
-            Vector2 offset = Vector2.zero;
-            if (mouse_x < screen_width_half && mouse_y < screen_height_half) // Bottom left region
-            {
-                offset = new Vector2(ui_rect_width_half, ui_rect_height_half);
-                ui_text_helper.alignment = TextAnchor.LowerLeft;
-            }
-            else if (mouse_x < screen_width_half && mouse_y >= screen_height_half) // Top left region
-            {
-                offset = new Vector2(ui_rect_width_half, -ui_rect_height_half);
-                ui_text_helper.alignment = TextAnchor.UpperLeft;
-            }
-            else if (mouse_x >= screen_width_half && mouse_y < screen_height_half) // Bottom right region
-            {
-                offset = new Vector2(-ui_rect_width_half, ui_rect_height_half);
-                ui_text_helper.alignment = TextAnchor.LowerRight;
-            }
-            else if (mouse_x >= screen_width_half && mouse_y >= screen_height_half) // Top right region
-            {
-                offset = new Vector2(-ui_rect_width_half, -ui_rect_height_half);
-                ui_text_helper.alignment = TextAnchor.UpperRight;
-            }
-            ui_text_helper.transform.position = (Vector2)Input.mousePosition + offset * ui_text_helper.canvas.scaleFactor;
-            */
+            offset = new Vector2(ui_rect_width_half, ui_rect_height_half);
+            ui_text_helper.alignment = TextAnchor.LowerLeft;
         }
+        else if (mouse_x < screen_width_half && mouse_y >= screen_height_half) // Top left region
+        {
+            offset = new Vector2(ui_rect_width_half, -ui_rect_height_half);
+            ui_text_helper.alignment = TextAnchor.UpperLeft;
+        }
+        else if (mouse_x >= screen_width_half && mouse_y < screen_height_half) // Bottom right region
+        {
+            offset = new Vector2(-ui_rect_width_half, ui_rect_height_half);
+            ui_text_helper.alignment = TextAnchor.LowerRight;
+        }
+        else if (mouse_x >= screen_width_half && mouse_y >= screen_height_half) // Top right region
+        {
+            offset = new Vector2(-ui_rect_width_half, -ui_rect_height_half);
+            ui_text_helper.alignment = TextAnchor.UpperRight;
+        }
+        ui_text_helper.transform.position = (Vector2)Input.mousePosition + offset * ui_text_helper.canvas.scaleFactor;
+        */
     }
 
     private void OnMouseExit()
@@ -72,7 +68,6 @@ public abstract class Behavior_Interactable : MonoBehaviour
 
     protected void DisableHelperText()
     {
-        Manager_Main.Instance.SetCursorNormal();
-        Manager_Main.Instance.SetUIHelperActive(false);
+        Manager_Main.Instance.SetUIHelperActive(false, gameObject.GetInstanceID());
     }
 }

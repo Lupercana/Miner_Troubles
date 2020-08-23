@@ -332,12 +332,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1780985046}
+    m_TransformParent: {fileID: 690510535}
     m_Modifications:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (5)
+      value: GS
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -377,7 +377,7 @@ PrefabInstance:
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -765,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (9)
+      value: GE
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -865,6 +865,18 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &357293747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 1053296799}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &370326283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
@@ -1654,7 +1671,7 @@ PrefabInstance:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate
+      value: GN
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -1789,6 +1806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
@@ -2481,7 +2503,7 @@ PrefabInstance:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (1)
+      value: GN
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -4097,6 +4119,18 @@ RectTransform:
   m_AnchoredPosition: {x: -325, y: 10}
   m_SizeDelta: {x: 150, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &893863591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054735363228842710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &941321374
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,6 +4432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
@@ -5293,7 +5332,7 @@ PrefabInstance:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (6)
+      value: GW
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -6160,12 +6199,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 416486472}
+    m_TransformParent: {fileID: 1677239664}
     m_Modifications:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (11)
+      value: GE
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -6205,7 +6244,7 @@ PrefabInstance:
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -6374,6 +6413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
@@ -7026,7 +7070,7 @@ PrefabInstance:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (2)
+      value: GN
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -7090,6 +7134,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83e61ba5a9c5cbe4fbabbb6b86368262, type: 3}
+--- !u!114 &1537782526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 416486471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1566517051
 GameObject:
   m_ObjectHideFlags: 0
@@ -7691,12 +7747,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1839561199}
+    m_TransformParent: {fileID: 49134776}
     m_Modifications:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (10)
+      value: GE
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -7736,7 +7792,7 @@ PrefabInstance:
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -7776,7 +7832,7 @@ PrefabInstance:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (3)
+      value: GS
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -8297,6 +8353,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
@@ -8871,7 +8932,7 @@ PrefabInstance:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (8)
+      value: GW
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -9093,6 +9154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
@@ -9770,6 +9836,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10348,12 +10419,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1486833311}
+    m_TransformParent: {fileID: 471156028}
     m_Modifications:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (7)
+      value: GW
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -10393,7 +10464,7 @@ PrefabInstance:
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -10492,6 +10563,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835051767}
   m_CullTransparentMesh: 0
+--- !u!114 &1835361356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 1811047984}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1839561198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10563,6 +10646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
@@ -11316,6 +11404,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900331083}
   m_CullTransparentMesh: 0
+--- !u!114 &1915357585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 1780985045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1916860951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 1486833310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947004946
 GameObject:
   m_ObjectHideFlags: 0
@@ -11399,12 +11511,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1053296800}
+    m_TransformParent: {fileID: 1059290131}
     m_Modifications:
     - target: {fileID: 7208100866869039782, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_Name
-      value: Gate (4)
+      value: GS
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -11444,7 +11556,7 @@ PrefabInstance:
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8794560731423916566, guid: 83e61ba5a9c5cbe4fbabbb6b86368262,
         type: 3}
@@ -11621,6 +11733,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970372935}
   m_CullTransparentMesh: 0
+--- !u!114 &1977128680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 1839561198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988581765
 GameObject:
   m_ObjectHideFlags: 0
@@ -11979,6 +12103,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2118475050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3385309685161826552, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 429872070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19a644455fe18041a0fc7f2fa38d325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2146778557
 GameObject:
   m_ObjectHideFlags: 0
@@ -12361,7 +12497,7 @@ GameObject:
   - component: {fileID: 1949135862577133007}
   - component: {fileID: 8959090246952074031}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GN
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12380,7 +12516,7 @@ GameObject:
   - component: {fileID: 1949135862437107771}
   - component: {fileID: 8959090247356192475}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GW
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12399,7 +12535,7 @@ GameObject:
   - component: {fileID: 1949135862333546743}
   - component: {fileID: 8959090247325543959}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GW
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12418,7 +12554,7 @@ GameObject:
   - component: {fileID: 1949135862365316244}
   - component: {fileID: 8959090247293905524}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GN
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12437,7 +12573,7 @@ GameObject:
   - component: {fileID: 1949135862133287179}
   - component: {fileID: 8959090247664216043}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GN
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12456,7 +12592,7 @@ GameObject:
   - component: {fileID: 1949135862164087590}
   - component: {fileID: 8959090247629483462}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GW
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12475,7 +12611,7 @@ GameObject:
   - component: {fileID: 1949135862172259506}
   - component: {fileID: 8959090247620909650}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GN
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12494,7 +12630,7 @@ GameObject:
   - component: {fileID: 1949135862094672282}
   - component: {fileID: 8959090247568490362}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GN
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12513,7 +12649,7 @@ GameObject:
   - component: {fileID: 1949135861852076797}
   - component: {fileID: 8959090247945565213}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GW
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12532,7 +12668,7 @@ GameObject:
   - component: {fileID: 1949135861752473859}
   - component: {fileID: 8959090247776856035}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GN
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12551,7 +12687,7 @@ GameObject:
   - component: {fileID: 1949135861696456933}
   - component: {fileID: 8959090246087648773}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GW
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12570,7 +12706,7 @@ GameObject:
   - component: {fileID: 1949135860876464021}
   - component: {fileID: 8959090246903431541}
   m_Layer: 9
-  m_Name: Gate (1)
+  m_Name: GW
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12589,7 +12725,7 @@ GameObject:
   - component: {fileID: 2034434630459036144}
   - component: {fileID: 8890789722941513488}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GS
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12608,7 +12744,7 @@ GameObject:
   - component: {fileID: 2034434630292226574}
   - component: {fileID: 8890789722839747822}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GE
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12627,7 +12763,7 @@ GameObject:
   - component: {fileID: 2034434630250662249}
   - component: {fileID: 8890789723283703689}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GS
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12646,7 +12782,7 @@ GameObject:
   - component: {fileID: 2034434630011408888}
   - component: {fileID: 8890789723120443160}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GS
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12665,7 +12801,7 @@ GameObject:
   - component: {fileID: 2034434630038858817}
   - component: {fileID: 8890789723097064097}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GS
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12684,7 +12820,7 @@ GameObject:
   - component: {fileID: 2034434630047456213}
   - component: {fileID: 8890789723088852277}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GE
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12703,7 +12839,7 @@ GameObject:
   - component: {fileID: 2034434629945333764}
   - component: {fileID: 8890789723593365220}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GE
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12722,7 +12858,7 @@ GameObject:
   - component: {fileID: 2034434629980314727}
   - component: {fileID: 8890789723558515335}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GS
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12741,7 +12877,7 @@ GameObject:
   - component: {fileID: 2034434629774172360}
   - component: {fileID: 8890789723361881640}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GE
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12760,7 +12896,7 @@ GameObject:
   - component: {fileID: 2034434629634280764}
   - component: {fileID: 8890789723766129628}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GS
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12779,7 +12915,7 @@ GameObject:
   - component: {fileID: 2034434629321946982}
   - component: {fileID: 8890789721800718726}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GE
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12798,7 +12934,7 @@ GameObject:
   - component: {fileID: 2034434628501950486}
   - component: {fileID: 8890789722616504054}
   m_Layer: 9
-  m_Name: Gate
+  m_Name: GE
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14976,8 +15112,8 @@ Transform:
   m_Children:
   - {fileID: 1426955426884312210}
   - {fileID: 8637178837918532693}
-  m_Father: {fileID: 429872071}
-  m_RootOrder: 5
+  m_Father: {fileID: 258714209}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1974903832987626693
 Transform:
@@ -15008,8 +15144,8 @@ Transform:
   m_Children:
   - {fileID: 1426955427196355595}
   - {fileID: 8637178838096043212}
-  m_Father: {fileID: 1822083986}
-  m_RootOrder: 5
+  m_Father: {fileID: 1055048678}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1974903833368749047
 Transform:
@@ -15376,8 +15512,8 @@ Transform:
   m_Children:
   - {fileID: 1511779421103750392}
   - {fileID: 8136341365060854847}
-  m_Father: {fileID: 142902335}
-  m_RootOrder: 5
+  m_Father: {fileID: 1767645462}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2044422762460632118
 Transform:
@@ -15408,8 +15544,8 @@ Transform:
   m_Children:
   - {fileID: 1511779421281444961}
   - {fileID: 8136341365372976294}
-  m_Father: {fileID: 1486833311}
-  m_RootOrder: 6
+  m_Father: {fileID: 471156028}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2044422762681481849
 Transform:
@@ -15424,8 +15560,8 @@ Transform:
   m_Children:
   - {fileID: 1511779421224812873}
   - {fileID: 8136341365446367630}
-  m_Father: {fileID: 1053296800}
-  m_RootOrder: 6
+  m_Father: {fileID: 1059290131}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2044422762689809901
 Transform:
@@ -17136,11 +17272,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1781288557}
   script_opposite_gate: {fileID: 5556612651553325193}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 7
+  cost_amount: 100
 --- !u!114 &5344214737806663434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17154,11 +17290,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 357293747}
   script_opposite_gate: {fileID: 5556612650771097593}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 5
+  cost_amount: 100
 --- !u!114 &5344214738022278480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17172,11 +17308,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1915357585}
   script_opposite_gate: {fileID: 5556612652836396451}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 6
+  cost_amount: 100
 --- !u!114 &5344214738195083368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17190,11 +17326,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1977128680}
   script_opposite_gate: {fileID: 5556612652462950555}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 2
+  cost_amount: 100
 --- !u!114 &5344214738229900299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17208,11 +17344,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1977128680}
   script_opposite_gate: {fileID: 5556612652494556408}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 2
+  cost_amount: 100
 --- !u!114 &5344214738426529956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17226,11 +17362,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5556612652432273495}
-  unlockable: 0
+  unlockable: 1
   cost_tier: 0
-  cost_amount: 0
+  cost_amount: 100
 --- !u!114 &5344214738504737029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17244,11 +17380,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1916860951}
   script_opposite_gate: {fileID: 5556612652220013046}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 7
+  cost_amount: 100
 --- !u!114 &5344214738667977108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17262,11 +17398,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1537782526}
   script_opposite_gate: {fileID: 5556612652124242279}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 3
+  cost_amount: 100
 --- !u!114 &5344214738691376173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17280,11 +17416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 357293747}
   script_opposite_gate: {fileID: 5556612652167593182}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 4
+  cost_amount: 100
 --- !u!114 &5344214738699563961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17298,11 +17434,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1537782526}
   script_opposite_gate: {fileID: 5556612652158978890}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 4
+  cost_amount: 100
 --- !u!114 &5344214738813385116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17316,11 +17452,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5556612652045189487}
-  unlockable: 0
+  unlockable: 1
   cost_tier: 0
-  cost_amount: 0
+  cost_amount: 100
 --- !u!114 &5344214738915109474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17334,11 +17470,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1835361356}
   script_opposite_gate: {fileID: 5556612651876455057}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 1
+  cost_amount: 100
 --- !u!114 &5556612650771097593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17352,11 +17488,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1915357585}
   script_opposite_gate: {fileID: 5344214737806663434}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 5
+  cost_amount: 100
 --- !u!114 &5556612651553325193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17370,11 +17506,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 2118475050}
   script_opposite_gate: {fileID: 5344214737024432250}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 7
+  cost_amount: 100
 --- !u!114 &5556612651876455057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17388,11 +17524,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1781288557}
   script_opposite_gate: {fileID: 5344214738915109474}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 1
+  cost_amount: 100
 --- !u!114 &5556612652045189487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17406,11 +17542,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1781288557}
   script_opposite_gate: {fileID: 5344214738813385116}
-  unlockable: 0
+  unlockable: 1
   cost_tier: 0
-  cost_amount: 0
+  cost_amount: 100
 --- !u!114 &5556612652124242279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17424,11 +17560,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1977128680}
   script_opposite_gate: {fileID: 5344214738667977108}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 3
+  cost_amount: 100
 --- !u!114 &5556612652158978890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17442,11 +17578,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 357293747}
   script_opposite_gate: {fileID: 5344214738699563961}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 4
+  cost_amount: 100
 --- !u!114 &5556612652167593182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17460,11 +17596,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5344214738691376173}
-  unlockable: 0
+  unlockable: 1
   cost_tier: 0
-  cost_amount: 0
+  cost_amount: 100
 --- !u!114 &5556612652220013046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17478,11 +17614,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 2118475050}
   script_opposite_gate: {fileID: 5344214738504737029}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 7
+  cost_amount: 100
 --- !u!114 &5556612652432273495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17496,11 +17632,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1916860951}
   script_opposite_gate: {fileID: 5344214738426529956}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 6
+  cost_amount: 100
 --- !u!114 &5556612652462950555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17514,11 +17650,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5344214738195083368}
-  unlockable: 0
+  unlockable: 1
   cost_tier: 0
-  cost_amount: 0
+  cost_amount: 100
 --- !u!114 &5556612652494556408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17532,11 +17668,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1835361356}
   script_opposite_gate: {fileID: 5344214738229900299}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 2
+  cost_amount: 100
 --- !u!114 &5556612652836396451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17550,11 +17686,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_display: Gate
-  script_unlock_room: {fileID: 0}
+  script_unlock_room: {fileID: 1916860951}
   script_opposite_gate: {fileID: 5344214738022278480}
-  unlockable: 0
-  cost_tier: 0
-  cost_amount: 0
+  unlockable: 1
+  cost_tier: 6
+  cost_amount: 100
 --- !u!1001 &5603318208365398617
 PrefabInstance:
   m_ObjectHideFlags: 0

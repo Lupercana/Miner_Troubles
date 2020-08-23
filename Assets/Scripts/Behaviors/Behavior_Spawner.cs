@@ -90,7 +90,7 @@ public class Behavior_Spawner : MonoBehaviour
         ref_durability_meter.SetValue(current_durability / max_health);
         ref_node_types[gem_type].gameObject.SetActive(true);
         ref_durability_meter.gameObject.SetActive(true);
-        ref_node_types[gem_type].GetComponent<SpriteRenderer>().color = Manager_Main.Instance.GetGemColors()[gem_tier];
+        ref_node_types[gem_type].GetComponentInChildren<SpriteRenderer>().color = Manager_Main.Instance.GetGemColors()[gem_tier];
         current_amount = ref_node_types[gem_type].GetSpawnAmount();
 
         active = true;

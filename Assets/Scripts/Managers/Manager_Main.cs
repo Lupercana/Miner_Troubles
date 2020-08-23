@@ -35,6 +35,7 @@ public class Manager_Main : MonoBehaviour
     private int[] total_gem_chances;
     private int mining_xp = 0;
     private int xp_needed = 0;
+    private int ui_helper_last_id = -1;
 
     public Color[] GetGemColors() { return gem_colors; }
     public float[] GetGemHealths() { return gem_healths; }
@@ -45,11 +46,28 @@ public class Manager_Main : MonoBehaviour
 
     public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.Auto); }
     public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
-    public void SetUIHelperActive(bool active)
+    public void SetUIHelperActive(bool active, int caller_id)
     {
+        if (active)
+        {
+            ui_helper_last_id = caller_id;
+        }
+        else if (caller_id != ui_helper_last_id)
+        {
+            return; // Another interactable is using the UI Helper
+        }
+
         if (ui_helper_base)
         {
             ui_helper_base.SetActive(active);
+            if (active)
+            {
+                SetCursorInteractable();
+            }
+            else
+            {
+                SetCursorNormal();
+            }
         }
     }
     public void SetUIHelperGems(int[] gem_counts)
@@ -118,7 +136,8 @@ public class Manager_Main : MonoBehaviour
     {
         SetCursorNormal();
 
-        SetUIHelperActive(false);
+        ui_helper_last_id = 0;
+        SetUIHelperActive(false, ui_helper_last_id);
 
         // Set gem colors in UI
         for (int i = 0; i < ui_gems.Length; ++i)
@@ -147,7 +166,6 @@ public class Manager_Main : MonoBehaviour
         {
             total += gem_spawn_chance[i];
             total_gem_chances[i] = total;
-            Debug.Log(total_gem_chances[i]);
         }
     }
 
