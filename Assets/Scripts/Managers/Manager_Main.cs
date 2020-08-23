@@ -48,6 +48,7 @@ public class Manager_Main : MonoBehaviour
     public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
     public void SetUIHelperActive(bool active, int caller_id)
     {
+        Debug.Log("1");
         if (active)
         {
             ui_helper_last_id = caller_id;
@@ -59,9 +60,11 @@ public class Manager_Main : MonoBehaviour
 
         if (ui_helper_base)
         {
+            Debug.Log("2");
             ui_helper_base.SetActive(active);
             if (active)
             {
+                Debug.Log("3");
                 SetCursorInteractable();
             }
             else

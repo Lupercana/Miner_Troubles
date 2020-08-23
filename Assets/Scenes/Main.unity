@@ -485,6 +485,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1054735363228842710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &150568302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5603318209028562453, guid: bc0de1f9181cfd94cb75de80982d0b19,
+    type: 3}
+  m_PrefabInstance: {fileID: 5603318208365398617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &150568303
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150568302}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.2}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &185685264
 GameObject:
   m_ObjectHideFlags: 0
@@ -17271,7 +17293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1781288557}
   script_opposite_gate: {fileID: 5556612651553325193}
   unlockable: 1
@@ -17289,7 +17310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 357293747}
   script_opposite_gate: {fileID: 5556612650771097593}
   unlockable: 1
@@ -17307,7 +17327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1915357585}
   script_opposite_gate: {fileID: 5556612652836396451}
   unlockable: 1
@@ -17325,7 +17344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1977128680}
   script_opposite_gate: {fileID: 5556612652462950555}
   unlockable: 1
@@ -17343,7 +17361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1977128680}
   script_opposite_gate: {fileID: 5556612652494556408}
   unlockable: 1
@@ -17361,7 +17378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5556612652432273495}
   unlockable: 1
@@ -17379,7 +17395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1916860951}
   script_opposite_gate: {fileID: 5556612652220013046}
   unlockable: 1
@@ -17397,7 +17412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1537782526}
   script_opposite_gate: {fileID: 5556612652124242279}
   unlockable: 1
@@ -17415,7 +17429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 357293747}
   script_opposite_gate: {fileID: 5556612652167593182}
   unlockable: 1
@@ -17433,7 +17446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1537782526}
   script_opposite_gate: {fileID: 5556612652158978890}
   unlockable: 1
@@ -17451,7 +17463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5556612652045189487}
   unlockable: 1
@@ -17469,7 +17480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1835361356}
   script_opposite_gate: {fileID: 5556612651876455057}
   unlockable: 1
@@ -17487,7 +17497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1915357585}
   script_opposite_gate: {fileID: 5344214737806663434}
   unlockable: 1
@@ -17505,7 +17514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 2118475050}
   script_opposite_gate: {fileID: 5344214737024432250}
   unlockable: 1
@@ -17523,7 +17531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1781288557}
   script_opposite_gate: {fileID: 5344214738915109474}
   unlockable: 1
@@ -17541,7 +17548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1781288557}
   script_opposite_gate: {fileID: 5344214738813385116}
   unlockable: 1
@@ -17559,7 +17565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1977128680}
   script_opposite_gate: {fileID: 5344214738667977108}
   unlockable: 1
@@ -17577,7 +17582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 357293747}
   script_opposite_gate: {fileID: 5344214738699563961}
   unlockable: 1
@@ -17595,7 +17599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5344214738691376173}
   unlockable: 1
@@ -17613,7 +17616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 2118475050}
   script_opposite_gate: {fileID: 5344214738504737029}
   unlockable: 1
@@ -17631,7 +17633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1916860951}
   script_opposite_gate: {fileID: 5344214738426529956}
   unlockable: 1
@@ -17649,7 +17650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 893863591}
   script_opposite_gate: {fileID: 5344214738195083368}
   unlockable: 1
@@ -17667,7 +17667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1835361356}
   script_opposite_gate: {fileID: 5344214738229900299}
   unlockable: 1
@@ -17685,7 +17684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b21e981cbcfde448ae6c6bc63caa1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_display: Gate
   script_unlock_room: {fileID: 1916860951}
   script_opposite_gate: {fileID: 5344214738022278480}
   unlockable: 1
@@ -17698,6 +17696,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780528444}
     m_Modifications:
+    - target: {fileID: 5603318209028562441, guid: bc0de1f9181cfd94cb75de80982d0b19,
+        type: 3}
+      propertyPath: waypoint_reached_threshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5603318209028562452, guid: bc0de1f9181cfd94cb75de80982d0b19,
         type: 3}
       propertyPath: m_LocalPosition.x

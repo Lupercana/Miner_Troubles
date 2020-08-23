@@ -30,8 +30,15 @@ public class Behavior_Player : MonoBehaviour
             {
                 if (tag == hit_tag)
                 {
+                    // Deactivate previous target
+                    if (target)
+                    {
+                        target.Deactivate();
+                    }
+
                     target = hit.transform.gameObject.GetComponent<Behavior_Interactable>();
                     target_activated = false;
+                    Debug.Log("Target set: " + target);
                 }
             }
 
@@ -67,12 +74,14 @@ public class Behavior_Player : MonoBehaviour
             path_current = null;
         }
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
-        if (target && collision.collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
+        if (target)
+            Debug.Log(target + " " + target_activated + " " + collider.gameObject.GetInstanceID() + " | " + target.gameObject.GetInstanceID());
+        if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
         {
             // We've reached the target, interact with it
+            Debug.Log("A");
             target.Activate();
             target_activated = true;
 
@@ -82,10 +91,11 @@ public class Behavior_Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collider)
     {
-        if (target && collision.collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && target_activated)
+        if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && target_activated)
         {
+            Debug.Log("D");
             target.Deactivate();
             target = null;
         }
