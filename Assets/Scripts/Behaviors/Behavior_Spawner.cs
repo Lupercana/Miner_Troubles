@@ -66,7 +66,7 @@ public class Behavior_Spawner : MonoBehaviour
         float amount_gain = durability_decrease / max_durability * current_amount;
         mining_residue += amount_gain;
         int gem_gain = (int)mining_residue;
-        if (mining_residue > 0)
+        if (gem_gain > 0)
         {
             Manager_Main.Instance.ChangeGemQuantity(gem_tier, gem_gain);
             int xp_gain = Manager_Main.Instance.GetGemXP()[gem_tier] * gem_gain;
@@ -75,7 +75,6 @@ public class Behavior_Spawner : MonoBehaviour
         }
 
         script_durability_meter.SetValue(current_durability / max_durability);
-        current_durability -= durability_decrease; 
     }
 
     public bool Spawn()
@@ -140,7 +139,7 @@ public class Behavior_Spawner : MonoBehaviour
             
         // Set variables
         active = true;
-        mining_residue = 0;
+        mining_residue = 0.5f; // Solves rounding issues
         mining_particle_play_next = mining_particle_thresh;
 
         return true;
