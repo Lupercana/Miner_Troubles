@@ -15,13 +15,18 @@ public class Behavior_Gate : Behavior_Interactable
     {
         if (unlockable && Manager_Main.Instance.GetGemQuantities()[cost_tier] >= cost_amount)
         {
-            Manager_Main.Instance.GetGemQuantities()[cost_tier] -= cost_amount;
+            Manager_Main.Instance.ChangeGemQuantity(cost_tier, -cost_amount);
             script_unlock_room.gameObject.SetActive(true);
             script_opposite_gate.gameObject.SetActive(false);
             gameObject.SetActive(false);
 
             // Play effects
             Manager_Sounds.Instance.PlayPurchase();
+        }
+        else
+        {
+            // Play effects
+            Manager_Sounds.Instance.PlayDenied();
         }
     }
 

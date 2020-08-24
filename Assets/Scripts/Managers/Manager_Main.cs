@@ -7,6 +7,7 @@ public class Manager_Main : MonoBehaviour
 {
     public enum Tool_Type
     {
+        Gloves,
         Pickaxe,
         Hammer,
         Bomb,
