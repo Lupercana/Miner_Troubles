@@ -48,20 +48,20 @@ public class Behavior_Workbench : Behavior_Interactable
         {
             if (current_tool.tier < Manager_Main.Instance.GetGemColors().Length - 1) // Can still upgrade
             {
-                Manager_Main.Instance.SetUIHelperText(tool_name + " Workbench || Upgrade cost:");
+                Manager_Main.Instance.SetUIHelperText(tool_name + " || Upgrade cost:");
                 helper_gems[current_tool.tier] = workshop_tool_upgrade_cost;
                 Manager_Main.Instance.SetUIHelperGems(helper_gems);
             }
             else // No more upgrades
             {
-                Manager_Main.Instance.SetUIHelperText(tool_name + " Workbench || No more upgrades");
+                Manager_Main.Instance.SetUIHelperText(tool_name + " || No more upgrades");
                 Manager_Main.Instance.SetUIHelperGems(helper_gems);
             }
 
         }
         else // Change tool
         {
-            Manager_Main.Instance.SetUIHelperText(tool_name + " Workbench || Change cost:");
+            Manager_Main.Instance.SetUIHelperText(tool_name + " || Change cost:");
             helper_gems[current_tool.tier] = workshop_tool_change_cost;
             Manager_Main.Instance.SetUIHelperGems(helper_gems);
         }
@@ -73,19 +73,19 @@ public class Behavior_Workbench : Behavior_Interactable
         switch (workshop_type)
         {
             case Manager_Main.Tool_Type.Gloves:
-                tool_name = "Gloves";
+                tool_name = "Gloves (Basic) Workshop";
                 break;
             case Manager_Main.Tool_Type.Pickaxe:
-                tool_name = "Pickaxe";
+                tool_name = "Pickaxe (Continuous Hit) Workshop";
                 break;
             case Manager_Main.Tool_Type.Hammer:
-                tool_name = "Hammer";
+                tool_name = "Hammer (Single Hit) Workshop";
                 break;
             case Manager_Main.Tool_Type.Bomb:
-                tool_name = "Bomb";
+                tool_name = "Bomb (Single AoE) Workshop";
                 break;
             case Manager_Main.Tool_Type.Staff:
-                tool_name = "Staff";
+                tool_name = "Staff (Continuous Chain) Workshop";
                 break;
         }
     }

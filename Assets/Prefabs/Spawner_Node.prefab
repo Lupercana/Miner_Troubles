@@ -213,6 +213,15 @@ MonoBehaviour:
   spawn_amount: 25
   spawn_chance: 9
   durability_multiplier: 4
+  gloves_mining_multplier: 0.5
+  pickaxe_mining_multplier: 1
+  hammer_mining_multplier: 10
+  bomb_mining_multplier: 5
+  bomb_radius: 2
+  bomb_mine_level_scale: 0.1
+  staff_mining_multplier: 0.1
+  staff_chain_radius: 2
+  staff_mine_level_scale: 0.01
 --- !u!114 &5047948583519790141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +386,15 @@ MonoBehaviour:
   spawn_amount: 250
   spawn_chance: 1
   durability_multiplier: 20
+  gloves_mining_multplier: 0.5
+  pickaxe_mining_multplier: 1
+  hammer_mining_multplier: 10
+  bomb_mining_multplier: 5
+  bomb_radius: 2
+  bomb_mine_level_scale: 0.1
+  staff_mining_multplier: 0.1
+  staff_chain_radius: 2
+  staff_mine_level_scale: 0.01
 --- !u!114 &2603776376525435290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10383,6 +10401,15 @@ MonoBehaviour:
   spawn_amount: 5
   spawn_chance: 90
   durability_multiplier: 1
+  gloves_mining_multplier: 0.5
+  pickaxe_mining_multplier: 1
+  hammer_mining_multplier: 10
+  bomb_mining_multplier: 5
+  bomb_radius: 2
+  bomb_mine_level_scale: 0.1
+  staff_mining_multplier: 0.1
+  staff_chain_radius: 2
+  staff_mine_level_scale: 0.01
 --- !u!58 &5351635525102340891
 CircleCollider2D:
   m_ObjectHideFlags: 0

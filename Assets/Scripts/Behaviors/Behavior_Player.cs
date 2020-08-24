@@ -36,6 +36,13 @@ public class Behavior_Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
+            // Deactivate previous target
+            if (target)
+            {
+                target.Deactivate();
+                target = null;
+            }
+
             Vector2 mouse_world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mouse_world, Vector2.zero, 0f);
             if (hit)
@@ -45,12 +52,6 @@ public class Behavior_Player : MonoBehaviour
                 {
                     if (tag == hit_tag)
                     {
-                        // Deactivate previous target
-                        if (target)
-                        {
-                            target.Deactivate();
-                        }
-
                         target = hit.transform.gameObject.GetComponent<Behavior_Interactable>();
                         target_activated = false;
                         //Debug.Log("Target set: " + target);

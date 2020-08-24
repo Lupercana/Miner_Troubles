@@ -40,14 +40,43 @@ public class Behavior_Spawner : MonoBehaviour
     private int total_type_chances = 0;
     private int current_amount = 0;
     private bool active = false;
-    private bool mining = false;
 
     public Mining_Info GetMiningInfo()
     {
         return new Mining_Info(gem_tier, current_amount, current_durability);
     }
 
-    public void SetMining(bool m) { mining = m; }
+    public void DecreaseDurability(float durability_decrease) 
+    {
+        if (!active)
+        {
+            Debug.Log("Inactive Node Call");
+            return;
+        }
+
+        // Decrease the durability of the node
+        /* Now handled by Node script
+        float durability_decrease = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup();
+        */
+        durability_decrease = (durability_decrease > current_durability) ? current_durability : durability_decrease; // Don't go over current durability
+        current_durability -= durability_decrease;
+        
+
+        // Increase the gem gain from mining this node
+        float amount_gain = durability_decrease / max_durability * current_amount;
+        mining_residue += amount_gain;
+        int gem_gain = (int)mining_residue;
+        if (mining_residue > 0)
+        {
+            Manager_Main.Instance.ChangeGemQuantity(gem_tier, gem_gain);
+            int xp_gain = Manager_Main.Instance.GetGemXP()[gem_tier] * gem_gain;
+            Manager_Main.Instance.ChangeMiningXP(xp_gain);
+            mining_residue -= gem_gain;
+        }
+
+        script_durability_meter.SetValue(current_durability / max_durability);
+        current_durability -= durability_decrease; 
+    }
 
     public bool Spawn()
     {
@@ -111,7 +140,6 @@ public class Behavior_Spawner : MonoBehaviour
             
         // Set variables
         active = true;
-        mining = false;
         mining_residue = 0;
         mining_particle_play_next = mining_particle_thresh;
 
@@ -137,26 +165,8 @@ public class Behavior_Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (active && mining)
+        if (active)
         {
-            // Decrease the durability of the node
-            float durability_decrease = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup();
-            durability_decrease = (durability_decrease > current_durability) ? current_durability : durability_decrease; // Don't go over current durability
-            current_durability -= durability_decrease;
-
-            // Increase the gem gain from mining this node
-            float amount_gain = durability_decrease / max_durability * current_amount;
-            mining_residue += amount_gain;
-            int gem_gain = (int)mining_residue;
-            if (mining_residue > 0)
-            {
-                Manager_Main.Instance.ChangeGemQuantity(gem_tier, gem_gain);
-                int xp_gain = Manager_Main.Instance.GetGemXP()[gem_tier] * gem_gain;
-                Manager_Main.Instance.ChangeMiningXP(xp_gain);
-                mining_residue -= gem_gain;
-            }
-
-            script_durability_meter.SetValue(current_durability / max_durability);
             if (current_durability <= 0)
             {
                 active = false;

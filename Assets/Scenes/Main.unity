@@ -3455,7 +3455,7 @@ MonoBehaviour:
   - 50000
   gem_spawn_chance: 000100008000000040000000200000001000000008000000040000000200000001000000
   gem_xp: 01000000050000000a0000001e0000003200000064000000f4010000e803000010270000
-  gem_quantities: 0f2700000f2700000f2700000f2700000f2700000f2700000f2700000f2700000f270000
+  gem_quantities: 000000000000000000000000000000000000000000000000000000000000000000000000
   max_mining_color: {r: 1, g: 0.19607843, b: 0.19607843, a: 1}
   mining_level: 1
   max_mining_level: 99
@@ -4456,6 +4456,9 @@ MonoBehaviour:
   sfx_mining_finished: {fileID: 8300000, guid: 42f1d3732974c1a4aac063a102a71b3c, type: 3}
   sfx_denied: {fileID: 8300000, guid: dfeadb4d1b6f7bb4a84a6d8a77dbe431, type: 3}
   sfx_purchase: {fileID: 8300000, guid: 5ed5db4771af37c49beba6cbf37022ab, type: 3}
+  sfx_hammer_hit: {fileID: 8300000, guid: 90f8f824d4f76954793c36ddcf4b714c, type: 3}
+  sfx_bomb_hit: {fileID: 8300000, guid: f6b7eee8ffed18b40a483c86a91a002a, type: 3}
+  sfx_staff_hit: {fileID: 8300000, guid: 1724763034c86024cbb2445feee77d81, type: 3}
   starting_volume_music: 0.1
   starting_volume_sfx: 0.1
 --- !u!82 &814759094
@@ -5135,7 +5138,7 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_tool_change_cost
-      value: 100
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3914edf9b0d103a4aa127b431a441bd9, type: 3}
@@ -7546,7 +7549,7 @@ PrefabInstance:
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
