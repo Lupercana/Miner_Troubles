@@ -30,7 +30,7 @@ public class Behavior_Node : Behavior_Interactable
 
     public override void Activate()
     {
-        activate_tool = Manager_Main.Instance.GetCurrentTool();
+        activate_tool = Manager_Main.Instance.slot_tool.GetTool();
 
         mining = false;
         float base_mining_power = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup();

@@ -6,7 +6,7 @@ public class Mouse_Cursor : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer ref_sprite_renderer = null;
     [SerializeField] private Sprite image_cursor = null;
-    [SerializeField] private Vector2 hotspot; // Top left corner
+    [SerializeField] private Vector2 hotspot = Vector2.zero; // Top left corner
 
     private void Awake()
     {

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class UI_Transition_Slide : MonoBehaviour
 {
-    [SerializeField] private RectTransform ref_base_transform;
-    [SerializeField] private Vector2 offset;
+    [SerializeField] private RectTransform ref_base_transform = null;
+    [SerializeField] private Vector2 offset = Vector2.zero;
     [SerializeField] private bool start_active = true;
     [SerializeField] private float transition_speed = 0f;
     

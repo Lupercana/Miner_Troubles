@@ -7,6 +7,7 @@ public class Manager_Main : MonoBehaviour
 {
     public enum Tool_Type
     {
+        None,
         Gloves,
         Pickaxe,
         Hammer,
@@ -15,16 +16,48 @@ public class Manager_Main : MonoBehaviour
     }
 
     [System.Serializable]
-    public struct Tool
+    public struct Tool_Map
     {
+        public Tool_Type tool;
         public Sprite sprite;
+        public string name;
+        public string description;
+    }
+    [SerializeField] private Tool_Map[] tool_map = null;
+    private Dictionary<Tool_Type, Sprite> TT_Sprite = new Dictionary<Tool_Type, Sprite>(); // Built in awake
+    private Dictionary<Tool_Type, string> TT_Name = new Dictionary<Tool_Type, string>(); // Built in awake
+    private Dictionary<Tool_Type, string> TT_Description = new Dictionary<Tool_Type, string>(); // Built in awake
+
+    [System.Serializable]
+    public class Tool
+    {
         public Tool_Type type;
         public int tier;
-        public Tool(Sprite s, Tool_Type tt, int t)
+        public Tool()
         {
-            sprite = s;
+            type = Tool_Type.None;
+            tier = 0;
+        }
+        public Tool(Tool_Type tt, int t)
+        {
             type = tt;
             tier = t;
+        }
+    }
+
+    [System.Serializable]
+    public class Slot
+    {
+        [SerializeField] private Image ref_image = null;
+        [SerializeField] private Tool current_tool;
+
+        public Tool GetTool() { return current_tool; }
+
+        public void SetTool(Tool new_tool)
+        {
+            current_tool = new_tool;
+            ref_image.sprite = Manager_Main.Instance.GetToolSprite(new_tool.type);
+            ref_image.color = Manager_Main.Instance.GetGemColors()[current_tool.tier];
         }
     }
 
@@ -45,26 +78,29 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private Text ui_text_mining_level = null;
     [SerializeField] private Slider ui_slider_mining_xp = null;
     [SerializeField] private Slider ui_slider_tool_cd = null;
-    [SerializeField] private Image ui_image_slot_tool = null;
-    [SerializeField] private Image ui_image_slot_ring = null;
-    [SerializeField] private Image[] ui_image_slot_extra = null;
+
+    // Slots
+    [SerializeField] public Slot slot_tool = null;
+    [SerializeField] public Slot slot_ring = null;
+    [SerializeField] public Slot[] slot_extras = null;
 
     // Particles
     [SerializeField] private ParticleSystem particle_level_up = null;
 
     // Misc
-    [SerializeField] private Tool current_tool; // Modified later
     [SerializeField] private float[] tool_tier_speedups = null;
     [SerializeField] private Color[] gem_colors = null;
     [SerializeField] private float[] gem_healths = null;
     [SerializeField] private int[] gem_spawn_chance = null;
     [SerializeField] private int[] gem_xp = null;
     [SerializeField] private int[] gem_quantities = null; // Modified later
-    [SerializeField] private Color max_mining_color = Color.white;
+    [SerializeField] private Color maxed_color = Color.white;
     [SerializeField] private int mining_level = 1; // Modified later
     [SerializeField] private int max_mining_level = 1;
+    [SerializeField] private int max_gems = 1;
     [SerializeField] private float leveling_exp_base = 1f;
 
+    private Color original_gem_text_color;
     private int[] total_gem_chances;
     private int mining_xp = 0;
     private int xp_needed = 0;
@@ -76,8 +112,10 @@ public class Manager_Main : MonoBehaviour
     public int[] GetGemXP() { return gem_xp; }
     public int GetMiningLevel() { return mining_level; }
     public int GetTotalGemChances(int gem_max) { return total_gem_chances[gem_max]; }
-    public Tool GetCurrentTool() { return current_tool; }
-    public float GetToolSpeedup() { return tool_tier_speedups[current_tool.tier]; }
+    public float GetToolSpeedup() { return tool_tier_speedups[slot_tool.GetTool().tier]; }
+    public Sprite GetToolSprite(Tool_Type tool_type) { return TT_Sprite[tool_type]; }
+    public string GetToolName(Tool_Type tool_type) { return TT_Name[tool_type]; }
+    public string GetToolDescription(Tool_Type tool_type) { return TT_Description[tool_type]; }
 
     public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.ForceSoftware); }
     public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.ForceSoftware); }
@@ -116,13 +154,6 @@ public class Manager_Main : MonoBehaviour
     {
         ui_helper_general_text.text = new_text;
     }
-    public void SetCurrentTool(Tool new_tool)
-    {
-        current_tool = new_tool;
-
-        ui_image_slot_tool.sprite = current_tool.sprite;
-        ui_image_slot_tool.color = gem_colors[current_tool.tier];
-    }
 
     public void ChangeGemQuantity(int gem_tier, int change_amount)
     {
@@ -133,6 +164,16 @@ public class Manager_Main : MonoBehaviour
         }
 
         gem_quantities[gem_tier] += change_amount;
+        if (gem_quantities[gem_tier] >= max_gems)
+        {
+            gem_quantities[gem_tier] = max_gems;
+            ui_gem_texts[gem_tier].color = maxed_color;
+        }
+        else
+        {
+            ui_gem_texts[gem_tier].color = original_gem_text_color;
+        }
+
         ui_gem_texts[gem_tier].text = gem_quantities[gem_tier].ToString();
     }
     public void ChangeMiningXP(int change_amount)
@@ -146,12 +187,12 @@ public class Manager_Main : MonoBehaviour
             if (mining_level == max_mining_level)
             {
                 // Just hit max level
-                ui_text_mining_level.color = max_mining_color;
+                ui_text_mining_level.color = maxed_color;
                 ui_slider_mining_xp.value = 1f;
             }
 
             // Update UI
-            ui_text_mining_level.text = "Lv " + mining_level;
+            SetMiningLvText();
 
             // Play effects
             particle_level_up.Play();
@@ -176,6 +217,13 @@ public class Manager_Main : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+        foreach (Tool_Map tm in tool_map)
+        {
+            TT_Sprite.Add(tm.tool, tm.sprite);
+            TT_Name.Add(tm.tool, tm.name);
+            TT_Description.Add(tm.tool, tm.description);
+        }
     }
 
     private void Start()
@@ -185,10 +233,14 @@ public class Manager_Main : MonoBehaviour
 
         // Set helper
         ui_helper_last_id = 0;
-        //SetUIHelperActive(false, ui_helper_last_id);
 
-        // Set UI Slots
-        SetCurrentTool(current_tool);
+        // Set all tools to their defaults
+        slot_tool.SetTool(slot_tool.GetTool());
+        slot_tool.SetTool(slot_tool.GetTool());
+        foreach (Slot s in slot_extras)
+        {
+            s.SetTool(s.GetTool());
+        }
 
         // Set gem colors in UI
         for (int i = 0; i < ui_gems.Length; ++i)
@@ -196,11 +248,12 @@ public class Manager_Main : MonoBehaviour
             ui_gems[i].color = gem_colors[i];
             ui_helper_gems[i].color = gem_colors[i];
             ui_gem_texts[i].text = gem_quantities[i].ToString();
+            original_gem_text_color = ui_gem_texts[i].color;
         }
 
         // Set mining level text
         mining_level = (mining_level > max_mining_level) ? max_mining_level : mining_level;
-        ui_text_mining_level.text = "Lv " + mining_level;
+        SetMiningLvText();
 
         // Set mining xp slider
         mining_xp = 0;
@@ -223,5 +276,10 @@ public class Manager_Main : MonoBehaviour
     private int XPToNextLevel(int current_level)
     {
         return (int)Mathf.Pow(leveling_exp_base, current_level);
+    }
+
+    private void SetMiningLvText()
+    {
+        ui_text_mining_level.text = mining_level.ToString("D" + (Mathf.FloorToInt(Mathf.Log10(max_mining_level)) + 1));
     }
 }
