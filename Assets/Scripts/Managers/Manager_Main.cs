@@ -78,8 +78,8 @@ public class Manager_Main : MonoBehaviour
     public Tool GetCurrentTool() { return current_tool; }
     public float GetToolSpeedup() { return tool_tier_speedups[current_tool.tier]; }
 
-    public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.Auto); }
-    public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.Auto); }
+    public void SetCursorNormal() { Cursor.SetCursor(cursor_normal, cursor_hotspot, CursorMode.ForceSoftware); }
+    public void SetCursorInteractable() { Cursor.SetCursor(cursor_interactable, cursor_hotspot, CursorMode.ForceSoftware); }
     public void SetUIHelperActive(bool active, int caller_id)
     {
         if (active)
