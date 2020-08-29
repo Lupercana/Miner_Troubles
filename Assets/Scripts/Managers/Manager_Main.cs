@@ -38,7 +38,7 @@ public class Manager_Main : MonoBehaviour
     // UI
     [SerializeField] private Image[] ui_gems = null;
     [SerializeField] private Text[] ui_gem_texts = null;
-    [SerializeField] private GameObject ui_helper_base = null;
+    [SerializeField] private UI_Transition_Slide ui_helper_base = null;
     [SerializeField] private Text ui_helper_general_text = null;
     [SerializeField] private Image[] ui_helper_gems = null;
     [SerializeField] private Text[] ui_helper_gem_texts = null;
@@ -52,6 +52,7 @@ public class Manager_Main : MonoBehaviour
     // Particles
     [SerializeField] private ParticleSystem particle_level_up = null;
 
+    // Misc
     [SerializeField] private Tool current_tool; // Modified later
     [SerializeField] private float[] tool_tier_speedups = null;
     [SerializeField] private Color[] gem_colors = null;
@@ -93,7 +94,7 @@ public class Manager_Main : MonoBehaviour
 
         if (ui_helper_base)
         {
-            ui_helper_base.SetActive(active);
+            ui_helper_base.ToggleActive(active);
             if (active)
             {
                 SetCursorInteractable();
@@ -184,7 +185,7 @@ public class Manager_Main : MonoBehaviour
 
         // Set helper
         ui_helper_last_id = 0;
-        SetUIHelperActive(false, ui_helper_last_id);
+        //SetUIHelperActive(false, ui_helper_last_id);
 
         // Set UI Slots
         SetCurrentTool(current_tool);

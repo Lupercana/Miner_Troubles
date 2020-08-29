@@ -3386,7 +3386,7 @@ MonoBehaviour:
   - {fileID: 1566517053}
   - {fileID: 398596148}
   - {fileID: 1175953893}
-  ui_helper_base: {fileID: 2027046514}
+  ui_helper_base: {fileID: 2027046518}
   ui_helper_general_text: {fileID: 1160608536}
   ui_helper_gems:
   - {fileID: 1197427807}
@@ -13131,6 +13131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027046515}
+  - component: {fileID: 2027046518}
   - component: {fileID: 2027046517}
   - component: {fileID: 2027046516}
   m_Layer: 5
@@ -13198,6 +13199,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027046514}
   m_CullTransparentMesh: 0
+--- !u!114 &2027046518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027046514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0ece9e09b286d4998ac3e675495a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ref_base_transform: {fileID: 2027046515}
+  offset: {x: 0, y: -75}
+  start_active: 0
+  transition_speed: 5
 --- !u!1 &2093866256
 GameObject:
   m_ObjectHideFlags: 0
