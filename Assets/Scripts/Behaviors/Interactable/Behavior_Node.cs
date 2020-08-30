@@ -6,12 +6,26 @@ public class Behavior_Node : Behavior_Interactable
 {
     [SerializeField] private Behavior_Spawner ref_parent_spawner = null;
     [SerializeField] private Effect_Grow effect_grow = null;
+    [SerializeField] private Effect_Shake effect_shake = null;
 
     private bool mining = false;
     private float mining_multiplier = 0f;
     private Manager_Main.Tool activate_tool;
 
     public Behavior_Spawner GetSpawner() { return ref_parent_spawner; }
+
+    public void Grow(float mult = 0)
+    {
+        if (!effect_grow.IsGrowing())
+        {
+            effect_grow.Grow(mult);
+        }
+    }
+
+    public void Shake(float mult = 0)
+    {
+        effect_shake.Shake(mult);
+    }
 
     public override void Activate()
     {
@@ -32,7 +46,8 @@ public class Behavior_Node : Behavior_Interactable
             case Manager_Main.Tool_Type.Hammer:
                 mining_multiplier = Parameters_Mining.Instance.hammer_mining_multplier;
                 ref_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
-                effect_grow.Grow();
+                Grow(Parameters_Mining.Instance.hammer_grow_mult);
+                Shake(Parameters_Mining.Instance.hammer_shake_mult);
                 Manager_Sounds.Instance.PlayHammerHit();
                 break;
             case Manager_Main.Tool_Type.Bomb:
@@ -43,7 +58,9 @@ public class Behavior_Node : Behavior_Interactable
                 {
                     if (colli.tag == "Node")
                     {
-                        colli.GetComponent<Behavior_Node>().GetSpawner().DecreaseDurability(base_mining_power * mining_multiplier);
+                        Behavior_Node script_node = colli.GetComponent<Behavior_Node>();
+                        script_node.GetSpawner().DecreaseDurability(base_mining_power * mining_multiplier);
+                        script_node.Grow();
                     }
                 }
                 ref_parent_spawner.PlayEffectExplosion(explosion_radius, Manager_Main.Instance.GetGemColors()[activate_tool.tier]);
@@ -115,6 +132,9 @@ public class Behavior_Node : Behavior_Interactable
             {
                 ref_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
             }
+
+            // Play effect
+            Grow();
         }
     }
 

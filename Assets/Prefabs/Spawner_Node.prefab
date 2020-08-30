@@ -4904,6 +4904,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5099805865597017877}
   - component: {fileID: 3472254719475027022}
+  - component: {fileID: 8514856969769040757}
+  - component: {fileID: 1931300659075411751}
   m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
@@ -4976,6 +4978,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8514856969769040757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716131344003324259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  ref_sprite_renderer: {fileID: 3472254719475027022}
+  growth_speed: 1
+  time_revert_seconds: 0.1
+  distance_revert: 0
+  use_time: 1
+  use_distance: 0
+  set_inactive_after: 0
+--- !u!114 &1931300659075411751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716131344003324259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1fd9db42989d245851b7dcf4a67c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  shake_strength: 0.1
+  shake_duration_seconds: 0.5
+  fade: 1
 --- !u!1 &3868847148182426226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,7 +5030,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8648510333288392715}
   - component: {fileID: 4806748847128143183}
-  - component: {fileID: 3248919353455174103}
   - component: {fileID: 5047948583519790141}
   - component: {fileID: 4827626774166100257}
   m_Layer: 8
@@ -5024,30 +5067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ref_parent_spawner: {fileID: 8219962101125324254}
-  effect_grow: {fileID: 3248919353455174103}
---- !u!114 &3248919353455174103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868847148182426226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ref_sprite_renderer: {fileID: 2525083655812728147}
-  growth_speed: 1
-  time_revert_seconds: 0.1
-  distance_revert: 0
-  use_time: 1
-  use_distance: 0
-  set_inactive_after: 0
-  scale:
-    scale_x: 1
-    scale_y: 1
-    scale_z: 0
+  effect_grow: {fileID: 3873715473732836889}
+  effect_shake: {fileID: 6552926174645759436}
 --- !u!114 &5047948583519790141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5090,6 +5111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5138998767127097206}
   - component: {fileID: 2525083655812728147}
+  - component: {fileID: 3873715473732836889}
+  - component: {fileID: 6552926174645759436}
   m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
@@ -5162,6 +5185,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3873715473732836889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4131399217360013668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  ref_sprite_renderer: {fileID: 2525083655812728147}
+  growth_speed: 1
+  time_revert_seconds: 0.1
+  distance_revert: 0
+  use_time: 1
+  use_distance: 0
+  set_inactive_after: 0
+--- !u!114 &6552926174645759436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4131399217360013668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1fd9db42989d245851b7dcf4a67c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  shake_strength: 0.1
+  shake_duration_seconds: 0.5
+  fade: 1
 --- !u!1 &4313840051362691989
 GameObject:
   m_ObjectHideFlags: 0
@@ -5216,7 +5281,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7055805975774525879}
   - component: {fileID: 4855834956585804114}
-  - component: {fileID: 9106238836428534323}
   - component: {fileID: 2603776376525435290}
   - component: {fileID: 3817855968747587325}
   m_Layer: 8
@@ -5254,30 +5318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ref_parent_spawner: {fileID: 8219962101125324254}
-  effect_grow: {fileID: 9106238836428534323}
---- !u!114 &9106238836428534323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4796861347508636904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ref_sprite_renderer: {fileID: 2457075015160723037}
-  growth_speed: 1
-  time_revert_seconds: 0.1
-  distance_revert: 0
-  use_time: 1
-  use_distance: 0
-  set_inactive_after: 0
-  scale:
-    scale_x: 1
-    scale_y: 1
-    scale_z: 0
+  effect_grow: {fileID: 3749182318658608274}
+  effect_shake: {fileID: 9186885274493277284}
 --- !u!114 &2603776376525435290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5366,6 +5408,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1710964825960045334}
   - component: {fileID: 2457075015160723037}
+  - component: {fileID: 3749182318658608274}
+  - component: {fileID: 9186885274493277284}
   m_Layer: 8
   m_Name: GFX
   m_TagString: Node
@@ -5438,6 +5482,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3749182318658608274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5313356743888360407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  ref_sprite_renderer: {fileID: 2457075015160723037}
+  growth_speed: 1
+  time_revert_seconds: 0.1
+  distance_revert: 0
+  use_time: 1
+  use_distance: 0
+  set_inactive_after: 0
+--- !u!114 &9186885274493277284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5313356743888360407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1fd9db42989d245851b7dcf4a67c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  shake_strength: 0.1
+  shake_duration_seconds: 0.5
+  fade: 1
 --- !u!1 &5412718731685796200
 GameObject:
   m_ObjectHideFlags: 0
@@ -15343,6 +15429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis:
+    use_x: 0
+    use_y: 0
+    use_z: 0
   ref_sprite_renderer: {fileID: 663169014686085522}
   growth_speed: 100
   time_revert_seconds: 0
@@ -15350,10 +15440,6 @@ MonoBehaviour:
   use_time: 0
   use_distance: 1
   set_inactive_after: 1
-  scale:
-    scale_x: 1
-    scale_y: 1
-    scale_z: 0
 --- !u!1 &8664074714773818252
 GameObject:
   m_ObjectHideFlags: 0
@@ -20178,7 +20264,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8877115433924322425}
   - component: {fileID: 5836684370911088199}
-  - component: {fileID: 2282186227283784363}
   - component: {fileID: 5351635525102340891}
   - component: {fileID: 6859132495970530367}
   m_Layer: 8
@@ -20216,30 +20301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ref_parent_spawner: {fileID: 8219962101125324254}
-  effect_grow: {fileID: 2282186227283784363}
---- !u!114 &2282186227283784363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8857007057372937282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ref_sprite_renderer: {fileID: 3472254719475027022}
-  growth_speed: 1
-  time_revert_seconds: 0.1
-  distance_revert: 0
-  use_time: 1
-  use_distance: 0
-  set_inactive_after: 0
-  scale:
-    scale_x: 1
-    scale_y: 1
-    scale_z: 0
+  effect_grow: {fileID: 8514856969769040757}
+  effect_shake: {fileID: 1931300659075411751}
 --- !u!58 &5351635525102340891
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -91,7 +91,7 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] public Slot slot_ring = null;
     [SerializeField] public Slot[] slot_extras = null;
 
-    // Particles
+    // Effects
     [SerializeField] private ParticleSystem particle_level_up = null;
 
     // Misc

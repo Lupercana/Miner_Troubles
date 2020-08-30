@@ -67,8 +67,7 @@ public class Behavior_Spawner : MonoBehaviour
     {
         effect_explosion_sprite_renderer.color = explosion_color;
         effect_explosion.SetGrowDistance(explosion_radius);
-        effect_explosion.SetGrowSpeedMultplier(explosion_radius);
-        effect_explosion.Grow();
+        effect_explosion.Grow(explosion_radius);
     }
 
     public void DecreaseDurability(float durability_decrease) 
@@ -85,7 +84,6 @@ public class Behavior_Spawner : MonoBehaviour
         */
         durability_decrease = (durability_decrease > current_durability) ? current_durability : durability_decrease; // Don't go over current durability
         current_durability -= durability_decrease;
-        
 
         // Increase the gem gain from mining this node
         float amount_gain = durability_decrease / max_durability * current_amount;

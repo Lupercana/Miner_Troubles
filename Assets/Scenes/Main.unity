@@ -3677,19 +3677,19 @@ MonoBehaviour:
   slot_extras:
   - ref_image: {fileID: 900751359}
     current_tool:
-      type: 0
+      type: 2
       tier: 0
   - ref_image: {fileID: 318417286}
     current_tool:
-      type: 0
+      type: 3
       tier: 0
   - ref_image: {fileID: 595891972}
     current_tool:
-      type: 0
+      type: 4
       tier: 0
   - ref_image: {fileID: 334731638}
     current_tool:
-      type: 0
+      type: 5
       tier: 0
   particle_level_up: {fileID: 1143904134}
   ref_player: {fileID: 150568308}
@@ -4836,7 +4836,7 @@ MonoBehaviour:
   sfx_mining_finished: {fileID: 8300000, guid: 42f1d3732974c1a4aac063a102a71b3c, type: 3}
   sfx_denied: {fileID: 8300000, guid: dfeadb4d1b6f7bb4a84a6d8a77dbe431, type: 3}
   sfx_purchase: {fileID: 8300000, guid: 5ed5db4771af37c49beba6cbf37022ab, type: 3}
-  sfx_hammer_hit: {fileID: 8300000, guid: 90f8f824d4f76954793c36ddcf4b714c, type: 3}
+  sfx_hammer_hit: {fileID: 8300000, guid: 2d404eace0efcd247b89fd3aa3b13107, type: 3}
   sfx_bomb_hit: {fileID: 8300000, guid: f6b7eee8ffed18b40a483c86a91a002a, type: 3}
   sfx_staff_hit: {fileID: 8300000, guid: 1724763034c86024cbb2445feee77d81, type: 3}
   sfx_tool_change: {fileID: 8300000, guid: 0667f4b62eeb9894b86423fdc5922697, type: 3}
@@ -9789,6 +9789,8 @@ MonoBehaviour:
   gloves_mining_multplier: 0.5
   pickaxe_mining_multplier: 5
   hammer_mining_multplier: 100
+  hammer_grow_mult: 10
+  hammer_shake_mult: 1
   bomb_mining_multplier: 1
   bomb_radius: 2
   bomb_mine_level_scale: 0.05
@@ -19772,7 +19774,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1436950060767812428, guid: bc0de1f9181cfd94cb75de80982d0b19, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bc0de1f9181cfd94cb75de80982d0b19, type: 3}
 --- !u!212 &7142655114109900251
 SpriteRenderer:
