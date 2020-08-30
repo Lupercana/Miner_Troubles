@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Behavior_Spawner : MonoBehaviour
 {
+    [System.Serializable]
+    public struct Node_Type
+    {
+        public GameObject ref_node;
+        public int spawn_amount;
+        public int spawn_chance;
+        public int durability_multiplier;
+    }
+    [SerializeField]
+
     public struct Mining_Info
     {
         public int gem_tier;
@@ -18,7 +28,7 @@ public class Behavior_Spawner : MonoBehaviour
         }
     }
 
-    [SerializeField] private Behavior_Node[] script_node_types = null;
+    [SerializeField] private Node_Type[] node_types = null;
     [SerializeField] private Helper_Node_Durability script_durability_meter = null;
 
     [SerializeField] private ParticleSystem particle_mining = null;
@@ -112,9 +122,9 @@ public class Behavior_Spawner : MonoBehaviour
         val = (val >= total_type_chances) ? (total_type_chances - 1) : val;
         found = false;
         int total = 0;
-        for (int i = 0; i < script_node_types.Length && !found; ++i)
+        for (int i = 0; i < node_types.Length && !found; ++i)
         {
-            total += script_node_types[i].GetSpawnChance();
+            total += node_types[i].spawn_chance;
             if (val < total)
             {
                 gem_type = i;
@@ -122,15 +132,15 @@ public class Behavior_Spawner : MonoBehaviour
             }
         }
 
-        max_durability = Manager_Main.Instance.GetGemHealths()[gem_tier] * script_node_types[gem_type].GetDurabilityMultiplier();
+        max_durability = Manager_Main.Instance.GetGemHealths()[gem_tier] * node_types[gem_type].durability_multiplier;
         current_durability = max_durability;
         script_durability_meter.SetValue(current_durability / max_durability);
-        script_node_types[gem_type].gameObject.SetActive(true);
+        node_types[gem_type].ref_node.SetActive(true);
         script_durability_meter.gameObject.SetActive(true);
         Color c = Manager_Main.Instance.GetGemColors()[gem_tier];
-        SpriteRenderer node_sprite_renderer = script_node_types[gem_type].GetComponentInChildren<SpriteRenderer>();
+        SpriteRenderer node_sprite_renderer = node_types[gem_type].ref_node.GetComponentInChildren<SpriteRenderer>();
         node_sprite_renderer.color = c;
-        current_amount = script_node_types[gem_type].GetSpawnAmount();
+        current_amount = node_types[gem_type].spawn_amount;
 
         // Set particles
         MM_mining.startColor = c;
@@ -154,9 +164,9 @@ public class Behavior_Spawner : MonoBehaviour
 
     private void Start()
     {
-        foreach (Behavior_Node node in script_node_types)
+        foreach (Node_Type node in node_types)
         {
-            total_type_chances += node.GetSpawnChance();
+            total_type_chances += node.spawn_chance;
         }
 
         active = false;
@@ -169,7 +179,7 @@ public class Behavior_Spawner : MonoBehaviour
             if (current_durability <= 0)
             {
                 active = false;
-                script_node_types[gem_type].gameObject.SetActive(false);
+                node_types[gem_type].ref_node.SetActive(false);
                 script_durability_meter.gameObject.SetActive(false);
 
                 // Play effects

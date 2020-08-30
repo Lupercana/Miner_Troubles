@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Manager_Main : MonoBehaviour
 {
+    public static Manager_Main Instance = null;
+
     public enum Tool_Type
     {
         None,
@@ -60,8 +62,6 @@ public class Manager_Main : MonoBehaviour
             ref_image.color = Manager_Main.Instance.GetGemColors()[current_tool.tier];
         }
     }
-
-    public static Manager_Main Instance = null;
 
     // Cursor
     [SerializeField] public Texture2D cursor_normal = null;

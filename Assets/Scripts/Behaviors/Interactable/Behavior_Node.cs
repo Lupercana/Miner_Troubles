@@ -6,27 +6,11 @@ public class Behavior_Node : Behavior_Interactable
 {
     [SerializeField] private Behavior_Spawner ref_parent_spawner = null;
 
-    [SerializeField] private int spawn_amount = 1;
-    [SerializeField] private int spawn_chance = 1;
-    [SerializeField] private float durability_multiplier = 1f;
-    [SerializeField] private float gloves_mining_multplier = 1f;
-    [SerializeField] private float pickaxe_mining_multplier = 1f;
-    [SerializeField] private float hammer_mining_multplier = 1f;
-    [SerializeField] private float bomb_mining_multplier = 1f;
-    [SerializeField] private float bomb_radius = 1f;
-    [SerializeField] private float bomb_mine_level_scale = 0.1f;
-    [SerializeField] private float staff_mining_multplier = 1f;
-    [SerializeField] private float staff_chain_radius = 1f;
-    [SerializeField] private float staff_mine_level_scale = 0.01f;
-
     private bool mining = false;
     private float mining_multiplier = 0f;
     private Manager_Main.Tool activate_tool;
 
     public Behavior_Spawner GetSpawner() { return ref_parent_spawner; }
-    public int GetSpawnAmount() { return spawn_amount; }
-    public int GetSpawnChance() { return spawn_chance; }
-    public float GetDurabilityMultiplier() { return durability_multiplier; }
 
     public override void Activate()
     {
@@ -37,21 +21,21 @@ public class Behavior_Node : Behavior_Interactable
         switch (activate_tool.type)
         {
             case Manager_Main.Tool_Type.Gloves:
-                mining_multiplier = gloves_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.gloves_mining_multplier;
                 mining = true;
                 break;
             case Manager_Main.Tool_Type.Pickaxe:
-                mining_multiplier = pickaxe_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.pickaxe_mining_multplier;
                 mining = true;
                 break;
             case Manager_Main.Tool_Type.Hammer:
-                mining_multiplier = hammer_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.hammer_mining_multplier;
                 ref_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
                 Manager_Sounds.Instance.PlayHammerHit();
                 break;
             case Manager_Main.Tool_Type.Bomb:
-                mining_multiplier = bomb_mining_multplier;
-                Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(transform.position, bomb_radius + Manager_Main.Instance.GetMiningLevel() * bomb_mine_level_scale);
+                mining_multiplier = Parameters_Mining.Instance.bomb_mining_multplier;
+                Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(transform.position, Parameters_Mining.Instance.bomb_radius + Manager_Main.Instance.GetMiningLevel() * Parameters_Mining.Instance.bomb_mine_level_scale);
                 foreach(Collider2D colli in nearby_objs_colli)
                 {
                     if (colli.tag == "Node")
@@ -62,7 +46,7 @@ public class Behavior_Node : Behavior_Interactable
                 Manager_Sounds.Instance.PlayBombHit();
                 break;
             case Manager_Main.Tool_Type.Staff:
-                mining_multiplier = staff_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.staff_mining_multplier;
                 mining = true;
                 Manager_Sounds.Instance.PlayStaffHit();
                 break;
@@ -107,7 +91,7 @@ public class Behavior_Node : Behavior_Interactable
                     target.DecreaseDurability(base_mining_power * mining_multiplier);
                     processed_targets.Add(target.gameObject.GetInstanceID());
 
-                    Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(target.gameObject.transform.position, staff_chain_radius + Manager_Main.Instance.GetMiningLevel() * staff_mine_level_scale);
+                    Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(target.gameObject.transform.position, Parameters_Mining.Instance.staff_chain_radius + Manager_Main.Instance.GetMiningLevel() * Parameters_Mining.Instance.staff_mine_level_scale);
                     foreach (Collider2D colli in nearby_objs_colli)
                     {
                         if (colli.tag == "Node")

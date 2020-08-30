@@ -210,18 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ref_parent_spawner: {fileID: 8219962101125324254}
-  spawn_amount: 25
-  spawn_chance: 15
-  durability_multiplier: 4
-  gloves_mining_multplier: 0.5
-  pickaxe_mining_multplier: 5
-  hammer_mining_multplier: 100
-  bomb_mining_multplier: 1
-  bomb_radius: 2
-  bomb_mine_level_scale: 0.05
-  staff_mining_multplier: 0.1
-  staff_chain_radius: 2
-  staff_mine_level_scale: 0.01
 --- !u!114 &5047948583519790141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,18 +371,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ref_parent_spawner: {fileID: 8219962101125324254}
-  spawn_amount: 250
-  spawn_chance: 5
-  durability_multiplier: 20
-  gloves_mining_multplier: 0.5
-  pickaxe_mining_multplier: 5
-  hammer_mining_multplier: 100
-  bomb_mining_multplier: 1
-  bomb_radius: 2
-  bomb_mine_level_scale: 0.05
-  staff_mining_multplier: 0.1
-  staff_chain_radius: 2
-  staff_mine_level_scale: 0.01
 --- !u!114 &2603776376525435290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10310,10 +10286,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1958edb1d9917d40972a0bb79b996a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  script_node_types:
-  - {fileID: 5836684370911088199}
-  - {fileID: 4806748847128143183}
-  - {fileID: 4855834956585804114}
+  node_types:
+  - ref_node: {fileID: 8857007057372937282}
+    spawn_amount: 5
+    spawn_chance: 80
+    durability_multiplier: 1
+  - ref_node: {fileID: 3868847148182426226}
+    spawn_amount: 25
+    spawn_chance: 15
+    durability_multiplier: 4
+  - ref_node: {fileID: 4796861347508636904}
+    spawn_amount: 250
+    spawn_chance: 5
+    durability_multiplier: 20
   script_durability_meter: {fileID: 7324805501629824466}
   particle_mining: {fileID: 760383176921200098}
   particle_finished: {fileID: 5619323127199399698}
@@ -10398,18 +10383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ref_parent_spawner: {fileID: 8219962101125324254}
-  spawn_amount: 5
-  spawn_chance: 80
-  durability_multiplier: 1
-  gloves_mining_multplier: 0.5
-  pickaxe_mining_multplier: 5
-  hammer_mining_multplier: 100
-  bomb_mining_multplier: 1
-  bomb_radius: 2
-  bomb_mine_level_scale: 0.05
-  staff_mining_multplier: 0.1
-  staff_chain_radius: 2
-  staff_mine_level_scale: 0.01
 --- !u!58 &5351635525102340891
 CircleCollider2D:
   m_ObjectHideFlags: 0
