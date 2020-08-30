@@ -22,6 +22,7 @@ public class Manager_Sounds : MonoBehaviour
     [SerializeField] private AudioClip sfx_hammer_hit = null;
     [SerializeField] private AudioClip sfx_bomb_hit = null;
     [SerializeField] private AudioClip sfx_staff_hit = null;
+    [SerializeField] private AudioClip sfx_tool_change = null;
 
     [SerializeField] private float starting_volume_music = 0.5f;
     [SerializeField] private float starting_volume_sfx = 0.5f;
@@ -47,6 +48,7 @@ public class Manager_Sounds : MonoBehaviour
     public void PlayHammerHit() { source_sfx.PlayOneShot(sfx_hammer_hit); }
     public void PlayBombHit() { source_sfx.PlayOneShot(sfx_bomb_hit); }
     public void PlayStaffHit() { source_sfx.PlayOneShot(sfx_staff_hit); }
+    public void PlayToolChange() { source_sfx.PlayOneShot(sfx_tool_change); }
 
     public void StopSFX()
     {

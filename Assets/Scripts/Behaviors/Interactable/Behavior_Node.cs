@@ -68,7 +68,7 @@ public class Behavior_Node : Behavior_Interactable
         Manager_Main.Instance.SetUIHelperText("Mining Node || Contains:");
         int[] helper_gems = new int[Manager_Main.Instance.GetGemColors().Length];
         helper_gems[mi.gem_tier] = mi.gem_amount;
-        Manager_Main.Instance.SetUIHelperGems(helper_gems);
+        Manager_Main.Instance.SetUIHelperGems(true, helper_gems);
     }
 
     private void Start()

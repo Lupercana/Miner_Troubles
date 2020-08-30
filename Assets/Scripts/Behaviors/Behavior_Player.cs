@@ -18,6 +18,15 @@ public class Behavior_Player : MonoBehaviour
     private int path_waypoint_current;
     private bool target_activated;
 
+    public void ClearTarget()
+    {
+        if (target)
+        {
+            target.Deactivate();
+            target = null;
+        }
+    }
+
     private void Update()
     {
         // Don't respond to mouse over UI, gameobject refers to UI gameobject
@@ -112,9 +121,7 @@ public class Behavior_Player : MonoBehaviour
     {
         if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && target_activated)
         {
-            //Debug.Log("D");
-            target.Deactivate();
-            target = null;
+            ClearTarget();
         }
     }
 

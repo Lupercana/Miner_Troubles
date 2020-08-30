@@ -63,6 +63,13 @@ public class Manager_Main : MonoBehaviour
         }
     }
 
+    [System.Serializable]
+    public struct Gem_Cost
+    {
+        public int gem_tier;
+        public int gem_amount;
+    }
+
     // Cursor
     [SerializeField] public Texture2D cursor_normal = null;
     [SerializeField] public Texture2D cursor_interactable = null;
@@ -88,6 +95,7 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private ParticleSystem particle_level_up = null;
 
     // Misc
+    [SerializeField] private Behavior_Player ref_player = null;
     [SerializeField] private float[] tool_tier_speedups = null;
     [SerializeField] private Color[] gem_colors = null;
     [SerializeField] private float[] gem_healths = null;
@@ -143,11 +151,21 @@ public class Manager_Main : MonoBehaviour
             }
         }
     }
-    public void SetUIHelperGems(int[] gem_counts)
+    public void SetUIHelperGems(bool active, int[] gem_counts)
     {
         for (int i = 0; i < gem_counts.Length; ++i)
         {
-            ui_helper_gem_texts[i].text = gem_counts[i].ToString();
+            if (active)
+            {
+                ui_helper_gems[i].enabled = true;
+                ui_helper_gem_texts[i].enabled = true;
+                ui_helper_gem_texts[i].text = gem_counts[i].ToString();
+            }
+            else
+            {
+                ui_helper_gems[i].enabled = false;
+                ui_helper_gem_texts[i].enabled = false;
+            }
         }
     }
     public void SetUIHelperText(string new_text)
@@ -203,6 +221,21 @@ public class Manager_Main : MonoBehaviour
         {
             ui_slider_mining_xp.value = (float)mining_xp / xp_needed;
         }
+    }
+
+    public void PressedSlot(int slot_num)
+    {
+        if (slot_extras[slot_num].GetTool().type == Tool_Type.None)
+        {
+            Manager_Sounds.Instance.PlayDenied();
+            return;
+        }
+
+        Tool temp = slot_tool.GetTool();
+        slot_tool.SetTool((slot_extras[slot_num].GetTool()));
+        slot_extras[slot_num].SetTool(temp);
+        ref_player.ClearTarget(); // Prevents tool changeups
+        Manager_Sounds.Instance.PlayToolChange();
     }
 
     private void Awake()

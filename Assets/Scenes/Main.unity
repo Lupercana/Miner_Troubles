@@ -508,6 +508,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &150568308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5603318209028562441, guid: bc0de1f9181cfd94cb75de80982d0b19,
+    type: 3}
+  m_PrefabInstance: {fileID: 5603318208365398617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150568302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ace376290648e8429e1133c691d60f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &179549956
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +878,11 @@ PrefabInstance:
       propertyPath: workshop_tool_change_cost
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_amount
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3914edf9b0d103a4aa127b431a441bd9, type: 3}
 --- !u!1 &304320217
@@ -879,6 +896,7 @@ GameObject:
   - component: {fileID: 304320218}
   - component: {fileID: 304320220}
   - component: {fileID: 304320219}
+  - component: {fileID: 304320221}
   m_Layer: 5
   m_Name: Slot_Extra_2
   m_TagString: Untagged
@@ -945,6 +963,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304320217}
   m_CullTransparentMesh: 0
+--- !u!114 &304320221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304320217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 304320219}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 565854609}
+        m_MethodName: PressedSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &318417284
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,7 +3667,7 @@ MonoBehaviour:
   slot_tool:
     ref_image: {fileID: 1472017087}
     current_tool:
-      type: 3
+      type: 1
       tier: 0
   slot_ring:
     ref_image: {fileID: 406287515}
@@ -3620,6 +3692,7 @@ MonoBehaviour:
       type: 0
       tier: 0
   particle_level_up: {fileID: 1143904134}
+  ref_player: {fileID: 150568308}
   tool_tier_speedups:
   - 1
   - 2
@@ -3652,7 +3725,7 @@ MonoBehaviour:
   - 50000
   gem_spawn_chance: 640000005000000028000000140000000a00000008000000040000000200000001000000
   gem_xp: 01000000040000001400000096000000e803000010270000a086010040420f0080969800
-  gem_quantities: 000000000000000000000000000000000000000000000000000000000000000000000000
+  gem_quantities: 0f2700000f2700000f2700000f2700000f2700000f2700000f2700000f2700000f270000
   maxed_color: {r: 1, g: 0.29411766, b: 0.29411766, a: 1}
   mining_level: 99
   max_mining_level: 999
@@ -4238,11 +4311,26 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_type
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_tool_change_cost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: workshop_text
+      value: '*Reduced Upgrade Costs*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_tier
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_amount
       value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4598,11 +4686,21 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_type
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_tool_change_cost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_tier
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_amount
       value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4741,6 +4839,7 @@ MonoBehaviour:
   sfx_hammer_hit: {fileID: 8300000, guid: 90f8f824d4f76954793c36ddcf4b714c, type: 3}
   sfx_bomb_hit: {fileID: 8300000, guid: f6b7eee8ffed18b40a483c86a91a002a, type: 3}
   sfx_staff_hit: {fileID: 8300000, guid: 1724763034c86024cbb2445feee77d81, type: 3}
+  sfx_tool_change: {fileID: 8300000, guid: 0667f4b62eeb9894b86423fdc5922697, type: 3}
   starting_volume_music: 0.1
   starting_volume_sfx: 0.1
 --- !u!82 &814759094
@@ -5109,6 +5208,7 @@ GameObject:
   - component: {fileID: 858665547}
   - component: {fileID: 858665549}
   - component: {fileID: 858665548}
+  - component: {fileID: 858665550}
   m_Layer: 5
   m_Name: Slot_Extra_3
   m_TagString: Untagged
@@ -5175,6 +5275,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858665546}
   m_CullTransparentMesh: 0
+--- !u!114 &858665550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858665546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 858665548}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 565854609}
+        m_MethodName: PressedSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &859583494
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,11 +5570,21 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_type
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_tool_change_cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_tier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_amount
       value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6578,7 +6742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 10}
+  m_AnchoredPosition: {x: 0, y: 7}
   m_SizeDelta: {x: 0, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160608536
@@ -6602,7 +6766,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 12
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -6612,7 +6776,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: 'TEST
 
     TEST'
@@ -7464,6 +7628,7 @@ GameObject:
   - component: {fileID: 1427757281}
   - component: {fileID: 1427757283}
   - component: {fileID: 1427757282}
+  - component: {fileID: 1427757284}
   m_Layer: 5
   m_Name: Slot_Extra_1
   m_TagString: Untagged
@@ -7530,6 +7695,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427757280}
   m_CullTransparentMesh: 0
+--- !u!114 &1427757284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427757280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1427757282}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 565854609}
+        m_MethodName: PressedSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1446272673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8833,11 +9052,21 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_type
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_tool_change_cost
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_tier
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
+        type: 3}
+      propertyPath: initial_cost.gem_amount
       value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8958,7 +9187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 15}
+  m_AnchoredPosition: {x: 0, y: 8}
   m_SizeDelta: {x: 0, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1637009824
@@ -13427,6 +13656,7 @@ GameObject:
   - component: {fileID: 1988581766}
   - component: {fileID: 1988581768}
   - component: {fileID: 1988581767}
+  - component: {fileID: 1988581769}
   m_Layer: 5
   m_Name: Slot_Extra_0
   m_TagString: Untagged
@@ -13493,6 +13723,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988581765}
   m_CullTransparentMesh: 0
+--- !u!114 &1988581769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988581765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1988581767}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 565854609}
+        m_MethodName: PressedSlot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1997258486
 GameObject:
   m_ObjectHideFlags: 0
@@ -13649,7 +13933,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -2}
-  m_SizeDelta: {x: 0, y: 60}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2027046516
 MonoBehaviour:
@@ -15029,6 +15313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 1054735363371220712, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1054735363371220713, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}

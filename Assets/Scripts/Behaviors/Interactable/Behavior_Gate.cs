@@ -37,13 +37,13 @@ public class Behavior_Gate : Behavior_Interactable
             Manager_Main.Instance.SetUIHelperText("Gate || Unlock cost:");
             int[] helper_gems = new int[Manager_Main.Instance.GetGemColors().Length];
             helper_gems[cost_tier] = cost_amount;
-            Manager_Main.Instance.SetUIHelperGems(helper_gems);
+            Manager_Main.Instance.SetUIHelperGems(true, helper_gems);
         }
         else
         {
             Manager_Main.Instance.SetUIHelperText("Permanent Gate");
             int[] helper_gems = new int[Manager_Main.Instance.GetGemColors().Length];
-            Manager_Main.Instance.SetUIHelperGems(helper_gems);
+            Manager_Main.Instance.SetUIHelperGems(false, helper_gems);
         }
     }
 }
