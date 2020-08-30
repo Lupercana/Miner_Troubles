@@ -3595,7 +3595,7 @@ MonoBehaviour:
   slot_tool:
     ref_image: {fileID: 1472017087}
     current_tool:
-      type: 1
+      type: 3
       tier: 0
   slot_ring:
     ref_image: {fileID: 406287515}
@@ -3654,7 +3654,7 @@ MonoBehaviour:
   gem_xp: 01000000040000001400000096000000e803000010270000a086010040420f0080969800
   gem_quantities: 000000000000000000000000000000000000000000000000000000000000000000000000
   maxed_color: {r: 1, g: 0.29411766, b: 0.29411766, a: 1}
-  mining_level: 1
+  mining_level: 99
   max_mining_level: 999
   max_gems: 9999999
   leveling_exp_base: 1.2
@@ -4325,6 +4325,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743039555}
   m_CullTransparentMesh: 0
+--- !u!4 &772607270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4144308355629944593, guid: f1f4f1452a8323e4e8796af9272c3128,
+    type: 3}
+  m_PrefabInstance: {fileID: 1054735363228842710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779298338
 GameObject:
   m_ObjectHideFlags: 0
@@ -13957,7 +13963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ref_camera: {fileID: 2146778561}
   zoom_ortho_min: 1
-  zoom_ortho_max: 25
+  zoom_ortho_max: 50
   zoom_speed: 2000
 --- !u!114 &2146778564
 MonoBehaviour:
@@ -15429,6 +15435,11 @@ PrefabInstance:
       propertyPath: uniqueID
       value: 4802242073834006548
       objectReference: {fileID: 0}
+    - target: {fileID: 3476177069051181998, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: TriggerModule.collisionShape0
+      value: 
+      objectReference: {fileID: 772607270}
     - target: {fileID: 3480140757832560981, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}
       propertyPath: m_Enabled
@@ -15953,6 +15964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: uniqueID
       value: 290374140685526817
+      objectReference: {fileID: 0}
+    - target: {fileID: 7630146522822077604, guid: f1f4f1452a8323e4e8796af9272c3128,
+        type: 3}
+      propertyPath: m_Radius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7659873291778292515, guid: f1f4f1452a8323e4e8796af9272c3128,
         type: 3}

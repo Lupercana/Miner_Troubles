@@ -5,6 +5,7 @@ using UnityEngine;
 public class Behavior_Node : Behavior_Interactable
 {
     [SerializeField] private Behavior_Spawner ref_parent_spawner = null;
+    [SerializeField] private Effect_Grow effect_grow = null;
 
     private bool mining = false;
     private float mining_multiplier = 0f;
@@ -31,11 +32,13 @@ public class Behavior_Node : Behavior_Interactable
             case Manager_Main.Tool_Type.Hammer:
                 mining_multiplier = Parameters_Mining.Instance.hammer_mining_multplier;
                 ref_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
+                effect_grow.Grow();
                 Manager_Sounds.Instance.PlayHammerHit();
                 break;
             case Manager_Main.Tool_Type.Bomb:
                 mining_multiplier = Parameters_Mining.Instance.bomb_mining_multplier;
-                Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(transform.position, Parameters_Mining.Instance.bomb_radius + Manager_Main.Instance.GetMiningLevel() * Parameters_Mining.Instance.bomb_mine_level_scale);
+                float explosion_radius = Parameters_Mining.Instance.bomb_radius + Manager_Main.Instance.GetMiningLevel() * Parameters_Mining.Instance.bomb_mine_level_scale;
+                Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(transform.position, explosion_radius);
                 foreach(Collider2D colli in nearby_objs_colli)
                 {
                     if (colli.tag == "Node")
@@ -43,6 +46,7 @@ public class Behavior_Node : Behavior_Interactable
                         colli.GetComponent<Behavior_Node>().GetSpawner().DecreaseDurability(base_mining_power * mining_multiplier);
                     }
                 }
+                ref_parent_spawner.PlayEffectExplosion(explosion_radius, Manager_Main.Instance.GetGemColors()[activate_tool.tier]);
                 Manager_Sounds.Instance.PlayBombHit();
                 break;
             case Manager_Main.Tool_Type.Staff:
@@ -89,6 +93,7 @@ public class Behavior_Node : Behavior_Interactable
                 {
                     Behavior_Spawner target = targets.Dequeue();
                     target.DecreaseDurability(base_mining_power * mining_multiplier);
+                    target.PlayParticleLightning();
                     processed_targets.Add(target.gameObject.GetInstanceID());
 
                     Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(target.gameObject.transform.position, Parameters_Mining.Instance.staff_chain_radius + Manager_Main.Instance.GetMiningLevel() * Parameters_Mining.Instance.staff_mine_level_scale);

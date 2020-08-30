@@ -44,8 +44,8 @@ public class Behavior_Player : MonoBehaviour
             }
 
             Vector2 mouse_world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mouse_world, Vector2.zero, 0f);
-            if (hit)
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mouse_world, Vector2.zero, 0f);
+            foreach (RaycastHit2D hit in hits)
             {
                 string hit_tag = hit.transform.tag;
                 foreach (string tag in tag_interactables)

@@ -33,7 +33,9 @@ public class Behavior_Spawner : MonoBehaviour
 
     [SerializeField] private ParticleSystem particle_mining = null;
     [SerializeField] private ParticleSystem particle_finished = null;
-
+    [SerializeField] private ParticleSystem particle_lightning = null;
+    [SerializeField] private Effect_Grow effect_explosion = null;
+    [SerializeField] private SpriteRenderer effect_explosion_sprite_renderer = null;
 
     [SerializeField] private int mining_level_upgrade = 0; // After how many levels to upgrade gem tier
     [SerializeField] private float mining_particle_thresh = 0f;
@@ -54,6 +56,19 @@ public class Behavior_Spawner : MonoBehaviour
     public Mining_Info GetMiningInfo()
     {
         return new Mining_Info(gem_tier, current_amount, current_durability);
+    }
+
+    public void PlayParticleLightning()
+    {
+        particle_lightning.Play();
+    }
+
+    public void PlayEffectExplosion(float explosion_radius, Color explosion_color)
+    {
+        effect_explosion_sprite_renderer.color = explosion_color;
+        effect_explosion.SetGrowDistance(explosion_radius);
+        effect_explosion.SetGrowSpeedMultplier(explosion_radius);
+        effect_explosion.Grow();
     }
 
     public void DecreaseDurability(float durability_decrease) 
