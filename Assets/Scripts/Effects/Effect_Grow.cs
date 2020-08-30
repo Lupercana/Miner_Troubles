@@ -33,11 +33,11 @@ public class Effect_Grow : MonoBehaviour
     public void SetGrowTime(float new_time) { time_revert_seconds = new_time; }
     public void SetGrowDistance(float new_distance) { distance_revert = new_distance; }
 
-    public void Grow(float new_mult = 0)
+    public void Grow(float speed_mult = 0)
     {
         ref_sprite_renderer.enabled = true;
         growing = true;
-        growth_speed_multiplier = (new_mult == 0) ? 1f : new_mult;
+        growth_speed_multiplier = (speed_mult == 0) ? 1f : speed_mult;
         current_use_amount = 1;
         start_time = Time.time;
     }

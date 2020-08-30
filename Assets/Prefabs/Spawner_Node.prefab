@@ -15430,8 +15430,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axis:
-    use_x: 0
-    use_y: 0
+    use_x: 1
+    use_y: 1
     use_z: 0
   ref_sprite_renderer: {fileID: 663169014686085522}
   growth_speed: 100
