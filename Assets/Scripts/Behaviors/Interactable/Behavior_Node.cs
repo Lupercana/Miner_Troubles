@@ -118,11 +118,14 @@ public class Behavior_Node : Behavior_Interactable
                     {
                         if (colli.tag == "Node")
                         {
-                            Behavior_Spawner new_target = colli.GetComponent<Behavior_Node>().GetSpawner();
-                            if (!processed_targets.Contains(new_target.gameObject.GetInstanceID()))
+                            Behavior_Node new_node = colli.GetComponent<Behavior_Node>();
+                            Behavior_Spawner new_spawner = new_node.GetSpawner();
+
+                            if (!processed_targets.Contains(new_spawner.gameObject.GetInstanceID()))
                             {
                                 // Unprocessed Target
-                                targets.Enqueue(new_target);
+                                targets.Enqueue(new_spawner);
+                                new_node.Grow();
                             }
                         }
                     }
