@@ -19,10 +19,13 @@ public class Manager_Sounds : MonoBehaviour
     [SerializeField] private AudioClip sfx_mining_finished = null;
     [SerializeField] private AudioClip sfx_denied = null;
     [SerializeField] private AudioClip sfx_purchase = null;
+    [SerializeField] private AudioClip sfx_basic_hit = null;
     [SerializeField] private AudioClip sfx_hammer_hit = null;
     [SerializeField] private AudioClip sfx_bomb_hit = null;
     [SerializeField] private AudioClip sfx_staff_hit = null;
     [SerializeField] private AudioClip sfx_tool_change = null;
+    [SerializeField] private AudioClip sfx_upverter = null;
+    [SerializeField] private AudioClip sfx_worker_activate = null;
 
     [SerializeField] private bool check_visibility = true;
     [SerializeField] private float starting_volume_music = 0.5f;
@@ -46,10 +49,13 @@ public class Manager_Sounds : MonoBehaviour
     public void PlayMiningFinished(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_mining_finished); } }
     public void PlayPurchase(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_purchase); } }
     public void PlayDenied(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_denied); } }
+    public void PlayBasicHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_basic_hit); } }
     public void PlayHammerHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_hammer_hit); } }
     public void PlayBombHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_bomb_hit); } }
     public void PlayStaffHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_staff_hit); } }
     public void PlayToolChange(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_tool_change); } }
+    public void PlayUpverter(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_upverter); } }
+    public void PlayWorkerActivate(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_worker_activate); } }
 
     public void StopSFX()
     {

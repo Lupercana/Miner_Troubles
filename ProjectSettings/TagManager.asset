@@ -11,6 +11,7 @@ TagManager:
   - Spawner
   - UI_Helper
   - Worker
+  - Upverter
   layers:
   - Default
   - TransparentFX

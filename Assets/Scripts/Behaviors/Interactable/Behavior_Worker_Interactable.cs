@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Behavior_Worker_Interactable : Behavior_Interactable
 {
-    [SerializeField] private Behavior_Worker ref_script_worker = null;
+    [SerializeField] private Behavior_Worker script_worker = null;
+    [SerializeField] private Effect_Shake script_effect_shake = null;
 
     public override void Activate(Behavior_Seeker activator)
     {
-        ref_script_worker.Activate();
+        script_worker.Activate();
+
+        //Play effects
+        Manager_Sounds.Instance.PlayWorkerActivate(true);
+        script_effect_shake.Shake();
     }
 
     protected override void UpdateText()

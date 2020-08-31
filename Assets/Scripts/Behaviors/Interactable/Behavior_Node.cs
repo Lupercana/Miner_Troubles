@@ -41,10 +41,12 @@ public class Behavior_Node : Behavior_Interactable
             case Manager_Main.Tool_Type.Gloves:
                 mining_multiplier = Parameters_Mining.Instance.gloves_mining_multplier;
                 mining = true;
+                Manager_Sounds.Instance.PlayBasicHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Pickaxe:
                 mining_multiplier = Parameters_Mining.Instance.pickaxe_mining_multplier;
                 mining = true;
+                Manager_Sounds.Instance.PlayBasicHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Hammer:
                 mining_multiplier = Parameters_Mining.Instance.hammer_mining_multplier;

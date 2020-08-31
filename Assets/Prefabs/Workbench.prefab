@@ -45,8 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4749c3ef201033b43ab7ca98d168eb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag_ui_helper: UI_Helper
-  text_display: Workbench
+  workshop_type: 2
+  workshop_text: 
+  workshop_tool_upgrade_cost: 0
+  initial_cost:
+    gem_tier: 0
+    gem_amount: 0
 --- !u!61 &4316107409926059234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82,6 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2258906979234527602}
+  - component: {fileID: 1762330488535572620}
   - component: {fileID: 2845475985758707130}
   m_Layer: 8
   m_Name: GFX
@@ -104,6 +109,25 @@ Transform:
   m_Father: {fileID: 3331383324387433933}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1762330488535572620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301981193225132072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1fd9db42989d245851b7dcf4a67c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  shake_strength: 0.2
+  shake_duration_seconds: 0.25
+  fade: 1
 --- !u!212 &2845475985758707130
 SpriteRenderer:
   m_ObjectHideFlags: 0

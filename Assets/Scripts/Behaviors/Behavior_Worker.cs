@@ -61,7 +61,7 @@ public class Behavior_Worker : Behavior_Seeker
         }
         else if (!reached_target) // Have valid target but have not reached it yet
         {
-            if (ref_rbody_self.velocity.magnitude <= Parameters_Worker.Instance.stuck_velocity_threshold)
+            if (ref_self_rbody.velocity.magnitude <= Parameters_Worker.Instance.stuck_velocity_threshold)
             {
                 timeout_count += Time.deltaTime;
 
@@ -108,7 +108,7 @@ public class Behavior_Worker : Behavior_Seeker
         {
             // Stop moving to prevent sliding off of target
             path_current = null;
-            ref_rbody_self.velocity = Vector2.zero;
+            ref_self_rbody.velocity = Vector2.zero;
             target_activated = true;
             reached_target = true;
         }

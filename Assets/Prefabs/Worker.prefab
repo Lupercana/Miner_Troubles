@@ -4899,7 +4899,7 @@ MonoBehaviour:
   tag_interactables:
   - Node
   ref_ai_seeker: {fileID: 3592869267198431567}
-  ref_rbody_self: {fileID: 3592869267198431569}
+  ref_self_rbody: {fileID: 3592869267198431569}
   move_speed: 500
   waypoint_reached_threshold: 0.5
   script_room: {fileID: 0}
@@ -4919,7 +4919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b3b808ce543744f9322ed00d278220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_script_worker: {fileID: 8010895537293118524}
+  script_worker: {fileID: 8010895537293118524}
+  script_effect_shake: {fileID: 1697077584036696856}
 --- !u!50 &3592869267198431569
 Rigidbody2D:
   serializedVersion: 4
@@ -5048,6 +5049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3592869268564250480}
+  - component: {fileID: 1697077584036696856}
   - component: {fileID: 3592869268564250479}
   m_Layer: 0
   m_Name: GFX
@@ -5070,6 +5072,25 @@ Transform:
   m_Father: {fileID: 3592869267198431565}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1697077584036696856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3592869268564250478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1fd9db42989d245851b7dcf4a67c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  shake_strength: 0.1
+  shake_duration_seconds: 0.1
+  fade: 1
 --- !u!212 &3592869268564250479
 SpriteRenderer:
   m_ObjectHideFlags: 0

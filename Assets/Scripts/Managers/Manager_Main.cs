@@ -86,6 +86,7 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private Slider ui_slider_mining_xp = null;
     [SerializeField] private Slider ui_slider_day_tracker = null;
     [SerializeField] private Text ui_text_day_display = null;
+    [SerializeField] private GameObject ui_delete_menu = null;
 
     // Slots
     [SerializeField] public Slot slot_tool = null;
@@ -238,11 +239,28 @@ public class Manager_Main : MonoBehaviour
             return;
         }
 
+        // Return if delete menu is open
+        if (ui_delete_menu.activeInHierarchy)
+        {
+            return;
+        }
+
         Tool temp = slot_tool.GetTool();
         slot_tool.SetTool((slot_extras[slot_num].GetTool()));
         slot_extras[slot_num].SetTool(temp);
         ref_player.ClearTarget(); // Prevents tool changeups
         Manager_Sounds.Instance.PlayToolChange(true);
+    }
+
+    public void PressedSlotDelete()
+    {
+        // Return if delete menu is open
+        if (ui_delete_menu.activeInHierarchy)
+        {
+            return;
+        }
+
+        ui_delete_menu.SetActive(true);
     }
 
     public void ClearSlot(int slot_num)

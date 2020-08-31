@@ -7,7 +7,7 @@ public abstract class Behavior_Seeker : MonoBehaviour
 {
     [SerializeField] protected string[] tag_interactables = null;
     [SerializeField] protected Seeker ref_ai_seeker = null;
-    [SerializeField] protected Rigidbody2D ref_rbody_self = null;
+    [SerializeField] protected Rigidbody2D ref_self_rbody = null;
 
     [SerializeField] protected float move_speed = 0f;
     [SerializeField] protected float waypoint_reached_threshold = 0f;
@@ -57,7 +57,7 @@ public abstract class Behavior_Seeker : MonoBehaviour
 
             Vector2 move_dir = (target_waypoint - (Vector2)transform.position).normalized;
             Vector2 move_force = move_dir * move_speed * Time.fixedDeltaTime;
-            ref_rbody_self.AddForce(move_force);
+            ref_self_rbody.AddForce(move_force);
 
             if (Vector2.Distance(transform.position, target_waypoint) < waypoint_reached_threshold)
             {
