@@ -238,17 +238,6 @@ public class Manager_Main : MonoBehaviour
         Manager_Sounds.Instance.PlayToolChange();
     }
 
-    public void ClearSlot(int slot_num)
-    {
-        if (slot_extras[slot_num].GetTool().type == Tool_Type.None)
-        {
-            Manager_Sounds.Instance.PlayDenied();
-            return;
-        }
-
-        slot_extras[slot_num].SetTool(new Tool());
-    }
-
     private void Awake()
     {
         if (Instance == null)
