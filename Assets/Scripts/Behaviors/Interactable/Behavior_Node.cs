@@ -67,7 +67,6 @@ public class Behavior_Node : Behavior_Interactable
                     }
                 }
                 script_parent_spawner.PlayEffectExplosion(explosion_radius, Manager_Main.Instance.GetGemColors()[activate_tool.tier]);
-                Debug.Log(ref_self_sprite_renderer.isVisible);
                 Manager_Sounds.Instance.PlayBombHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Staff:

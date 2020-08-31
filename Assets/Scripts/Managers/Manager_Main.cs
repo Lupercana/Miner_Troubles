@@ -84,7 +84,8 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private Text[] ui_helper_gem_texts = null;
     [SerializeField] private Text ui_text_mining_level = null;
     [SerializeField] private Slider ui_slider_mining_xp = null;
-    [SerializeField] private Slider ui_slider_tool_cd = null;
+    [SerializeField] private Slider ui_slider_day_tracker = null;
+    [SerializeField] private Text ui_text_day_display = null;
 
     // Slots
     [SerializeField] public Slot slot_tool = null;
@@ -107,12 +108,18 @@ public class Manager_Main : MonoBehaviour
     [SerializeField] private int max_mining_level = 1;
     [SerializeField] private int max_gems = 1;
     [SerializeField] private float leveling_exp_base = 1f;
+    [SerializeField] private int day = 0; // Modified later
+    [SerializeField] private int max_day = 0;
+    [SerializeField] private float day_length_seconds = 1f;
+    [SerializeField] private float day_min_slider = 0f;
+
 
     private Color original_gem_text_color;
     private int[] total_gem_chances;
     private int mining_xp = 0;
     private int xp_needed = 0;
     private int ui_helper_last_id = -1;
+    private float day_timer = 0f;
 
     public Color[] GetGemColors() { return gem_colors; }
     public float[] GetGemHealths() { return gem_healths; }
@@ -304,8 +311,10 @@ public class Manager_Main : MonoBehaviour
         xp_needed = XPToNextLevel(mining_level);
         ui_slider_mining_xp.value = (float)mining_xp / xp_needed;
 
-        // Set mining tool CD slider
-        ui_slider_tool_cd.value = 0;
+        // Set day tracker slider
+        ui_slider_day_tracker.value = 0f;
+        day_timer = Time.time;
+        ui_text_day_display.text = "Day " + day;
 
         // Pre-calculate total gem chances
         int total = 0;
@@ -315,6 +324,27 @@ public class Manager_Main : MonoBehaviour
             total += gem_spawn_chance[i];
             total_gem_chances[i] = total;
         }
+    }
+
+    private void Update()
+    {
+        float e_time = Time.time - day_timer;
+        if (e_time >= day_length_seconds)
+        {
+            day_timer = Time.time;
+            
+            day += 1;
+            if (day < max_day)
+            {
+                ui_text_day_display.text = "Day " + day;
+            }
+            else
+            {
+                day = max_day;
+                ui_text_day_display.text = "Day " + max_day + "+";
+            }
+        }
+        ui_slider_day_tracker.value = Mathf.Max(e_time / day_length_seconds, day_min_slider);
     }
 
     private int XPToNextLevel(int current_level)
