@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 6596163736042252952}
   - component: {fileID: 5281639789710370952}
   - component: {fileID: 3356171476573157954}
+  - component: {fileID: 2466729621322996513}
   m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
@@ -900,6 +901,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &2466729621322996513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652145740094495973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 8066137702934816130
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &2830473182067998091
 GameObject:
   m_ObjectHideFlags: 0
