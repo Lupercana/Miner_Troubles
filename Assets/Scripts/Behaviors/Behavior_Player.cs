@@ -2,55 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Pathfinding;
 
-public class Behavior_Player : MonoBehaviour
+public class Behavior_Player : Behavior_Seeker
 {
-    [SerializeField] private string[] tag_interactables = null;
-    [SerializeField] private Seeker ref_ai_seeker = null;
-    [SerializeField] private Rigidbody2D ref_rbody_self = null;
-
-    [SerializeField] private float move_speed = 0f;
-    [SerializeField] private float waypoint_reached_threshold = 0f;
-
-    private Path path_current = null;
-    private Behavior_Interactable target = null;
-    private int path_waypoint_current;
-    private bool target_activated;
-
-    public void ClearTarget()
+    public override Manager_Main.Tool GetTool()
     {
-        if (target)
-        {
-            target.Deactivate();
-            target = null;
-        }
+        return Manager_Main.Instance.slot_tool.GetTool();
     }
 
     private void Update()
     {
-        // Don't respond to mouse over UI, gameobject refers to UI gameobject
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 mouse_world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D[] hits = Physics2D.RaycastAll(mouse_world, Vector2.zero, 0f);
-            foreach(RaycastHit2D hit in hits)
-            {
-                Debug.Log(hit.transform.tag);
-            }
-            Debug.Log(EventSystem.current.IsPointerOverGameObject());
-        }
-        */
-
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            // Deactivate previous target
-            if (target)
-            {
-                target.Deactivate();
-                target = null;
-            }
+            DeactivatePreviousTarget();
 
             Vector2 mouse_world = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D[] hits = Physics2D.RaycastAll(mouse_world, Vector2.zero, 0f);
@@ -61,9 +25,7 @@ public class Behavior_Player : MonoBehaviour
                 {
                     if (tag == hit_tag)
                     {
-                        target = hit.transform.gameObject.GetComponent<Behavior_Interactable>();
-                        target_activated = false;
-                        //Debug.Log("Target set: " + target);
+                        SetTarget(hit.transform.gameObject.GetComponent<Behavior_Interactable>());
                     }
                 }
             }
@@ -75,45 +37,14 @@ public class Behavior_Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (path_current == null)
-        {
-            return;
-        }
-
-        if (path_waypoint_current < path_current.vectorPath.Count)
-        {
-            // Have not completed path yet
-            Vector2 target_waypoint = path_current.vectorPath[path_waypoint_current];
-
-            Vector2 move_dir = (target_waypoint - (Vector2)transform.position).normalized;
-            Vector2 move_force = move_dir * move_speed * Time.fixedDeltaTime;
-            ref_rbody_self.AddForce(move_force);
-
-            if (Vector2.Distance(transform.position, target_waypoint) < waypoint_reached_threshold)
-            {
-                ++path_waypoint_current;
-            }
-        }
-        else
-        {
-            // Completed path
-            path_current = null;
-        }
+        Move();
     }
+
     private void OnTriggerStay2D(Collider2D collider)
     {
-        //if (target)
-            //Debug.Log(target + " " + target_activated + " " + collider.gameObject.GetInstanceID() + " | " + target.gameObject.GetInstanceID());
         if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
         {
-            // We've reached the target, interact with it
-            //Debug.Log("A");
-            target.Activate();
-            target_activated = true;
-
-            // Stop moving to prevent sliding off of target
-            path_current = null;
-            ref_rbody_self.velocity = Vector2.zero;
+            TargetReached();
         }
     }
 
@@ -122,19 +53,6 @@ public class Behavior_Player : MonoBehaviour
         if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && target_activated)
         {
             ClearTarget();
-        }
-    }
-
-    private void OnPathReady(Path p)
-    {
-        if (!p.error)
-        {
-            path_current = p;
-            path_waypoint_current = 0;
-        }
-        else
-        {
-            Debug.Log("Path generation error");
         }
     }
 }

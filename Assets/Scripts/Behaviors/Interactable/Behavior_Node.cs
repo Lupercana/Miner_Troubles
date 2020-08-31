@@ -27,12 +27,12 @@ public class Behavior_Node : Behavior_Interactable
         effect_shake.Shake(mult);
     }
 
-    public override void Activate()
+    public override void Activate(Behavior_Seeker activator)
     {
-        activate_tool = Manager_Main.Instance.slot_tool.GetTool();
+        activate_tool = activator.GetTool();
 
         mining = false;
-        float base_mining_power = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup();
+        float base_mining_power = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup(activate_tool);
         switch (activate_tool.type)
         {
             case Manager_Main.Tool_Type.Gloves:
@@ -97,7 +97,7 @@ public class Behavior_Node : Behavior_Interactable
     {
         if (mining)
         {
-            float base_mining_power = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup();
+            float base_mining_power = Time.deltaTime * Manager_Main.Instance.GetMiningLevel() * Manager_Main.Instance.GetToolSpeedup(activate_tool);
             
             if (activate_tool.type == Manager_Main.Tool_Type.Staff)
             {

@@ -13,6 +13,12 @@ public class Behavior_Room : MonoBehaviour
     private float last_spawn_time;
     private float spawn_time_wait;
 
+    public Behavior_Spawner GetRandomSpawner()
+    {
+        int spawner_index = Random.Range(0, scripts_spawner.Count);
+        return scripts_spawner[spawner_index];
+    }
+
     private void Awake()
     {
         // Get all spawner scripts

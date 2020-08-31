@@ -11,7 +11,7 @@ public class Behavior_Gate : Behavior_Interactable
     [SerializeField] private int cost_tier = 0;
     [SerializeField] private int cost_amount = 0;
 
-    public override void Activate()
+    public override void Activate(Behavior_Seeker activator)
     {
         if (unlockable && Manager_Main.Instance.GetGemQuantities()[cost_tier] >= cost_amount)
         {

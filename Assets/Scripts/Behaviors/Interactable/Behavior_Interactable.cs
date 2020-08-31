@@ -10,7 +10,7 @@ public abstract class Behavior_Interactable : MonoBehaviour
     //private GameObject ui_helper_base = null;
     //private Text ui_helper_text = null;
 
-    public abstract void Activate();
+    public abstract void Activate(Behavior_Seeker activator);
     public virtual void Deactivate() { }
     protected abstract void UpdateText();
 

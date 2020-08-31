@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Spawner
   - UI_Helper
+  - Worker
   layers:
   - Default
   - TransparentFX

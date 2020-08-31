@@ -9,7 +9,7 @@ public class Behavior_Workbench : Behavior_Interactable
     [SerializeField] private int workshop_tool_upgrade_cost = 0; // Of the current tool tier gems
     [SerializeField] private Manager_Main.Gem_Cost initial_cost = new Manager_Main.Gem_Cost();
 
-    public override void Activate()
+    public override void Activate(Behavior_Seeker activator)
     {
         bool upgrade;
         Manager_Main.Slot free_slot = new Manager_Main.Slot();

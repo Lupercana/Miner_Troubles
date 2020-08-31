@@ -53,6 +53,16 @@ public class Behavior_Spawner : MonoBehaviour
     private int current_amount = 0;
     private bool active = false;
 
+    public Behavior_Node GetActiveNode()
+    {
+        if (active)
+        {
+            return node_types[gem_type].ref_node.GetComponent<Behavior_Node>();
+        }
+
+        return null;
+    }
+
     public Mining_Info GetMiningInfo()
     {
         return new Mining_Info(gem_tier, current_amount, current_durability);

@@ -120,7 +120,7 @@ public class Manager_Main : MonoBehaviour
     public int[] GetGemXP() { return gem_xp; }
     public int GetMiningLevel() { return mining_level; }
     public int GetTotalGemChances(int gem_max) { return total_gem_chances[gem_max]; }
-    public float GetToolSpeedup() { return tool_tier_speedups[slot_tool.GetTool().tier]; }
+    public float GetToolSpeedup(Tool tool) { return tool_tier_speedups[tool.tier]; }
     public Sprite GetToolSprite(Tool_Type tool_type) { return TT_Sprite[tool_type]; }
     public string GetToolName(Tool_Type tool_type) { return TT_Name[tool_type]; }
     public string GetToolDescription(Tool_Type tool_type) { return TT_Description[tool_type]; }
@@ -151,9 +151,9 @@ public class Manager_Main : MonoBehaviour
             }
         }
     }
-    public void SetUIHelperGems(bool active, int[] gem_counts)
+    public void SetUIHelperGems(bool active, int[] gem_counts = null)
     {
-        for (int i = 0; i < gem_counts.Length; ++i)
+        for (int i = 0; i < ui_helper_gems.Length; ++i)
         {
             if (active)
             {
