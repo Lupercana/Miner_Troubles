@@ -201,13 +201,14 @@ public class Behavior_Spawner : MonoBehaviour
         {
             if (current_durability <= 0)
             {
+                Manager_Sounds.Instance.PlayMiningFinished(GetActiveNode().GetSpriteRenderer().isVisible);
+
                 active = false;
                 node_types[gem_type].ref_node.SetActive(false);
                 script_durability_meter.gameObject.SetActive(false);
 
                 // Play effects
                 particle_finished.Play();
-                Manager_Sounds.Instance.PlayMiningFinished();
             }
             else
             {
@@ -215,7 +216,7 @@ public class Behavior_Spawner : MonoBehaviour
                 if (progress > mining_particle_play_next)
                 {
                     particle_mining.Play();
-                    Manager_Sounds.Instance.PlayMiningIntermediate();
+                    Manager_Sounds.Instance.PlayMiningIntermediate(GetActiveNode().GetSpriteRenderer().isVisible);
                     mining_particle_play_next += mining_particle_thresh;
                 }
             }

@@ -4903,6 +4903,7 @@ MonoBehaviour:
   move_speed: 500
   waypoint_reached_threshold: 0.5
   script_room: {fileID: 0}
+  ref_self_sprite_renderer: {fileID: 3592869268564250479}
   tool:
     type: 1
     tier: 0
@@ -5035,7 +5036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 7308565812181517919
+  uniqueID: 7217325575122572392
   updateError: 1
   checkTime: 0.2
 --- !u!1 &3592869268564250478

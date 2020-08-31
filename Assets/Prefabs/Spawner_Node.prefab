@@ -5066,9 +5066,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddf7fd1440e0c48a4b01f58c6beff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_parent_spawner: {fileID: 8219962101125324254}
-  effect_grow: {fileID: 3873715473732836889}
-  effect_shake: {fileID: 6552926174645759436}
+  script_parent_spawner: {fileID: 8219962101125324254}
+  script_effect_grow: {fileID: 3873715473732836889}
+  script_effect_shake: {fileID: 6552926174645759436}
+  ref_self_sprite_renderer: {fileID: 2525083655812728147}
 --- !u!114 &5047948583519790141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,9 +5318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddf7fd1440e0c48a4b01f58c6beff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_parent_spawner: {fileID: 8219962101125324254}
-  effect_grow: {fileID: 3749182318658608274}
-  effect_shake: {fileID: 9186885274493277284}
+  script_parent_spawner: {fileID: 8219962101125324254}
+  script_effect_grow: {fileID: 3749182318658608274}
+  script_effect_shake: {fileID: 9186885274493277284}
+  ref_self_sprite_renderer: {fileID: 2457075015160723037}
 --- !u!114 &2603776376525435290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20300,9 +20302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ddf7fd1440e0c48a4b01f58c6beff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ref_parent_spawner: {fileID: 8219962101125324254}
-  effect_grow: {fileID: 8514856969769040757}
-  effect_shake: {fileID: 1931300659075411751}
+  script_parent_spawner: {fileID: 8219962101125324254}
+  script_effect_grow: {fileID: 8514856969769040757}
+  script_effect_shake: {fileID: 1931300659075411751}
+  ref_self_sprite_renderer: {fileID: 3472254719475027022}
 --- !u!58 &5351635525102340891
 CircleCollider2D:
   m_ObjectHideFlags: 0

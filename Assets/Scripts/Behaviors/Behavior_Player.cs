@@ -42,9 +42,15 @@ public class Behavior_Player : Behavior_Seeker
 
     private void OnTriggerStay2D(Collider2D collider)
     {
-        if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
+        if (target && target.gameObject.activeInHierarchy && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
         {
-            TargetReached();
+            // We've reached the target, interact with it
+            target.Activate(this);
+            target_activated = true;
+
+            // Stop moving to prevent sliding off of target
+            path_current = null;
+            ref_rbody_self.velocity = Vector2.zero;
         }
     }
 

@@ -214,7 +214,7 @@ public class Manager_Main : MonoBehaviour
 
             // Play effects
             particle_level_up.Play();
-            Manager_Sounds.Instance.PlayLevelUp();
+            Manager_Sounds.Instance.PlayLevelUp(true);
         }
 
         if (mining_level < max_mining_level)
@@ -227,7 +227,7 @@ public class Manager_Main : MonoBehaviour
     {
         if (slot_extras[slot_num].GetTool().type == Tool_Type.None)
         {
-            Manager_Sounds.Instance.PlayDenied();
+            Manager_Sounds.Instance.PlayDenied(true);
             return;
         }
 
@@ -235,14 +235,14 @@ public class Manager_Main : MonoBehaviour
         slot_tool.SetTool((slot_extras[slot_num].GetTool()));
         slot_extras[slot_num].SetTool(temp);
         ref_player.ClearTarget(); // Prevents tool changeups
-        Manager_Sounds.Instance.PlayToolChange();
+        Manager_Sounds.Instance.PlayToolChange(true);
     }
 
     public void ClearSlot(int slot_num)
     {
         if (slot_extras[slot_num].GetTool().type == Tool_Type.None)
         {
-            Manager_Sounds.Instance.PlayDenied();
+            Manager_Sounds.Instance.PlayDenied(true);
             return;
         }
 

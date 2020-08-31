@@ -21,12 +21,12 @@ public class Behavior_Gate : Behavior_Interactable
             gameObject.SetActive(false);
 
             // Play effects
-            Manager_Sounds.Instance.PlayPurchase();
+            Manager_Sounds.Instance.PlayPurchase(true);
         }
         else
         {
             // Play effects
-            Manager_Sounds.Instance.PlayDenied();
+            Manager_Sounds.Instance.PlayDenied(true);
         }
     }
 

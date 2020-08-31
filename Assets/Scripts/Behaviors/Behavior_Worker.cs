@@ -6,26 +6,37 @@ public class Behavior_Worker : Behavior_Seeker
 {
     [SerializeField] private Behavior_Room script_room = null;
 
+    [SerializeField] private SpriteRenderer ref_self_sprite_renderer = null;
+
     [SerializeField] private Manager_Main.Tool tool = null;
 
     private bool activated = false;
     private bool reached_target = false;
     private float timeout_count = 0f;
+    private float last_activate_time = 0f;
+    private float activate_delay_seconds = 1f;
 
     public void Activate()
     {
         activated = true;
     }
 
-    public void SetStats(Manager_Main.Tool new_tool, float new_move_speed)
+    public void SetStats(Manager_Main.Tool new_tool)
     {
         tool = new_tool;
-        move_speed = new_move_speed;
+        move_speed = Parameters_Worker.Instance.move_speeds[tool.tier];
+        activate_delay_seconds = Parameters_Worker.Instance.activate_delay_seconds[tool.tier];
+        ref_self_sprite_renderer.color = Manager_Main.Instance.GetGemColors()[tool.tier];
     }
 
     public override Manager_Main.Tool GetTool()
     {
         return tool;
+    }
+
+    private void Start()
+    {
+        SetStats(tool);
     }
 
     private void Update()
@@ -35,7 +46,7 @@ public class Behavior_Worker : Behavior_Seeker
             return;
         }
 
-        if (target == null)
+        if (target == null || !target.gameObject.activeInHierarchy) // Don't have target or target is no longer active
         {
             Behavior_Spawner spawner = script_room.GetRandomSpawner();
             Behavior_Node node = spawner.GetActiveNode();
@@ -44,10 +55,11 @@ public class Behavior_Worker : Behavior_Seeker
                 SetTarget(node);
                 ref_ai_seeker.StartPath(transform.position, target.transform.position, OnPathReady);
                 timeout_count = 0f;
+                last_activate_time = 0f;
                 reached_target = false;
             }
         }
-        else if (!reached_target)
+        else if (!reached_target) // Have valid target but have not reached it yet
         {
             if (ref_rbody_self.velocity.magnitude <= Parameters_Worker.Instance.stuck_velocity_threshold)
             {
@@ -64,6 +76,15 @@ public class Behavior_Worker : Behavior_Seeker
                 timeout_count = 0f;
             }
         }
+        else // Reached target
+        {
+            float e_time = Time.time - last_activate_time;
+            if (e_time >= activate_delay_seconds)
+            {
+                target.Activate(this);
+                last_activate_time = Time.time;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -76,7 +97,7 @@ public class Behavior_Worker : Behavior_Seeker
         Move();
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerStay2D(Collider2D collider)
     {
         if (!activated)
         {
@@ -85,7 +106,10 @@ public class Behavior_Worker : Behavior_Seeker
 
         if (target && collider.gameObject.GetInstanceID() == target.gameObject.GetInstanceID() && !target_activated)
         {
-            TargetReached();
+            // Stop moving to prevent sliding off of target
+            path_current = null;
+            ref_rbody_self.velocity = Vector2.zero;
+            target_activated = true;
             reached_target = true;
         }
     }

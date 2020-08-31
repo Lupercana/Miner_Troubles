@@ -8,6 +8,7 @@ public class Parameters_Worker : MonoBehaviour
 
     [SerializeField] public Manager_Main.Gem_Cost[] upgrade_costs = null;
     [SerializeField] public float[] move_speeds = null;
+    [SerializeField] public float[] activate_delay_seconds = null;
     [SerializeField] public float stuck_velocity_threshold = 0f;
     [SerializeField] public float stuck_timeout_seconds = 1f;
 

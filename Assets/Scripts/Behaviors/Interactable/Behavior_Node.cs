@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class Behavior_Node : Behavior_Interactable
 {
-    [SerializeField] private Behavior_Spawner ref_parent_spawner = null;
-    [SerializeField] private Effect_Grow effect_grow = null;
-    [SerializeField] private Effect_Shake effect_shake = null;
+    [SerializeField] private Behavior_Spawner script_parent_spawner = null;
+    [SerializeField] private Effect_Grow script_effect_grow = null;
+    [SerializeField] private Effect_Shake script_effect_shake = null;
+
+    [SerializeField] private SpriteRenderer ref_self_sprite_renderer = null;
 
     private bool mining = false;
     private float mining_multiplier = 0f;
     private Manager_Main.Tool activate_tool;
 
-    public Behavior_Spawner GetSpawner() { return ref_parent_spawner; }
+    public Behavior_Spawner GetSpawner() { return script_parent_spawner; }
+    public SpriteRenderer GetSpriteRenderer() { return ref_self_sprite_renderer; }
 
     public void Grow(float mult = 0)
     {
-        if (!effect_grow.IsGrowing())
+        if (!script_effect_grow.IsGrowing())
         {
-            effect_grow.Grow(mult);
+            script_effect_grow.Grow(mult);
         }
     }
 
     public void Shake(float mult = 0)
     {
-        effect_shake.Shake(mult);
+        script_effect_shake.Shake(mult);
     }
 
     public override void Activate(Behavior_Seeker activator)
@@ -45,10 +48,10 @@ public class Behavior_Node : Behavior_Interactable
                 break;
             case Manager_Main.Tool_Type.Hammer:
                 mining_multiplier = Parameters_Mining.Instance.hammer_mining_multplier;
-                ref_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
+                script_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
                 Grow(Parameters_Mining.Instance.hammer_grow_mult);
                 Shake(Parameters_Mining.Instance.hammer_shake_mult);
-                Manager_Sounds.Instance.PlayHammerHit();
+                Manager_Sounds.Instance.PlayHammerHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Bomb:
                 mining_multiplier = Parameters_Mining.Instance.bomb_mining_multplier;
@@ -63,13 +66,14 @@ public class Behavior_Node : Behavior_Interactable
                         script_node.Grow();
                     }
                 }
-                ref_parent_spawner.PlayEffectExplosion(explosion_radius, Manager_Main.Instance.GetGemColors()[activate_tool.tier]);
-                Manager_Sounds.Instance.PlayBombHit();
+                script_parent_spawner.PlayEffectExplosion(explosion_radius, Manager_Main.Instance.GetGemColors()[activate_tool.tier]);
+                Debug.Log(ref_self_sprite_renderer.isVisible);
+                Manager_Sounds.Instance.PlayBombHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Staff:
                 mining_multiplier = Parameters_Mining.Instance.staff_mining_multplier;
                 mining = true;
-                Manager_Sounds.Instance.PlayStaffHit();
+                Manager_Sounds.Instance.PlayStaffHit(ref_self_sprite_renderer.isVisible);
                 break;
         }
     }
@@ -81,7 +85,7 @@ public class Behavior_Node : Behavior_Interactable
 
     protected override void UpdateText()
     {
-        Behavior_Spawner.Mining_Info mi = ref_parent_spawner.GetMiningInfo();
+        Behavior_Spawner.Mining_Info mi = script_parent_spawner.GetMiningInfo();
         Manager_Main.Instance.SetUIHelperText("Mining Node || Contains:");
         int[] helper_gems = new int[Manager_Main.Instance.GetGemColors().Length];
         helper_gems[mi.gem_tier] = mi.gem_amount;
@@ -104,7 +108,7 @@ public class Behavior_Node : Behavior_Interactable
                 // Chaining
                 HashSet<int> processed_targets = new HashSet<int>();
                 Queue<Behavior_Spawner> targets = new Queue<Behavior_Spawner>();
-                targets.Enqueue(ref_parent_spawner);
+                targets.Enqueue(script_parent_spawner);
 
                 while (targets.Count > 0)
                 {
@@ -133,7 +137,7 @@ public class Behavior_Node : Behavior_Interactable
             }
             else
             {
-                ref_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
+                script_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
             }
 
             // Play effect

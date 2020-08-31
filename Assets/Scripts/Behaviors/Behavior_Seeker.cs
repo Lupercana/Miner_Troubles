@@ -71,17 +71,6 @@ public abstract class Behavior_Seeker : MonoBehaviour
         }
     }
 
-    protected void TargetReached()
-    {
-        // We've reached the target, interact with it
-        target.Activate(this);
-        target_activated = true;
-
-        // Stop moving to prevent sliding off of target
-        path_current = null;
-        ref_rbody_self.velocity = Vector2.zero;
-    }
-
     protected void OnPathReady(Path p)
     {
         if (!p.error)

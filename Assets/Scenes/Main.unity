@@ -5263,6 +5263,7 @@ MonoBehaviour:
   sfx_bomb_hit: {fileID: 8300000, guid: f6b7eee8ffed18b40a483c86a91a002a, type: 3}
   sfx_staff_hit: {fileID: 8300000, guid: 1724763034c86024cbb2445feee77d81, type: 3}
   sfx_tool_change: {fileID: 8300000, guid: 0667f4b62eeb9894b86423fdc5922697, type: 3}
+  check_visibility: 1
   starting_volume_music: 0.1
   starting_volume_sfx: 0.1
 --- !u!82 &814759094
@@ -11012,16 +11013,26 @@ MonoBehaviour:
   - gem_tier: 0
     gem_amount: 0
   move_speeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  stuck_velocity_threshold: 0
+  - 200
+  - 300
+  - 400
+  - 500
+  - 600
+  - 700
+  - 800
+  - 900
+  - 1000
+  activate_delay_seconds:
+  - 1
+  - 0.9
+  - 0.8
+  - 0.7
+  - 0.6
+  - 0.5
+  - 0.4
+  - 0.3
+  - 0.2
+  stuck_velocity_threshold: 0.1
   stuck_timeout_seconds: 1
 --- !u!114 &1689550486
 MonoBehaviour:
@@ -17007,15 +17018,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3592869267198431552, guid: 8af410d3b23bc3a4c8c17c5c19fb833e,
+        type: 3}
+      propertyPath: uniqueID
+      value: 2709084192109435642
+      objectReference: {fileID: 0}
     - target: {fileID: 3592869267198431564, guid: 8af410d3b23bc3a4c8c17c5c19fb833e,
         type: 3}
       propertyPath: m_Name
       value: Worker
-      objectReference: {fileID: 0}
-    - target: {fileID: 3592869267198431564, guid: 8af410d3b23bc3a4c8c17c5c19fb833e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3592869267198431565, guid: 8af410d3b23bc3a4c8c17c5c19fb833e,
         type: 3}
@@ -17077,6 +17088,16 @@ PrefabInstance:
       propertyPath: script_room
       value: 
       objectReference: {fileID: 893863591}
+    - target: {fileID: 8010895537293118524, guid: 8af410d3b23bc3a4c8c17c5c19fb833e,
+        type: 3}
+      propertyPath: tool.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010895537293118524, guid: 8af410d3b23bc3a4c8c17c5c19fb833e,
+        type: 3}
+      propertyPath: tool.tier
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af410d3b23bc3a4c8c17c5c19fb833e, type: 3}
 --- !u!1001 &1054735363228842710
@@ -21688,11 +21709,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5603318209028562453, guid: bc0de1f9181cfd94cb75de80982d0b19,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc0de1f9181cfd94cb75de80982d0b19, type: 3}

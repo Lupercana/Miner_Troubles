@@ -24,6 +24,7 @@ public class Manager_Sounds : MonoBehaviour
     [SerializeField] private AudioClip sfx_staff_hit = null;
     [SerializeField] private AudioClip sfx_tool_change = null;
 
+    [SerializeField] private bool check_visibility = true;
     [SerializeField] private float starting_volume_music = 0.5f;
     [SerializeField] private float starting_volume_sfx = 0.5f;
 
@@ -40,15 +41,15 @@ public class Manager_Sounds : MonoBehaviour
         source_sfx.volume = v;
     }
 
-    public void PlayLevelUp() { source_sfx.PlayOneShot(sfx_level_up); }
-    public void PlayMiningIntermediate() { source_sfx.PlayOneShot(sfx_mining_intermediate); }
-    public void PlayMiningFinished() { source_sfx.PlayOneShot(sfx_mining_finished); }
-    public void PlayPurchase() { source_sfx.PlayOneShot(sfx_purchase); }
-    public void PlayDenied() { source_sfx.PlayOneShot(sfx_denied); }
-    public void PlayHammerHit() { source_sfx.PlayOneShot(sfx_hammer_hit); }
-    public void PlayBombHit() { source_sfx.PlayOneShot(sfx_bomb_hit); }
-    public void PlayStaffHit() { source_sfx.PlayOneShot(sfx_staff_hit); }
-    public void PlayToolChange() { source_sfx.PlayOneShot(sfx_tool_change); }
+    public void PlayLevelUp(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_level_up); } }
+    public void PlayMiningIntermediate(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_mining_intermediate); } }
+    public void PlayMiningFinished(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_mining_finished); } }
+    public void PlayPurchase(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_purchase); } }
+    public void PlayDenied(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_denied); } }
+    public void PlayHammerHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_hammer_hit); } }
+    public void PlayBombHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_bomb_hit); } }
+    public void PlayStaffHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_staff_hit); } }
+    public void PlayToolChange(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_tool_change); } }
 
     public void StopSFX()
     {
@@ -77,5 +78,10 @@ public class Manager_Sounds : MonoBehaviour
         source_track.loop = true;
         source_track.clip = track_main;
         source_track.Play();
+    }
+
+    private bool ShouldPlay(bool visible)
+    {
+        return visible || !check_visibility;
     }
 }

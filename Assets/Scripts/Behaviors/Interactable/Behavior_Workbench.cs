@@ -21,7 +21,7 @@ public class Behavior_Workbench : Behavior_Interactable
             if (existing_tool_slot.GetTool().tier >= Manager_Main.Instance.GetGemColors().Length - 1)
             {
                 // Play effects
-                Manager_Sounds.Instance.PlayDenied();
+                Manager_Sounds.Instance.PlayDenied(true);
                 return;
             }
 
@@ -37,7 +37,7 @@ public class Behavior_Workbench : Behavior_Interactable
             if (free_slot == null)
             {
                 // Play effects
-                Manager_Sounds.Instance.PlayDenied();
+                Manager_Sounds.Instance.PlayDenied(true);
                 return;
             }
 
@@ -62,12 +62,12 @@ public class Behavior_Workbench : Behavior_Interactable
             UpdateText(); // In case mouse is still over
 
             // Play effects
-            Manager_Sounds.Instance.PlayPurchase();
+            Manager_Sounds.Instance.PlayPurchase(true);
         }
         else // Not enough gems
         {
             // Play effects
-            Manager_Sounds.Instance.PlayDenied();
+            Manager_Sounds.Instance.PlayDenied(true);
         }
     }
 
