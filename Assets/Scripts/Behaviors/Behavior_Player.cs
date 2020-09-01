@@ -62,7 +62,8 @@ public class Behavior_Player : Behavior_Seeker
 
         if (pressed_interact)
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, ref_self_interact_trigger.radius, Vector2.zero);
+            target = null;
+            RaycastHit2D[] hits = Physics2D.CircleCastAll((Vector2)transform.position + ref_self_interact_trigger.offset, ref_self_interact_trigger.radius, Vector2.zero);
             foreach (RaycastHit2D hit in hits)
             {
                 string hit_tag = hit.transform.tag;
@@ -71,13 +72,15 @@ public class Behavior_Player : Behavior_Seeker
                     if (tag == hit_tag)
                     {
                         target = hit.transform.gameObject.GetComponent<Behavior_Interactable>();
-
-                        target.Activate(this);
-                        target_activated = true;
-
-                        ref_self_rbody.velocity = Vector2.zero;
                     }
                 }
+            }
+            if (target)
+            {
+                target.Activate(this);
+                target_activated = true;
+
+                ref_self_rbody.velocity = Vector2.zero;
             }
         }
     }

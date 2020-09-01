@@ -4921,6 +4921,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script_worker: {fileID: 8010895537293118524}
   script_effect_shake: {fileID: 1697077584036696856}
+  script_effect_grow: {fileID: 3521250582985707191}
+  cost:
+    gem_tier: 0
+    gem_amount: 1000
 --- !u!50 &3592869267198431569
 Rigidbody2D:
   serializedVersion: 4
@@ -5037,7 +5041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 7217325575122572392
+  uniqueID: 2286988623385992949
   updateError: 1
   checkTime: 0.2
 --- !u!1 &3592869268564250478
@@ -5049,6 +5053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3592869268564250480}
+  - component: {fileID: 3521250582985707191}
   - component: {fileID: 1697077584036696856}
   - component: {fileID: 3592869268564250479}
   m_Layer: 0
@@ -5072,6 +5077,29 @@ Transform:
   m_Father: {fileID: 3592869267198431565}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3521250582985707191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3592869268564250478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd537231afeb673489ea65e93b787801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis:
+    use_x: 1
+    use_y: 1
+    use_z: 0
+  ref_sprite_renderer: {fileID: 3592869268564250479}
+  growth_speed: 10
+  time_revert_seconds: 0.1
+  distance_revert: 0
+  use_time: 1
+  use_distance: 0
+  set_inactive_after: 0
 --- !u!114 &1697077584036696856
 MonoBehaviour:
   m_ObjectHideFlags: 0

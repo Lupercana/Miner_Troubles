@@ -35,6 +35,7 @@ public class Effect_Grow : MonoBehaviour
 
     public void Grow(float speed_mult = 0)
     {
+        transform.localScale = initial_scale;
         ref_sprite_renderer.enabled = true;
         growing = true;
         growth_speed_multiplier = (speed_mult == 0) ? 1f : speed_mult;

@@ -21,7 +21,12 @@ public class Behavior_Worker : Behavior_Seeker
         activated = true;
     }
 
-    public void SetStats(Manager_Main.Tool new_tool)
+    public override Manager_Main.Tool GetTool()
+    {
+        return tool;
+    }
+
+    public void SetTool(Manager_Main.Tool new_tool)
     {
         tool = new_tool;
         move_speed = Parameters_Worker.Instance.move_speeds[tool.tier];
@@ -29,14 +34,9 @@ public class Behavior_Worker : Behavior_Seeker
         ref_self_sprite_renderer.color = Manager_Main.Instance.GetGemColors()[tool.tier];
     }
 
-    public override Manager_Main.Tool GetTool()
-    {
-        return tool;
-    }
-
     private void Start()
     {
-        SetStats(tool);
+        SetTool(tool);
     }
 
     private void Update()

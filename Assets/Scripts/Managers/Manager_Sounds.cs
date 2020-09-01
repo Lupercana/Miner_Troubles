@@ -26,6 +26,8 @@ public class Manager_Sounds : MonoBehaviour
     [SerializeField] private AudioClip sfx_tool_change = null;
     [SerializeField] private AudioClip sfx_upverter = null;
     [SerializeField] private AudioClip sfx_worker_activate = null;
+    [SerializeField] private AudioClip sfx_worker_tool_swap = null;
+
 
     [SerializeField] private bool check_visibility = true;
     [SerializeField] private float starting_volume_music = 0.5f;
@@ -56,6 +58,8 @@ public class Manager_Sounds : MonoBehaviour
     public void PlayToolChange(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_tool_change); } }
     public void PlayUpverter(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_upverter); } }
     public void PlayWorkerActivate(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_worker_activate); } }
+    public void PlayWorkerToolSwap(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_worker_tool_swap); } }
+
 
     public void StopSFX()
     {

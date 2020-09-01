@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Behavior_Workbench : Behavior_Interactable
 {
+    [SerializeField] private Effect_Shake script_effect_shake = null;
+
     [SerializeField] private Manager_Main.Tool_Type workshop_type = Manager_Main.Tool_Type.Pickaxe;
     [SerializeField] private string workshop_text = "";
     [SerializeField] private int workshop_tool_upgrade_cost = 0; // Of the current tool tier gems
@@ -62,6 +64,7 @@ public class Behavior_Workbench : Behavior_Interactable
             UpdateText(); // In case mouse is still over
 
             // Play effects
+            script_effect_shake.Shake();
             Manager_Sounds.Instance.PlayPurchase(true);
         }
         else // Not enough gems

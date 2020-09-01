@@ -192,6 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8185537983674510603}
+  - component: {fileID: 2960510753312604091}
   - component: {fileID: 7225542661459264548}
   m_Layer: 8
   m_Name: Upverter
@@ -215,6 +216,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2960510753312604091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885107801631066481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4e472a005ecb94c95d4f8a3a574273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script_effect_shake: {fileID: 5176503128126115914}
+  ref_inside_sprite_renderer: {fileID: 4718343888095455887}
+  cost:
+    gem_tier: 0
+    gem_amount: 100
+  gain_ratio: 0.1
 --- !u!61 &7225542661459264548
 BoxCollider2D:
   m_ObjectHideFlags: 0

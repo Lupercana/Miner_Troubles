@@ -14,7 +14,8 @@ public class Manager_Main : MonoBehaviour
         Pickaxe,
         Hammer,
         Bomb,
-        Staff
+        Staff,
+        Torch
     }
 
     [System.Serializable]
