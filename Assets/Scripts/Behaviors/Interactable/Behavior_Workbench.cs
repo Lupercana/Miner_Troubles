@@ -8,7 +8,6 @@ public class Behavior_Workbench : Behavior_Interactable
 
     [SerializeField] private Manager_Main.Tool_Type workshop_type = Manager_Main.Tool_Type.Pickaxe;
     [SerializeField] private string workshop_text = "";
-    [SerializeField] private int workshop_tool_upgrade_cost = 0; // Of the current tool tier gems
     [SerializeField] private Manager_Main.Gem_Cost initial_cost = new Manager_Main.Gem_Cost();
 
     public override void Activate(Behavior_Seeker activator)
@@ -30,7 +29,7 @@ public class Behavior_Workbench : Behavior_Interactable
             upgrade = true;
 
             cost.gem_tier = existing_tool_slot.GetTool().tier;
-            cost.gem_amount = workshop_tool_upgrade_cost;
+            cost.gem_amount = Parameters_Interactables.Instance.workbench_upgrade_costs[cost.gem_tier];
         }
         else // Add tool
         {
@@ -85,7 +84,7 @@ public class Behavior_Workbench : Behavior_Interactable
             if (current_tool.tier < Manager_Main.Instance.GetGemColors().Length - 1) // Can still upgrade
             {
                 Manager_Main.Instance.SetUIHelperText(Manager_Main.Instance.GetToolName(workshop_type) + " (" + Manager_Main.Instance.GetToolDescription(workshop_type) + ") " + " Workshop " + workshop_text + "\nNext upgrade cost:");
-                helper_gems[current_tool.tier] = workshop_tool_upgrade_cost;
+                helper_gems[current_tool.tier] = Parameters_Interactables.Instance.workbench_upgrade_costs[current_tool.tier];
                 Manager_Main.Instance.SetUIHelperGems(true, helper_gems);
             }
             else // No more upgrades

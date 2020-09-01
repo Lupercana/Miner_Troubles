@@ -23,15 +23,20 @@ public class Manager_Sounds : MonoBehaviour
     [SerializeField] private AudioClip sfx_hammer_hit = null;
     [SerializeField] private AudioClip sfx_bomb_hit = null;
     [SerializeField] private AudioClip sfx_staff_hit = null;
+    [SerializeField] private AudioClip sfx_torch_hit = null;
     [SerializeField] private AudioClip sfx_tool_change = null;
     [SerializeField] private AudioClip sfx_upverter = null;
     [SerializeField] private AudioClip sfx_worker_activate = null;
     [SerializeField] private AudioClip sfx_worker_tool_swap = null;
 
-
     [SerializeField] private bool check_visibility = true;
     [SerializeField] private float starting_volume_music = 0.5f;
     [SerializeField] private float starting_volume_sfx = 0.5f;
+
+    private float last_play_level_up = 0f;
+    private float last_play_mining_intermediate = 0f;
+    private float last_play_mining_finished = 0f;
+    private float last_play_upverter = 0f;
 
     public float GetTrackVolume() { return source_track.volume; }
     public float GetSFXVolume() { return source_track.volume; }
@@ -46,20 +51,21 @@ public class Manager_Sounds : MonoBehaviour
         source_sfx.volume = v;
     }
 
-    public void PlayLevelUp(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_level_up); } }
-    public void PlayMiningIntermediate(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_mining_intermediate); } }
-    public void PlayMiningFinished(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_mining_finished); } }
-    public void PlayPurchase(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_purchase); } }
-    public void PlayDenied(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_denied); } }
-    public void PlayBasicHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_basic_hit); } }
-    public void PlayHammerHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_hammer_hit); } }
-    public void PlayBombHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_bomb_hit); } }
-    public void PlayStaffHit(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_staff_hit); } }
-    public void PlayToolChange(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_tool_change); } }
-    public void PlayUpverter(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_upverter); } }
-    public void PlayWorkerActivate(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_worker_activate); } }
-    public void PlayWorkerToolSwap(bool visible) { if (ShouldPlay(visible)) { source_sfx.PlayOneShot(sfx_worker_tool_swap); } }
+    public void PlayLevelUp(bool visible) { if (ShouldPlaySFX(visible, last_play_level_up, sfx_level_up.length)) { source_sfx.PlayOneShot(sfx_level_up); last_play_level_up = Time.time; } }
+    public void PlayMiningIntermediate(bool visible) { if (ShouldPlaySFX(visible, last_play_mining_intermediate, sfx_mining_intermediate.length)) { source_sfx.PlayOneShot(sfx_mining_intermediate); last_play_mining_intermediate = Time.time; } }
+    public void PlayMiningFinished(bool visible) { if (ShouldPlaySFX(visible, last_play_mining_finished, sfx_mining_finished.length)) { source_sfx.PlayOneShot(sfx_mining_finished); last_play_mining_finished = Time.time; } }
+    public void PlayUpverter(bool visible) { if (ShouldPlaySFX(visible, last_play_upverter, sfx_upverter.length)) { source_sfx.PlayOneShot(sfx_upverter); last_play_upverter = Time.time; } }
 
+    public void PlayPurchase(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_purchase); } }
+    public void PlayDenied(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_denied); } }
+    public void PlayBasicHit(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_basic_hit); } }
+    public void PlayHammerHit(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_hammer_hit); } }
+    public void PlayBombHit(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_bomb_hit); } }
+    public void PlayStaffHit(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_staff_hit); } }
+    public void PlayTorchHit(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_torch_hit); } }
+    public void PlayToolChange(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_tool_change); } }
+    public void PlayWorkerActivate(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_worker_activate); } }
+    public void PlayWorkerToolSwap(bool visible) { if (ShouldPlaySFX(visible)) { source_sfx.PlayOneShot(sfx_worker_tool_swap); } }
 
     public void StopSFX()
     {
@@ -90,8 +96,14 @@ public class Manager_Sounds : MonoBehaviour
         source_track.Play();
     }
 
-    private bool ShouldPlay(bool visible)
+    private bool ShouldPlaySFX(bool visible, float last_play = 0f, float clip_length = 0f)
     {
+        float e_time = Time.time - last_play;
+        if (clip_length != 0 && e_time <= clip_length)
+        {
+            return false;
+        }
+
         return visible || !check_visibility;
     }
 }

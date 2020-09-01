@@ -34,6 +34,7 @@ public class Behavior_Spawner : MonoBehaviour
     [SerializeField] private ParticleSystem particle_mining = null;
     [SerializeField] private ParticleSystem particle_finished = null;
     [SerializeField] private ParticleSystem particle_lightning = null;
+    [SerializeField] private ParticleSystem particle_fire = null;
     [SerializeField] private Effect_Grow effect_explosion = null;
     [SerializeField] private SpriteRenderer effect_explosion_sprite_renderer = null;
 
@@ -71,6 +72,11 @@ public class Behavior_Spawner : MonoBehaviour
     public void PlayParticleLightning()
     {
         particle_lightning.Play();
+    }
+
+    public void PlayParticleFire()
+    {
+        particle_fire.Play();
     }
 
     public void PlayEffectExplosion(float explosion_radius, Color explosion_color)

@@ -12,6 +12,8 @@ public class Behavior_Node : Behavior_Interactable
 
     private bool mining = false;
     private float mining_multiplier = 0f;
+    private float mining_auto_off = 0f;
+    private float mining_start_time = 0f;
     private Manager_Main.Tool activate_tool;
 
     public Behavior_Spawner GetSpawner() { return script_parent_spawner; }
@@ -39,24 +41,24 @@ public class Behavior_Node : Behavior_Interactable
         switch (activate_tool.type)
         {
             case Manager_Main.Tool_Type.Gloves:
-                mining_multiplier = Parameters_Mining.Instance.gloves_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.gloves_mining_multiplier;
                 mining = true;
                 Manager_Sounds.Instance.PlayBasicHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Pickaxe:
-                mining_multiplier = Parameters_Mining.Instance.pickaxe_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.pickaxe_mining_multiplier;
                 mining = true;
                 Manager_Sounds.Instance.PlayBasicHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Hammer:
-                mining_multiplier = Parameters_Mining.Instance.hammer_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.hammer_mining_multiplier;
                 script_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
                 Grow(Parameters_Mining.Instance.hammer_grow_mult);
                 Shake(Parameters_Mining.Instance.hammer_shake_mult);
                 Manager_Sounds.Instance.PlayHammerHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Bomb:
-                mining_multiplier = Parameters_Mining.Instance.bomb_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.bomb_mining_multiplier;
                 float explosion_radius = Parameters_Mining.Instance.bomb_radius + Manager_Main.Instance.GetMiningLevel() * Parameters_Mining.Instance.bomb_mine_level_scale;
                 Collider2D[] nearby_objs_colli = Physics2D.OverlapCircleAll(transform.position, explosion_radius);
                 foreach(Collider2D colli in nearby_objs_colli)
@@ -72,16 +74,26 @@ public class Behavior_Node : Behavior_Interactable
                 Manager_Sounds.Instance.PlayBombHit(ref_self_sprite_renderer.isVisible);
                 break;
             case Manager_Main.Tool_Type.Staff:
-                mining_multiplier = Parameters_Mining.Instance.staff_mining_multplier;
+                mining_multiplier = Parameters_Mining.Instance.staff_mining_multiplier;
                 mining = true;
                 Manager_Sounds.Instance.PlayStaffHit(ref_self_sprite_renderer.isVisible);
+                break;
+            case Manager_Main.Tool_Type.Torch:
+                mining_multiplier = Parameters_Mining.Instance.torch_mining_multiplier;
+                mining_auto_off = Parameters_Mining.Instance.torch_burn_duration_seconds + Manager_Main.Instance.GetMiningLevel() * Parameters_Mining.Instance.torch_duration_level_scale;
+                mining_start_time = Time.time;
+                mining = true;
+                Manager_Sounds.Instance.PlayTorchHit(ref_self_sprite_renderer.isVisible);
                 break;
         }
     }
 
     public override void Deactivate()
     {
-        mining = false;
+        if (activate_tool != null && activate_tool.type != Manager_Main.Tool_Type.Torch)
+        {
+            mining = false;
+        }
     }
 
     protected override void UpdateText()
@@ -134,6 +146,21 @@ public class Behavior_Node : Behavior_Interactable
                             }
                         }
                     }
+                }
+            }
+            else if (activate_tool.type == Manager_Main.Tool_Type.Torch)
+            {
+                float e_time = Time.time - mining_start_time;
+                if (e_time >= mining_auto_off)
+                {
+                    mining = false;
+                }
+                else
+                {
+                    script_parent_spawner.DecreaseDurability(base_mining_power * mining_multiplier);
+
+                    // Effect
+                    script_parent_spawner.PlayParticleFire();
                 }
             }
             else

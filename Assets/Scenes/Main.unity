@@ -4186,31 +4186,31 @@ MonoBehaviour:
   - ref_image: {fileID: 900751359}
     current_tool:
       type: 2
-      tier: 0
+      tier: 8
   - ref_image: {fileID: 318417286}
     current_tool:
-      type: 3
-      tier: 0
+      type: 6
+      tier: 8
   - ref_image: {fileID: 595891972}
     current_tool:
-      type: 4
+      type: 0
       tier: 0
   - ref_image: {fileID: 334731638}
     current_tool:
-      type: 5
+      type: 0
       tier: 0
   particle_level_up: {fileID: 1143904134}
   ref_player: {fileID: 150568308}
   tool_tier_speedups:
   - 1
   - 2
-  - 4
-  - 8
-  - 16
-  - 32
-  - 64
-  - 128
-  - 256
+  - 5
+  - 10
+  - 20
+  - 50
+  - 100
+  - 250
+  - 500
   gem_colors:
   - {r: 0.6509434, g: 0.29723442, b: 0, a: 1}
   - {r: 0, g: 0, b: 0, a: 1}
@@ -4224,19 +4224,19 @@ MonoBehaviour:
   gem_healths:
   - 10
   - 50
-  - 200
-  - 500
+  - 250
   - 1000
-  - 2500
   - 5000
-  - 10000
-  - 50000
+  - 25000
+  - 100000
+  - 1000000
+  - 5000000
   gem_spawn_chance: 640000005000000028000000140000000a00000008000000040000000200000001000000
-  gem_xp: 01000000040000001400000096000000e803000010270000a086010040420f0080969800
+  gem_xp: 01000000050000001900000096000000e803000010270000a086010040420f0080969800
   gem_quantities: 0f2700000f2700000f2700000f2700000f2700000f2700000f2700000f2700000f270000
   maxed_color: {r: 1, g: 0.29411766, b: 0.29411766, a: 1}
-  mining_level: 99
-  max_mining_level: 999
+  mining_level: 1
+  max_mining_level: 200
   max_gems: 9999999
   leveling_exp_base: 1.2
   day: 1
@@ -4812,7 +4812,7 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_tool_upgrade_cost
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
@@ -4823,7 +4823,7 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
@@ -4833,17 +4833,17 @@ PrefabInstance:
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: workshop_text
-      value: '*Reduced Upgrade Costs*'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: initial_cost.gem_tier
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8316223355348305306, guid: 3914edf9b0d103a4aa127b431a441bd9,
         type: 3}
       propertyPath: initial_cost.gem_amount
-      value: 300
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3914edf9b0d103a4aa127b431a441bd9, type: 3}
@@ -5427,6 +5427,7 @@ MonoBehaviour:
   sfx_hammer_hit: {fileID: 8300000, guid: 2d404eace0efcd247b89fd3aa3b13107, type: 3}
   sfx_bomb_hit: {fileID: 8300000, guid: f6b7eee8ffed18b40a483c86a91a002a, type: 3}
   sfx_staff_hit: {fileID: 8300000, guid: 1724763034c86024cbb2445feee77d81, type: 3}
+  sfx_torch_hit: {fileID: 8300000, guid: ef42b1dbd61ad42468ff8c054735763c, type: 3}
   sfx_tool_change: {fileID: 8300000, guid: 0667f4b62eeb9894b86423fdc5922697, type: 3}
   sfx_upverter: {fileID: 8300000, guid: 83e7458d4d7c98b4e98a561fe297dbcc, type: 3}
   sfx_worker_activate: {fileID: 8300000, guid: aba7923188d41ef40a6cea5c53e4df5a, type: 3}
@@ -10960,17 +10961,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfa29982fcd21a46835e1b96ccabcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gloves_mining_multplier: 0.5
-  pickaxe_mining_multplier: 5
-  hammer_mining_multplier: 100
+  gloves_mining_multiplier: 0.5
+  pickaxe_mining_multiplier: 5
+  hammer_mining_multiplier: 100
   hammer_grow_mult: 10
   hammer_shake_mult: 1
-  bomb_mining_multplier: 1
+  bomb_mining_multiplier: 1
   bomb_radius: 2
   bomb_mine_level_scale: 0.05
-  staff_mining_multplier: 0.1
+  staff_mining_multiplier: 0.1
   staff_chain_radius: 2
   staff_mine_level_scale: 0.01
+  torch_mining_multiplier: 1
+  torch_burn_duration_seconds: 1
+  torch_duration_level_scale: 0.1
 --- !u!114 &1689550485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10983,7 +10987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e96c802d7e464439eafa52191dd30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speeds:
+  workbench_upgrade_costs: 6400000064000000640000006400000064000000640000006400000064000000
+  worker_move_speeds:
   - 500
   - 600
   - 700
@@ -10993,7 +10998,7 @@ MonoBehaviour:
   - 1100
   - 1300
   - 1500
-  activate_delay_seconds:
+  worker_activate_delay_seconds:
   - 1
   - 0.9
   - 0.8
@@ -11003,8 +11008,8 @@ MonoBehaviour:
   - 0.4
   - 0.3
   - 0.2
-  stuck_velocity_threshold: 0.1
-  stuck_timeout_seconds: 1
+  worker_stuck_velocity_threshold: 0
+  worker_stuck_timeout_seconds: 1
 --- !u!114 &1689550486
 MonoBehaviour:
   m_ObjectHideFlags: 0

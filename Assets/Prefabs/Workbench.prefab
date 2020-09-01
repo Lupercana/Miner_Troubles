@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4749c3ef201033b43ab7ca98d168eb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  script_effect_shake: {fileID: 1762330488535572620}
   workshop_type: 2
   workshop_text: 
   workshop_tool_upgrade_cost: 0

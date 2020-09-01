@@ -29,8 +29,8 @@ public class Behavior_Worker : Behavior_Seeker
     public void SetTool(Manager_Main.Tool new_tool)
     {
         tool = new_tool;
-        move_speed = Parameters_Worker.Instance.move_speeds[tool.tier];
-        activate_delay_seconds = Parameters_Worker.Instance.activate_delay_seconds[tool.tier];
+        move_speed = Parameters_Interactables.Instance.worker_move_speeds[tool.tier];
+        activate_delay_seconds = Parameters_Interactables.Instance.worker_activate_delay_seconds[tool.tier];
         ref_self_sprite_renderer.color = Manager_Main.Instance.GetGemColors()[tool.tier];
     }
 
@@ -61,11 +61,11 @@ public class Behavior_Worker : Behavior_Seeker
         }
         else if (!reached_target) // Have valid target but have not reached it yet
         {
-            if (ref_self_rbody.velocity.magnitude <= Parameters_Worker.Instance.stuck_velocity_threshold)
+            if (ref_self_rbody.velocity.magnitude <= Parameters_Interactables.Instance.worker_stuck_velocity_threshold)
             {
                 timeout_count += Time.deltaTime;
 
-                if (timeout_count >= Parameters_Worker.Instance.stuck_timeout_seconds)
+                if (timeout_count >= Parameters_Interactables.Instance.worker_stuck_timeout_seconds)
                 {
                     ref_ai_seeker.StartPath(transform.position, target.transform.position, OnPathReady);
                     timeout_count = 0f;

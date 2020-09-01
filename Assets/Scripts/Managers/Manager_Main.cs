@@ -118,8 +118,8 @@ public class Manager_Main : MonoBehaviour
 
     private Color original_gem_text_color;
     private int[] total_gem_chances;
-    private int mining_xp = 0;
-    private int xp_needed = 0;
+    private ulong mining_xp = 0;
+    private ulong xp_needed = 0;
     private int ui_helper_last_id = -1;
     private float day_timer = 0f;
 
@@ -205,7 +205,7 @@ public class Manager_Main : MonoBehaviour
     }
     public void ChangeMiningXP(int change_amount)
     {
-        mining_xp += change_amount;
+        mining_xp += (ulong)change_amount;
         while (mining_xp >= xp_needed && mining_level < max_mining_level)
         {
             mining_level += 1;
@@ -366,9 +366,9 @@ public class Manager_Main : MonoBehaviour
         ui_slider_day_tracker.value = Mathf.Max(e_time / day_length_seconds, day_min_slider);
     }
 
-    private int XPToNextLevel(int current_level)
+    private ulong XPToNextLevel(int current_level)
     {
-        return (int)Mathf.Pow(leveling_exp_base, current_level);
+        return (ulong)Mathf.Pow(leveling_exp_base, current_level);
     }
 
     private void SetMiningLvText()
