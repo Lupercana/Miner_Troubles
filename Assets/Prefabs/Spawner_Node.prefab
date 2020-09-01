@@ -16005,7 +16005,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 65}
+    m_Rotation: {x: 0, y: 0, z: 45}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -16142,7 +16142,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 45
+      value: 90
       mode: 3
       spread: 0
       speed:
@@ -16366,7 +16366,7 @@ ParticleSystem:
           m_RotationOrder: 4
       cycleCount: 1
       repeatInterval: 0.01
-      probability: 0.1
+      probability: 0.01
   SizeModule:
     enabled: 0
     curve:

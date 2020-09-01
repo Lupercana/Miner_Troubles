@@ -19,6 +19,7 @@ public class Behavior_Worker : Behavior_Seeker
     public void Activate()
     {
         activated = true;
+        ref_self_rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     public override Manager_Main.Tool GetTool()

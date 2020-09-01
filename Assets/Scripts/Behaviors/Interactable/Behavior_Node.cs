@@ -99,7 +99,7 @@ public class Behavior_Node : Behavior_Interactable
     protected override void UpdateText()
     {
         Behavior_Spawner.Mining_Info mi = script_parent_spawner.GetMiningInfo();
-        Manager_Main.Instance.SetUIHelperText("Mining Node || Contains:");
+        Manager_Main.Instance.SetUIHelperText("Mining Node || Initial contents:");
         int[] helper_gems = new int[Manager_Main.Instance.GetGemColors().Length];
         helper_gems[mi.gem_tier] = mi.gem_amount;
         Manager_Main.Instance.SetUIHelperGems(true, helper_gems);
