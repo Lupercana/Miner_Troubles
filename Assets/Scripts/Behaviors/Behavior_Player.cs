@@ -50,7 +50,6 @@ public class Behavior_Player : Behavior_Seeker
         if (Input.GetButtonDown("Slot_2")) { Manager_Main.Instance.PressedSlot(1); }
         if (Input.GetButtonDown("Slot_3")) { Manager_Main.Instance.PressedSlot(2); }
         if (Input.GetButtonDown("Slot_4")) { Manager_Main.Instance.PressedSlot(3); }
-        if (Input.GetButtonDown("Slot_4")) { Manager_Main.Instance.PressedSlot(3); }
         if (Input.GetButtonDown("Slot_Delete")) { Manager_Main.Instance.PressedSlotDelete(); }
 
         if ((move_x != 0f || move_y != 0f || pressed_interact) && using_mouse) // Inputs comes with deadzones

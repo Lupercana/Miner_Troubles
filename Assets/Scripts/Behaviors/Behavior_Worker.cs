@@ -68,8 +68,9 @@ public class Behavior_Worker : Behavior_Seeker
 
                 if (timeout_count >= Parameters_Interactables.Instance.worker_stuck_timeout_seconds)
                 {
-                    ref_ai_seeker.StartPath(transform.position, target.transform.position, OnPathReady);
-                    timeout_count = 0f;
+                    target = null;
+                    //ref_ai_seeker.StartPath(transform.position, target.transform.position, OnPathReady);
+                    //timeout_count = 0f;
                 }
             }
             else
